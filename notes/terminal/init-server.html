@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Open Graph -->
+    <meta property="og:url" content="https://gavinw.me/notes/terminal/init-server.html">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Gavin Wiggins">
+    <meta property="og:description" content="Initialize a Server with Cloud-init">
+    <meta property="og:image" content="https://gavinw.me/assets/images/opengraph.jpg">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- Highlightjs -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/styles/github-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/languages/julia.min.js"></script>
+    <script>hljs.highlightAll();</script>
+
+    <!-- MathJax -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../../styles.css">
+
+    <title>Gavin Wiggins</title>
+</head>
+<body>
+<div class="container">
+<div class="row">
+<div class="col-md">
+    <h1><a href="/" style="color: inherit;">Gavin Wiggins</a></h1>
+
+    <p style="font-weight: 500;">
+        <a href="../../notes.html">Notes</a> &nbsp; / &nbsp;
+        <a href="../../links.html">Links</a> &nbsp; / &nbsp;
+        <a href="../../contact.html">Contact</a>
+    </p>
+
+    <hr class="mb-5">
+
+    <h1>Initialize a Server with Cloud-init</h1>
+
+    <h6 class="text-secondary">Written on October 24, 2025</h6>
+
+    <p>Most cloud platforms like DigitalOcean and Hetzner support a cloud-init YAML configuration file to initialize a server with networking, packages, and other system settings. The example below is for creating an Ubuntu server that disables root login, creates a non-root user named <code>homer</code>, turns off SSH password authentication, changes the SSH port to 2222, creates a basic <code>.vimrc</code> file, and installs uv for Python development.</p>
+<pre><code class="language-yaml">#cloud-config
+
+# Create a non-root sudo user
+users:
+  - name: homer
+    groups: sudo
+    shell: /bin/bash
+    sudo: &quot;ALL=(ALL) NOPASSWD:ALL&quot;
+    ssh_authorized_keys:
+      - &lt;public-ssh-key&gt;
+
+# Disable root login and SSH password auth
+disable_root: true
+ssh_pwauth: false
+
+# Update and upgrade packages
+package_update: true
+package_upgrade: true
+
+# Create configuration files for SSH and vim
+write_files:
+  - path: /etc/ssh/sshd_config.d/custom.conf
+    content: |
+      PasswordAuthentication no
+      PermitRootLogin no
+      Port 2222
+      MaxAuthTries 3
+      AllowTcpForwarding no
+      X11Forwarding no
+      AllowAgentForwarding no
+      AllowUsers homer
+  - owner: homer:homer
+    path: /home/homer/.vimrc
+    defer: true
+    content: |
+      set nocompatible
+      filetype plugin indent on
+      syntax on
+      set backspace=indent,eol,start
+      set clipboard=unnamed
+      set hidden
+      set hlsearch
+      set mouse=a
+      set number
+      set noswapfile
+      set laststatus=2
+      imap jj &lt;Esc&gt;
+
+# Install uv for user and reboot system
+runcmd:
+  - sudo -u homer -i bash -c &quot;curl -LsSf https://astral.sh/uv/install.sh | sh&quot;
+  - reboot
+</code></pre>
+<p>Connect to this server over SSH port 2222 using the command given below. This must be done from the machine that contains the public SSH key that was used in the cloud-init config file.</p>
+<pre><code class="language-bash">ssh -p 2222 homer@&lt;ip-address-of-server&gt;
+</code></pre>
+<p>You can also use the cloud-init configuration for firewall settings. But cloud platforms usually provide their own firewall that can be configured in their online dashboard. Either way it is a good idea to only open ports that are needed and restrict SSH to the IP address of the computer that is associated with the SSH key.</p>
+<p>More information about Cloud-init is available at <a href="https://cloudinit.readthedocs.io">https://cloudinit.readthedocs.io</a>.</p>
+
+    <br>
+
+    <p class="text-center small my-5">
+        Gavin Wiggins © 2025<br>
+        Made on a <a href="https://www.apple.com/mac/">Mac</a> with <a href="https://github.com/wigging/genja">Genja</a>. Hosted on <a href="https://pages.github.com">GitHub Pages</a>.
+    </p>
+</div>  <!-- end col-md -->
+</div>  <!-- end row -->
+</div>  <!-- end container -->
+</body>
+</html>

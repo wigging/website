@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Open Graph -->
+    <meta property="og:url" content="https://gavinw.me/notes/rust/fizzbuzz.html">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Gavin Wiggins">
+    <meta property="og:description" content="FizzBuzz in Rust">
+    <meta property="og:image" content="https://gavinw.me/assets/images/opengraph.jpg">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- Highlightjs -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/styles/github-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/languages/julia.min.js"></script>
+    <script>hljs.highlightAll();</script>
+
+    <!-- MathJax -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../../styles.css">
+
+    <title>Gavin Wiggins</title>
+</head>
+<body>
+<div class="container">
+<div class="row">
+<div class="col-md">
+    <h1><a href="/" style="color: inherit;">Gavin Wiggins</a></h1>
+
+    <p style="font-weight: 500;">
+        <a href="../../notes.html">Notes</a> &nbsp; / &nbsp;
+        <a href="../../links.html">Links</a> &nbsp; / &nbsp;
+        <a href="../../contact.html">Contact</a>
+    </p>
+
+    <hr class="mb-5">
+
+    <h1>FizzBuzz in Rust</h1>
+
+    <h6 class="text-secondary">Written on December 11, 2022</h6>
+
+    <p>Examples of the classic fizzbuzz problem are implemented below. The first example uses if-else statements while the second example uses pattern matching.</p>
+<pre><code class="language-rust">fn main() {
+
+    // Example 1
+
+    for i in 1..21 {
+        print!(&quot;i is {} &quot;, i);
+        if i % 5 == 0 &amp;&amp; i % 3 == 0 {
+            println!(&quot;FizzBuzz&quot;);
+        } else if i % 5 == 0 {
+            println!(&quot;Fizz&quot;);
+        } else if i % 3 == 0 {
+            println!(&quot;Buzz&quot;);
+        } else {
+            println!(&quot;&quot;);
+        }
+    }
+
+    // Example 2
+
+    for i in 1..21 {
+        print!(&quot;i is {} &quot;, i);
+        match (i % 3, i % 5) {
+            (0, 0) =&gt; println!(&quot;FizzBuzz&quot;),
+            (_, 0) =&gt; println!(&quot;Fizz&quot;),
+            (0, _) =&gt; println!(&quot;Buzz&quot;),
+            _ =&gt; println!(&quot;&quot;),
+        }
+    }
+
+}
+</code></pre>
+<p>Each of the above examples will print the same output. This output is shown below.</p>
+<pre><code>i is 1
+i is 2
+i is 3 Buzz
+i is 4
+i is 5 Fizz
+i is 6 Buzz
+i is 7
+i is 8
+i is 9 Buzz
+i is 10 Fizz
+i is 11
+i is 12 Buzz
+i is 13
+i is 14
+i is 15 FizzBuzz
+i is 16
+i is 17
+i is 18 Buzz
+i is 19
+i is 20 Fizz
+</code></pre>
+
+    <br>
+
+    <p class="text-center small my-5">
+        Gavin Wiggins © 2025<br>
+        Made on a <a href="https://www.apple.com/mac/">Mac</a> with <a href="https://github.com/wigging/genja">Genja</a>. Hosted on <a href="https://pages.github.com">GitHub Pages</a>.
+    </p>
+</div>  <!-- end col-md -->
+</div>  <!-- end row -->
+</div>  <!-- end container -->
+</body>
+</html>

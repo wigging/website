@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Open Graph -->
+    <meta property="og:url" content="https://gavinw.me/notes/python/download-files.html">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Gavin Wiggins">
+    <meta property="og:description" content="Download Files with Requests">
+    <meta property="og:image" content="https://gavinw.me/assets/images/opengraph.jpg">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- Highlightjs -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/styles/github-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/languages/julia.min.js"></script>
+    <script>hljs.highlightAll();</script>
+
+    <!-- MathJax -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../../styles.css">
+
+    <title>Gavin Wiggins</title>
+</head>
+<body>
+<div class="container">
+<div class="row">
+<div class="col-md">
+    <h1><a href="/" style="color: inherit;">Gavin Wiggins</a></h1>
+
+    <p style="font-weight: 500;">
+        <a href="../../notes.html">Notes</a> &nbsp; / &nbsp;
+        <a href="../../links.html">Links</a> &nbsp; / &nbsp;
+        <a href="../../contact.html">Contact</a>
+    </p>
+
+    <hr class="mb-5">
+
+    <h1>Download Files with Requests</h1>
+
+    <h6 class="text-secondary">Written on September 6, 2025</h6>
+
+    <p>The Requests package can be used to download a file using the URL of the file's remote location. The example below loops through a list of URLs and downloads each file one-by-one. While this is fine for one or two files, it can be slow when downloading multiple large files because only one downlaod occurs at a time.</p>
+<pre><code class="language-python">import requests
+from pathlib import Path
+
+
+def download_file(url: str) -&gt; Path:
+    &quot;&quot;&quot;Download a single file and save it to the downloads directory.&quot;&quot;&quot;
+
+    # Save files to the `downloads` directory
+    download_dir = Path(&quot;downloads&quot;)
+    download_dir.mkdir(parents=True, exist_ok=True)
+
+    filename = download_dir / Path(url).name
+
+    response = requests.get(url)
+    response.raise_for_status()
+
+    with open(filename, &quot;wb&quot;) as f:
+        f.write(response.content)
+
+    return filename
+
+
+def main():
+    &quot;&quot;&quot;Run the example.&quot;&quot;&quot;
+
+    # List of URLs to download
+    urls = [
+        &quot;https://sample-files.com/downloads/data/csv/large-dataset.csv&quot;,
+        &quot;https://sample-files.com/downloads/data/csv/mixed-types.csv&quot;,
+        &quot;https://sample-files.com/downloads/data/csv/quoted-fields.csv&quot;,
+        &quot;https://sample-files.com/downloads/data/csv/international.csv&quot;,
+        &quot;https://sample-files.com/downloads/data/xml/large-dataset.xml&quot;,
+        &quot;https://sample-files.com/downloads/documents/pdf/sample-report.pdf&quot;,
+        &quot;https://sample-files.com/downloads/images/jpg/landscape_hires_4000x2667_6.83mb.jpg&quot;,
+    ]
+
+    for url in urls:
+        saved = download_file(url)
+        print(&quot;Downloaded -&gt;&quot;, saved)
+
+
+if __name__ == &quot;__main__&quot;:
+    main()
+</code></pre>
+<p>In this example, the downloads are performed in parallel using a thread pool executor. This will significantly decrease the overall download time since more than one file is downloaded at a time. On a 1 Gb/s internet connection, this parallel example took about 18 seconds to download all the files compared to the previous example which took 65 seconds.</p>
+<pre><code class="language-python">import requests
+from concurrent.futures import ThreadPoolExecutor, as_completed
+from pathlib import Path
+
+
+def download_file(url: str) -&gt; Path:
+    &quot;&quot;&quot;Download a single file and save it to the downloads directory.&quot;&quot;&quot;
+
+    # Save files to the `downloads` directory
+    download_dir = Path(&quot;downloads&quot;)
+    download_dir.mkdir(parents=True, exist_ok=True)
+
+    filename = download_dir / Path(url).name
+
+    response = requests.get(url)
+    response.raise_for_status()
+
+    with open(filename, &quot;wb&quot;) as f:
+        f.write(response.content)
+
+    return filename
+
+
+def main():
+    &quot;&quot;&quot;Run the example.&quot;&quot;&quot;
+
+    # List of URLs to download
+    urls = [
+        &quot;https://sample-files.com/downloads/data/csv/large-dataset.csv&quot;,
+        &quot;https://sample-files.com/downloads/data/csv/mixed-types.csv&quot;,
+        &quot;https://sample-files.com/downloads/data/csv/quoted-fields.csv&quot;,
+        &quot;https://sample-files.com/downloads/data/csv/international.csv&quot;,
+        &quot;https://sample-files.com/downloads/data/xml/large-dataset.xml&quot;,
+        &quot;https://sample-files.com/downloads/documents/pdf/sample-report.pdf&quot;,
+        &quot;https://sample-files.com/downloads/images/jpg/landscape_hires_4000x2667_6.83mb.jpg&quot;,
+    ]
+
+    # Run downloads in parallel
+    with ThreadPoolExecutor() as executor:
+        futures = {executor.submit(download_file, url): url for url in urls}
+        for future in as_completed(futures):
+            saved = future.result()
+            print(&quot;Downloaded -&gt;&quot;, saved)
+
+
+if __name__ == &quot;__main__&quot;:
+    main()
+</code></pre>
+<h2>Further reading</h2>
+<p>See the <a href="https://requests.readthedocs.io/en/latest/">docs</a> for more information about the Requests package. See Python's <a href="https://docs.python.org/3/library/concurrent.futures.html">concurrent futures</a> documentation for more info about the thread pool executor.</p>
+
+    <br>
+
+    <p class="text-center small my-5">
+        Gavin Wiggins © 2025<br>
+        Made on a <a href="https://www.apple.com/mac/">Mac</a> with <a href="https://github.com/wigging/genja">Genja</a>. Hosted on <a href="https://pages.github.com">GitHub Pages</a>.
+    </p>
+</div>  <!-- end col-md -->
+</div>  <!-- end row -->
+</div>  <!-- end container -->
+</body>
+</html>

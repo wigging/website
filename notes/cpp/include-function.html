@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Open Graph -->
+    <meta property="og:url" content="https://gavinw.me/notes/cpp/include-function.html">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Gavin Wiggins">
+    <meta property="og:description" content="Include a Function from a C++ File">
+    <meta property="og:image" content="https://gavinw.me/assets/images/opengraph.jpg">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- Highlightjs -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/styles/github-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/languages/julia.min.js"></script>
+    <script>hljs.highlightAll();</script>
+
+    <!-- MathJax -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../../styles.css">
+
+    <title>Gavin Wiggins</title>
+</head>
+<body>
+<div class="container">
+<div class="row">
+<div class="col-md">
+    <h1><a href="/" style="color: inherit;">Gavin Wiggins</a></h1>
+
+    <p style="font-weight: 500;">
+        <a href="../../notes.html">Notes</a> &nbsp; / &nbsp;
+        <a href="../../links.html">Links</a> &nbsp; / &nbsp;
+        <a href="../../contact.html">Contact</a>
+    </p>
+
+    <hr class="mb-5">
+
+    <h1>Include a Function from a C++ File</h1>
+
+    <h6 class="text-secondary">Written on July 25, 2023</h6>
+
+    <p>This example uses a function defined in another file. The <code>main.cpp</code> example uses the <code>Log()</code> function to print a string to the screen. This function is implemented in <code>logger.cpp</code> and <code>logger.h</code>.</p>
+<pre><code class="language-cpp">// main.cpp
+
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+
+#include &quot;logger.h&quot;
+
+int main() {
+    std::cout &lt;&lt; &quot;Logger program&quot; &lt;&lt; std::endl;
+
+    std::string message = &quot;Hello from the logger&quot;;
+    Log(message);
+}
+</code></pre>
+<pre><code class="language-cpp">// logger.cpp
+
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+
+#include &quot;logger.h&quot;
+
+void Log(const std::string&amp; input) {
+    std::cout &lt;&lt; input &lt;&lt; std::endl;
+}
+</code></pre>
+<pre><code class="language-cpp">// logger.h
+
+#pragma once
+
+#include &lt;string&gt;
+
+void Log(const std::string&amp; input);
+</code></pre>
+<p>The output from running this example is shown below.</p>
+<pre><code class="language-text">$ clang++ main.cpp logger.cpp -o main
+$ ./main
+
+Logger program
+Hello from the logger
+</code></pre>
+
+    <br>
+
+    <p class="text-center small my-5">
+        Gavin Wiggins © 2025<br>
+        Made on a <a href="https://www.apple.com/mac/">Mac</a> with <a href="https://github.com/wigging/genja">Genja</a>. Hosted on <a href="https://pages.github.com">GitHub Pages</a>.
+    </p>
+</div>  <!-- end col-md -->
+</div>  <!-- end row -->
+</div>  <!-- end container -->
+</body>
+</html>

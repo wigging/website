@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Open Graph -->
+    <meta property="og:url" content="https://gavinw.me/notes/julia/tuples.html">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Gavin Wiggins">
+    <meta property="og:description" content="Tuples in Julia">
+    <meta property="og:image" content="https://gavinw.me/assets/images/opengraph.jpg">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- Highlightjs -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/styles/github-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/languages/julia.min.js"></script>
+    <script>hljs.highlightAll();</script>
+
+    <!-- MathJax -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../../styles.css">
+
+    <title>Gavin Wiggins</title>
+</head>
+<body>
+<div class="container">
+<div class="row">
+<div class="col-md">
+    <h1><a href="/" style="color: inherit;">Gavin Wiggins</a></h1>
+
+    <p style="font-weight: 500;">
+        <a href="../../notes.html">Notes</a> &nbsp; / &nbsp;
+        <a href="../../links.html">Links</a> &nbsp; / &nbsp;
+        <a href="../../contact.html">Contact</a>
+    </p>
+
+    <hr class="mb-5">
+
+    <h1>Tuples in Julia</h1>
+
+    <h6 class="text-secondary">Written on May 23, 2021</h6>
+
+    <p>A tuple is a fixed-length immutable container represented by parentheses <code>( )</code>. Values in a tuple are accessed with indexing. A single item tuple must contain a comma.</p>
+<pre><code class="language-julia"># Tuple of strings
+people = (&quot;Marge&quot;, &quot;Homer&quot;, &quot;Bart&quot;, &quot;Lisa&quot;)
+
+julia&gt; people[2]
+&quot;Homer&quot;
+
+# Tuple with one item
+item = (2,)
+
+julia&gt; item[1]
+2
+</code></pre>
+<p>A named tuple assigns names for each item in the tuple. Indexing a named tuple is accomplished with dot syntax or the regular indexing syntax.</p>
+<pre><code class="language-julia"># Named tuple
+vehicle = (make=&quot;Ford&quot;, model=&quot;Bronco&quot;, year=2021)
+
+julia&gt; vehicle.make
+&quot;Ford&quot;
+
+julia&gt; vehicle[1]
+&quot;Ford&quot;
+
+julia&gt; vehicle.year
+2021
+</code></pre>
+
+    <br>
+
+    <p class="text-center small my-5">
+        Gavin Wiggins © 2025<br>
+        Made on a <a href="https://www.apple.com/mac/">Mac</a> with <a href="https://github.com/wigging/genja">Genja</a>. Hosted on <a href="https://pages.github.com">GitHub Pages</a>.
+    </p>
+</div>  <!-- end col-md -->
+</div>  <!-- end row -->
+</div>  <!-- end container -->
+</body>
+</html>

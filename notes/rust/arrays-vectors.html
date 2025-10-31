@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Open Graph -->
+    <meta property="og:url" content="https://gavinw.me/notes/rust/arrays-vectors.html">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Gavin Wiggins">
+    <meta property="og:description" content="Arrays and Vectors in Rust">
+    <meta property="og:image" content="https://gavinw.me/assets/images/opengraph.jpg">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- Highlightjs -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/styles/github-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/languages/julia.min.js"></script>
+    <script>hljs.highlightAll();</script>
+
+    <!-- MathJax -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../../styles.css">
+
+    <title>Gavin Wiggins</title>
+</head>
+<body>
+<div class="container">
+<div class="row">
+<div class="col-md">
+    <h1><a href="/" style="color: inherit;">Gavin Wiggins</a></h1>
+
+    <p style="font-weight: 500;">
+        <a href="../../notes.html">Notes</a> &nbsp; / &nbsp;
+        <a href="../../links.html">Links</a> &nbsp; / &nbsp;
+        <a href="../../contact.html">Contact</a>
+    </p>
+
+    <hr class="mb-5">
+
+    <h1>Arrays and Vectors in Rust</h1>
+
+    <h6 class="text-secondary">Written on November 14, 2022</h6>
+
+    <p>In Rust, arrays and vectors are both collections that store multiple elements of the same type. Arrays are fixed-size collections allocated on the stack. Vectors are dynamic arrays allocated on the heap that can grow and shrink at runtime.</p>
+<h2>Arrays</h2>
+<p>An array is a collection of values where every element must have the same type. The length of an array is fixed and the first item is at index 0.</p>
+<pre><code class="language-rust">// Create an array of integers and access the first item
+let a = [3, 4, 5, 6, 7, 8];
+let first_item = a[0];
+
+println!(&quot;First item in a is {first_item}&quot;);
+// First item in a is 3
+</code></pre>
+<pre><code class="language-rust">// Create an array with 3 elements of i64 and get the second item
+let b: [i64; 3] = [12, 8, 5];
+let second_item = b[1];
+
+println!(&quot;Second item in b is {second_item}&quot;);
+// Second item in b is 8
+</code></pre>
+<pre><code class="language-rust">// Create an array of 4 elements where each element is 1
+let c = [1; 4];
+
+println!(&quot;The c array is {:?}&quot;, c);
+// The c array is [1, 1, 1, 1]
+</code></pre>
+<pre><code class="language-rust">// Get the length (number of elements) of an array
+let d = [3, 4, 5, 6, 7];
+let length_of_d = d.len();
+
+println!(&quot;Length of d is {length_of_d}&quot;);
+// Length of d is 5
+</code></pre>
+<h2>Vectors</h2>
+<p>A vector is a resizable collection that stores items of the same type. Its values are stored next to each other in memory. The <code>vec!</code> macro can be used to initialize a vector.</p>
+<pre><code class="language-rust">// Create a vector of numbers
+let v1 = vec![3, 5, 8, 10, 12, 9];
+
+// Create a vector of strings
+let v2 = vec![&quot;one&quot;, &quot;two&quot;, &quot;three&quot;];
+</code></pre>
+<p>Below is an example of creating an empty vector and adding values to it.</p>
+<pre><code class="language-rust">// Add elements to an empty vector
+let mut v3 = Vec::new();
+v3.push(1.5);
+v3.push(3.0);
+v3.push(8.2);
+
+println!(&quot;v3 is {:?}&quot;, v3);
+// This prints:
+// v3 is [1.5, 3.0, 8.2]
+</code></pre>
+<p>Use indexing to get values from a vector. Notice the first element is at index zero.</p>
+<pre><code class="language-rust">// Read elements from a vector
+let v4 = vec![22, 38, 42, 50];
+let first = &amp;v4[0];
+let third = v4[2];
+let last = v4.last().unwrap();
+
+println!(&quot;v4 is {:?}&quot;, v4);
+println!(&quot;first is {}&quot;, first);
+println!(&quot;third is {}&quot;, third);
+println!(&quot;last is {}&quot;, last);
+// This prints:
+// v4 is [22, 38, 42, 50]
+// first is 22
+// third is 42
+// last is 50
+</code></pre>
+<p>Use of <code>for</code> loop to iterate over the values in a vector.</p>
+<pre><code class="language-rust">// Iterate over elements in a vector
+let v5 = vec![3, 4, 5, 6, 8, 12];
+
+for v in v5 {
+    println!(&quot;v in v5 is {}&quot;, v);
+}
+// This prints:
+// v in v5 is 3
+// v in v5 is 4
+// v in v5 is 5
+// v in v5 is 6
+// v in v5 is 8
+// v in v5 is 12
+
+// Iterate over elements in a vector by reference
+let v5 = vec![3, 4, 5, 6, 8, 12];
+
+for v in &amp;v5 {
+    println!(&quot;v in v5 is {}&quot;, v);
+}
+// This prints the same as above.
+</code></pre>
+
+    <br>
+
+    <p class="text-center small my-5">
+        Gavin Wiggins © 2025<br>
+        Made on a <a href="https://www.apple.com/mac/">Mac</a> with <a href="https://github.com/wigging/genja">Genja</a>. Hosted on <a href="https://pages.github.com">GitHub Pages</a>.
+    </p>
+</div>  <!-- end col-md -->
+</div>  <!-- end row -->
+</div>  <!-- end container -->
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Open Graph -->
+    <meta property="og:url" content="https://gavinw.me/notes/python/test-config.html">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Gavin Wiggins">
+    <meta property="og:description" content="Testing a Python Configuration Module">
+    <meta property="og:image" content="https://gavinw.me/assets/images/opengraph.jpg">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- Highlightjs -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/styles/github-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/languages/julia.min.js"></script>
+    <script>hljs.highlightAll();</script>
+
+    <!-- MathJax -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../../styles.css">
+
+    <title>Gavin Wiggins</title>
+</head>
+<body>
+<div class="container">
+<div class="row">
+<div class="col-md">
+    <h1><a href="/" style="color: inherit;">Gavin Wiggins</a></h1>
+
+    <p style="font-weight: 500;">
+        <a href="../../notes.html">Notes</a> &nbsp; / &nbsp;
+        <a href="../../links.html">Links</a> &nbsp; / &nbsp;
+        <a href="../../contact.html">Contact</a>
+    </p>
+
+    <hr class="mb-5">
+
+    <h1>Testing a Python Configuration Module</h1>
+
+    <h6 class="text-secondary">Written on September 21, 2025</h6>
+
+    <p>A configuration (config) module is useful for storing configuration settings in a Python package or application. Values such as API keys and passwords are often defined as environment variables which are used in the module. An example of a config module is shown below. For this example, the module is part of a Python package named <code>mypkg</code>.</p>
+<pre><code class="language-python"># config.py in mypkg
+
+import os
+
+api_key = os.getenv(&quot;API_KEY&quot;)
+api_url = os.getenv(&quot;API_URL&quot;, &quot;http://localhost:8090&quot;)
+save_path = &quot;~/Desktop/downloads&quot;
+</code></pre>
+<pre><code class="language-text">my-project/
+├── src/
+│   └── mypkg/
+│       ├── __init__.py
+│       ├── config.py
+│       └── downloader.py
+├── tests/
+│   ├── test_config.py
+│   └── test_downloader.py
+└── pyproject.toml
+</code></pre>
+<p>Other modules in the Python package or app can import the config module as shown next. Notice the <code>api_key</code> is checked to make sure the associated environment variable was set otherwise an error is raised.</p>
+<pre><code class="language-python"># downloader.py in mypkg
+
+from . import config
+
+
+def download_file():
+    if config.api_key is None:
+        raise RuntimeError(&quot;API_KEY environment variable is not set&quot;)
+
+    print(&quot;API_KEY is&quot;, config.api_key)
+    print(&quot;Saved file to&quot;, config.save_path)
+</code></pre>
+<p>The default values for the config module are not difficult to test. But testing with environment variables requires the <code>monkeypatch</code> fixture in pytest. This is demonstrated in the test functions given here. Notice the config module must be reloaded to pick up the new environment variables.</p>
+<pre><code class="language-python"># test_config.py
+
+import importlib
+from mypkg import config
+
+
+def test_config_defaults():
+    assert config.api_key is None
+    assert config.api_url == &quot;http://localhost:8090&quot;
+    assert config.save_path == &quot;~/Desktop/downloads&quot;
+
+
+def test_config_env(monkeypatch):
+    monkeypatch.setenv(&quot;API_KEY&quot;, &quot;12345&quot;)
+    monkeypatch.setenv(&quot;API_URL&quot;, &quot;https://www.apple.com&quot;)
+
+    importlib.reload(config)
+
+    assert config.api_key == &quot;12345&quot;
+    assert config.api_url == &quot;https://www.apple.com&quot;
+    assert config.save_path == &quot;~/Desktop/downloads&quot;
+</code></pre>
+<p>And here are the tests for the <code>download_file</code> function. To make sure the environment variables are reset, the config module is reloaded in these tests too.</p>
+<pre><code class="language-python"># test_downloader.py
+
+import importlib
+
+import pytest
+
+import mypkg
+from mypkg import config
+
+
+def test_downloader_defaults():
+    importlib.reload(config)
+
+    err = &quot;API_KEY environment variable is not set&quot;
+    with pytest.raises(RuntimeError, match=err):
+        mypkg.download_file()
+
+
+def test_downloader_env(monkeypatch, capsys):
+    monkeypatch.setenv(&quot;API_KEY&quot;, &quot;12345&quot;)
+
+    importlib.reload(config)
+    mypkg.download_file()
+
+    captured = capsys.readouterr()
+    assert &quot;Saved file to ~/Desktop/downloads\n&quot; in captured.out
+</code></pre>
+<p>The example code discussed in this article is available in the GitHub <a href="https://github.com/wigging/pythonic">pythonic</a> repo at <code>pythonic/projects/test-config/</code>.</p>
+
+    <br>
+
+    <p class="text-center small my-5">
+        Gavin Wiggins © 2025<br>
+        Made on a <a href="https://www.apple.com/mac/">Mac</a> with <a href="https://github.com/wigging/genja">Genja</a>. Hosted on <a href="https://pages.github.com">GitHub Pages</a>.
+    </p>
+</div>  <!-- end col-md -->
+</div>  <!-- end row -->
+</div>  <!-- end container -->
+</body>
+</html>

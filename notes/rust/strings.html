@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Open Graph -->
+    <meta property="og:url" content="https://gavinw.me/notes/rust/strings.html">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Gavin Wiggins">
+    <meta property="og:description" content="Strings in Rust">
+    <meta property="og:image" content="https://gavinw.me/assets/images/opengraph.jpg">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- Highlightjs -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/styles/github-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/languages/julia.min.js"></script>
+    <script>hljs.highlightAll();</script>
+
+    <!-- MathJax -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../../styles.css">
+
+    <title>Gavin Wiggins</title>
+</head>
+<body>
+<div class="container">
+<div class="row">
+<div class="col-md">
+    <h1><a href="/" style="color: inherit;">Gavin Wiggins</a></h1>
+
+    <p style="font-weight: 500;">
+        <a href="../../notes.html">Notes</a> &nbsp; / &nbsp;
+        <a href="../../links.html">Links</a> &nbsp; / &nbsp;
+        <a href="../../contact.html">Contact</a>
+    </p>
+
+    <hr class="mb-5">
+
+    <h1>Strings in Rust</h1>
+
+    <h6 class="text-secondary">Written on December 18, 2022</h6>
+
+    <p>A string literal uses double quotes <code>" "</code> and represents a string slice <code>str</code> or <code>&amp;str</code>.</p>
+<pre><code class="language-rust">// String literal which is a string slice str or &amp;str
+let s1 = &quot;hello there&quot;;
+
+// String literal with emoji smiley face
+let s2 = &quot;hello there 😀&quot;;
+</code></pre>
+<p>Loop through the characters in a string.</p>
+<pre><code class="language-rust">let s3 = &quot;hello&quot;;
+
+for c in s3.chars() {
+    println!(&quot;char is {c}&quot;);
+}
+
+// Prints the following:
+// char is h
+// char is e
+// char is l
+// char is l
+// char is o
+</code></pre>
+<p>Get the second character in a string.</p>
+<pre><code class="language-rust">let s4 = &quot;strawberry&quot;;
+println!(&quot;second char is {}&quot;, s4.chars().nth(1).unwrap());
+
+// Prints the following:
+// second char is t
+</code></pre>
+<p>Create a <code>String</code> type from a string literal.</p>
+<pre><code class="language-rust">let s5 = String::from(&quot;hello again&quot;);
+</code></pre>
+<p>Create an empty <code>String</code> type and append to it.</p>
+<pre><code class="language-rust">let mut s6 = String::new();
+s6.push_str(&quot;one&quot;);
+s6.push_str(&quot;two&quot;);
+
+println!(&quot;s6 is {s6}&quot;);
+
+// Prints the following:
+// s6 is onetwo
+</code></pre>
+<p>Use the <code>format!</code> macro to combine strings.</p>
+<pre><code class="language-rust">let a = String::from(&quot;tic&quot;);
+let b = String::from(&quot;tac&quot;);
+let c = String::from(&quot;toe&quot;);
+
+let s = format!(&quot;{a}-{b}-{c}&quot;);
+
+println!(&quot;s is {s}&quot;);
+
+// Prints the following:
+// s is tic-tac-toe
+</code></pre>
+
+    <br>
+
+    <p class="text-center small my-5">
+        Gavin Wiggins © 2025<br>
+        Made on a <a href="https://www.apple.com/mac/">Mac</a> with <a href="https://github.com/wigging/genja">Genja</a>. Hosted on <a href="https://pages.github.com">GitHub Pages</a>.
+    </p>
+</div>  <!-- end col-md -->
+</div>  <!-- end row -->
+</div>  <!-- end container -->
+</body>
+</html>

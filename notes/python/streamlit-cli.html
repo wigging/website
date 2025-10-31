@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Open Graph -->
+    <meta property="og:url" content="https://gavinw.me/notes/python/streamlit-cli.html">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Gavin Wiggins">
+    <meta property="og:description" content="Streamlit CLI Entry Point">
+    <meta property="og:image" content="https://gavinw.me/assets/images/opengraph.jpg">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- Highlightjs -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/styles/github-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/languages/julia.min.js"></script>
+    <script>hljs.highlightAll();</script>
+
+    <!-- MathJax -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../../styles.css">
+
+    <title>Gavin Wiggins</title>
+</head>
+<body>
+<div class="container">
+<div class="row">
+<div class="col-md">
+    <h1><a href="/" style="color: inherit;">Gavin Wiggins</a></h1>
+
+    <p style="font-weight: 500;">
+        <a href="../../notes.html">Notes</a> &nbsp; / &nbsp;
+        <a href="../../links.html">Links</a> &nbsp; / &nbsp;
+        <a href="../../contact.html">Contact</a>
+    </p>
+
+    <hr class="mb-5">
+
+    <h1>Streamlit CLI Entry Point</h1>
+
+    <h6 class="text-secondary">Written on September 4, 2025</h6>
+
+    <p>Putting a Streamlit app in a Python package provides a nice user interface to the package's features. However, a Streamlit app is typically run as an individual Python script instead of a package's command line entry point. To call the Streamlit app using a package's command line interface (CLI), the cli module in Streamlit can be invoked to run the app from within the Python code.</p>
+<p>Below is the file structure of a project named "streamlit-pkg" that contains a Python package named "stpkg".</p>
+<pre><code class="language-text">streamlit-pkg/
+├── src/
+│   └── stpkg/
+│       ├── __init__.py
+│       ├── adder.py
+│       ├── app.py
+│       └── cli.py
+├── tests/
+│   └── test_adder.py
+├── pyproject.toml
+├── README.md
+└── uv.lock
+</code></pre>
+<p>The contents of the <code>__init__.py</code>, <code>adder.py</code>, and <code>app.py</code> files are shown below. More information about each file is provided in the comments.</p>
+<pre><code class="language-python"># __init__.py
+# Make the `add` function available to users.
+
+from .adder import add
+
+__all__ = [&quot;add&quot;]
+</code></pre>
+<pre><code class="language-python"># adder.py
+# Provides an `add` function in the `stpkg` package.
+
+def add(x: float, y: float) -&gt; float:
+    &quot;&quot;&quot;Add two numbers.&quot;&quot;&quot;
+    z = x + y
+    return z
+</code></pre>
+<pre><code class="language-python"># app.py
+# Streamlit app within the `stpkg` package.
+
+import streamlit as st
+from stpkg.adder import add
+
+
+def main():
+    &quot;&quot;&quot;Create content for the streamlit app.&quot;&quot;&quot;
+
+    st.markdown(&quot;&quot;&quot;
+    # Streamlit app
+
+    Hello there!
+    &quot;&quot;&quot;)
+
+    total = add(12, 5.5)
+    st.markdown(f&quot;Total is {total}&quot;)
+
+
+if __name__ == &quot;__main__&quot;:
+    main()
+</code></pre>
+<p>The content of the <code>cli.py</code> file is shown below. Notice the use of the cli module from the Streamlit package which is used to run <code>app.py</code> that contains the Streamlit application code. The Streamlit documentation does not mention the use of this module so it may not be supported for public use; however, this seems to be the only way to run a Streamlit app from within Python code.</p>
+<pre><code class="language-python"># cli.py
+# The command-line interface for the `stpkg` package.
+
+import argparse
+import importlib.resources
+from streamlit.web import cli
+
+
+def main():
+    &quot;&quot;&quot;Command line entry point for the package.&quot;&quot;&quot;
+
+    parser = argparse.ArgumentParser(description=&quot;CLI package with Streamlit app&quot;)
+    parser.add_argument(&quot;run&quot;, help=&quot;enter 'go' to run streamlit app&quot;)
+    args = parser.parse_args()
+
+    if args.run == &quot;go&quot;:
+        print(&quot;Run the Streamlit app ...&quot;)
+
+        with importlib.resources.path(&quot;stpkg&quot;, &quot;app.py&quot;) as app_file:
+            cli.main_run([str(app_file)])
+</code></pre>
+<p>Below is the content of the <code>pyproject.toml</code> file. Notice the CLI entry point for the package is defined as the main function in the <code>src/stpkg/cli.py</code> file. This allows the <code>stpkg</code> package to be installed as a command line tool. As such, the Streamlit app in the package can be run by doing <code>stpkg go</code> in the terminal.</p>
+<pre><code class="language-toml"># pyproject.toml
+
+[build-system]
+requires = [&quot;uv_build&gt;=0.8.11,&lt;0.9.0&quot;]
+build-backend = &quot;uv_build&quot;
+
+[project]
+name = &quot;stpkg&quot;
+version = &quot;0.1.0&quot;
+description = &quot;Streamlit app in a package&quot;
+readme = &quot;README.md&quot;
+requires-python = &quot;&gt;=3.13&quot;
+dependencies = [
+    &quot;streamlit&gt;=1.48.1&quot;,
+]
+
+[dependency-groups]
+dev = [
+    &quot;pytest&gt;=8.4.1&quot;,
+    &quot;ruff&gt;=0.12.9&quot;,
+]
+
+[project.scripts]
+stpkg = &quot;stpkg.cli:main&quot;
+</code></pre>
+<h2>Further reading</h2>
+<p>More information about Streamlit is available at <a href="https://streamlit.io">https://streamlit.io</a>. All of the Python code discussed in this article is available in the <code>pythonic/projects/streamlit-pkg</code> directory in the <a href="https://github.com/wigging/pythonic">pythonic</a> GitHub repo. </p>
+
+    <br>
+
+    <p class="text-center small my-5">
+        Gavin Wiggins © 2025<br>
+        Made on a <a href="https://www.apple.com/mac/">Mac</a> with <a href="https://github.com/wigging/genja">Genja</a>. Hosted on <a href="https://pages.github.com">GitHub Pages</a>.
+    </p>
+</div>  <!-- end col-md -->
+</div>  <!-- end row -->
+</div>  <!-- end container -->
+</body>
+</html>

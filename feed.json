@@ -1,0 +1,1380 @@
+{
+    "version": "https://jsonfeed.org/version/1.1",
+    "title": "Gavin Wiggins",
+    "home_page_url": "https://gavinw.me",
+    "feed_url": "https://gavinw.me/feed.json",
+    "items": [
+        {
+            "id": "https://gavinw.me/notes/terminal/tmux-commands.html",
+            "url": "https://gavinw.me/notes/terminal/tmux-commands.html",
+            "title": "Tmux Commands",
+            "date_published": "2025-10-30T00:00:00Z",
+            "content_html": "<p>The tmux command line tool allows you to run and manage multiple processes within a single terminal session. Below are some useful commands for working with tmux.</p><p><a href=\"https://gavinw.me/notes/terminal/tmux-commands.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/terminal/caddy-proxy.html",
+            "url": "https://gavinw.me/notes/terminal/caddy-proxy.html",
+            "title": "Reverse Proxy and Basic Auth with Caddy",
+            "date_published": "2025-10-26T00:00:00Z",
+            "content_html": "<p>Below is a Caddyfile with a reverse proxy from HTTP port 80 to the local host port 5000. This will direct HTTP traffic to the service or app running on port 5000 on the server. Basic authentication is enabled where the username is <code>bart</code> and the hashed password is <code>12$3asDfjl45$97845ashLKdjFg</code>. Use tabs, not spaces, for indentation in the Caddyfile.</p><p><a href=\"https://gavinw.me/notes/terminal/caddy-proxy.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/terminal/init-server.html",
+            "url": "https://gavinw.me/notes/terminal/init-server.html",
+            "title": "Initialize a Server with Cloud-init",
+            "date_published": "2025-10-24T00:00:00Z",
+            "content_html": "<p>Most cloud platforms like DigitalOcean and Hetzner support a cloud-init YAML configuration file to initialize a server with networking, packages, and other system settings. The example below is for creating an Ubuntu server that disables root login, creates a non-root user named <code>homer</code>, turns off SSH password authentication, changes the SSH port to 2222, creates a basic <code>.vimrc</code> file, and installs uv for Python development.</p><p><a href=\"https://gavinw.me/notes/terminal/init-server.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/terminal/macos-commands.html",
+            "url": "https://gavinw.me/notes/terminal/macos-commands.html",
+            "title": "Terminal Commands for macOS",
+            "date_published": "2025-09-30T00:00:00Z",
+            "content_html": "<p>Here are some terminal commands for macOS. Some of these commands do the same thing in a Linux terminal.</p><p><a href=\"https://gavinw.me/notes/terminal/macos-commands.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/python/test-config.html",
+            "url": "https://gavinw.me/notes/python/test-config.html",
+            "title": "Testing a Python Configuration Module",
+            "date_published": "2025-09-21T00:00:00Z",
+            "content_html": "<p>A configuration (config) module is useful for storing configuration settings in a Python package or application. Values such as API keys and passwords are often defined as environment variables which are used in the module. An example of a config module is shown below. For this example, the module is part of a Python package named <code>mypkg</code>.</p><p><a href=\"https://gavinw.me/notes/python/test-config.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/terminal/git-commands.html",
+            "url": "https://gavinw.me/notes/terminal/git-commands.html",
+            "title": "Git Commands",
+            "date_published": "2025-09-07T00:00:00Z",
+            "content_html": "<p>Here are some useful commands for configuring and using Git in the terminal.</p><p><a href=\"https://gavinw.me/notes/terminal/git-commands.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/python/download-files.html",
+            "url": "https://gavinw.me/notes/python/download-files.html",
+            "title": "Download Files with Requests",
+            "date_published": "2025-09-06T00:00:00Z",
+            "content_html": "<p>The Requests package can be used to download a file using the URL of the file's remote location. The example below loops through a list of URLs and downloads each file one-by-one. While this is fine for one or two files, it can be slow when downloading multiple large files because only one downlaod occurs at a time.</p><p><a href=\"https://gavinw.me/notes/python/download-files.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/python/streamlit-cli.html",
+            "url": "https://gavinw.me/notes/python/streamlit-cli.html",
+            "title": "Streamlit CLI Entry Point",
+            "date_published": "2025-09-04T00:00:00Z",
+            "content_html": "<p>Putting a Streamlit app in a Python package provides a nice user interface to the package's features. However, a Streamlit app is typically run as an individual Python script instead of a package's command line entry point. To call the Streamlit app using a package's command line interface (CLI), the cli module in Streamlit can be invoked to run the app from within the Python code.</p><p><a href=\"https://gavinw.me/notes/python/streamlit-cli.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/python/fastapi-router.html",
+            "url": "https://gavinw.me/notes/python/fastapi-router.html",
+            "title": "FastAPI Router for Path Operations",
+            "date_published": "2025-08-09T00:00:00Z",
+            "content_html": "<p>The <code>APIRouter</code> class in FastAPI is used to group path operations for an app. This allows paths to be defined in multiple files which is useful for large applications. The example below defines fruits and veggies paths for the router.</p><p><a href=\"https://gavinw.me/notes/python/fastapi-router.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/swift/command-line-args.html",
+            "url": "https://gavinw.me/notes/swift/command-line-args.html",
+            "title": "Command-line Arguments in Swift",
+            "date_published": "2025-07-09T00:00:00Z",
+            "content_html": "<p>Use the <code>CommandLine</code> enumeration in Swift to get command-line arguments when executing a program. The arguments are obtained as an array of strings. The example below prints all the arguments passed to the program. The name of the executed program is the first argument. The second argument is expected to be an integer <code>n</code> and the third argument is a string <code>t</code>.</p><p><a href=\"https://gavinw.me/notes/swift/command-line-args.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/swift/random-array.html",
+            "url": "https://gavinw.me/notes/swift/random-array.html",
+            "title": "Array of Random Numbers in Swift and Accelerate",
+            "date_published": "2025-06-20T00:00:00Z",
+            "content_html": "<p>Swift does not provide a feature to directly create an array of random numbers. Such an array must be built by generating a random number and assigning that number to an array element. The following sections demonstrate several methods to generate pseudorandom numbers in Swift with double precision. Each method is benchmarked by filling a large array with random numbers.</p><p><a href=\"https://gavinw.me/notes/swift/random-array.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/swift/suppress-print.html",
+            "url": "https://gavinw.me/notes/swift/suppress-print.html",
+            "title": "Suppress Print Output in Swift",
+            "date_published": "2025-04-29T00:00:00Z",
+            "content_html": "<p>Suppressing print output is useful for functions that accept a block of code as input. An example\nwould be a benchmark function that accepts a block of code for profiling. The code may contain\nprint statements that would print to the screen during each benchmark iteration. By suppressing the\nprint output, the benchmark does not pollute the screen with unnecessary output.</p><p><a href=\"https://gavinw.me/notes/swift/suppress-print.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/python/dynamic-config.html",
+            "url": "https://gavinw.me/notes/python/dynamic-config.html",
+            "title": "Dynamic Python Class from TOML",
+            "date_published": "2025-04-21T00:00:00Z",
+            "content_html": "<p>Python's standard library provides functionality to read a TOML configuration file and dynamically create class instances based on the parameters defined in that file. This is useful for command line tools and web applications.</p><p><a href=\"https://gavinw.me/notes/python/dynamic-config.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/python/pyzmq-test-client-server.html",
+            "url": "https://gavinw.me/notes/python/pyzmq-test-client-server.html",
+            "title": "Testing a PyZMQ Client and Server",
+            "date_published": "2025-04-12T00:00:00Z",
+            "content_html": "<p>The ZeroMQ context and socket for PyZMQ code can be patched and mocked using pytest and pytest-mock. This allows the code to be tested without having to run the server and connect the client. For the example discussed below, the client sends a request to the server, the request message is used by the server to execute a command, and the result of this command is sent back to the client. Finally, tests are demonstrated for the client and server codes.</p><p><a href=\"https://gavinw.me/notes/python/pyzmq-test-client-server.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/python/pyzmq-request-reply.html",
+            "url": "https://gavinw.me/notes/python/pyzmq-request-reply.html",
+            "title": "Request-Reply Pattern with PyZMQ",
+            "date_published": "2025-04-10T00:00:00Z",
+            "content_html": "<p>This demonstrates a simple request-reply pattern using the <a href=\"https://pyzmq.readthedocs.io/en/latest/\">PyZMQ</a> package for Python. In the example, the client sends a message to the server which replies back to the client.</p><p><a href=\"https://gavinw.me/notes/python/pyzmq-request-reply.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/python/dynamic-import.html",
+            "url": "https://gavinw.me/notes/python/dynamic-import.html",
+            "title": "Dynamic Package Import in Python",
+            "date_published": "2025-04-09T00:00:00Z",
+            "content_html": "<p>Use the <code>importlib</code> package to dynamically import a Python module by its name. Similarly, use the <code>getattr</code> function to get a class or function by name. This is useful in plugin architectures or when loading things based on configuration files.</p><p><a href=\"https://gavinw.me/notes/python/dynamic-import.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/python/log-file.html",
+            "url": "https://gavinw.me/notes/python/log-file.html",
+            "title": "Delay Log File Creation",
+            "date_published": "2025-03-27T00:00:00Z",
+            "content_html": "<p>Use the delay argument for Python's log file handler to avoid creating unnecessary log files. This ensures that a log file is created only for the desired log levels.</p><p><a href=\"https://gavinw.me/notes/python/log-file.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/python/flask-config.html",
+            "url": "https://gavinw.me/notes/python/flask-config.html",
+            "title": "Flask App Configuration with Dotenv",
+            "date_published": "2025-03-12T00:00:00Z",
+            "content_html": "<p>The <a href=\"https://pypi.org/project/python-dotenv/\">dotenv</a> package can be used to load configuration settings for a Flask app. The configuration is defined in a <code>.env</code> file which is ignored by version control to ensure items like API keys and passwords are not shared with others.</p><p><a href=\"https://gavinw.me/notes/python/flask-config.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/python/uv-projects.html",
+            "url": "https://gavinw.me/notes/python/uv-projects.html",
+            "title": "Python Projects with uv",
+            "date_published": "2025-01-07T00:00:00Z",
+            "content_html": "<p>Managing a virtual environment and its dependencies can be a hassle for Python projects. Choosing between the different techniques to install Python and different package managers can be a daunting task. Luckily, uv makes this process much easier.</p><p><a href=\"https://gavinw.me/notes/python/uv-projects.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/python/uv-scripts.html",
+            "url": "https://gavinw.me/notes/python/uv-scripts.html",
+            "title": "Run Python Scripts with uv",
+            "date_published": "2025-01-06T00:00:00Z",
+            "content_html": "<p>A Python script is a file intended for standalone execution. The uv tool can be used to directly run a script even if other Python packages are needed to run it. This offers a more streamlined approach for running scripts compared to manually managing a virtual environment and its dependencies.</p><p><a href=\"https://gavinw.me/notes/python/uv-scripts.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/python/package-data.html",
+            "url": "https://gavinw.me/notes/python/package-data.html",
+            "title": "Python Package with Data",
+            "date_published": "2024-11-24T00:00:00Z",
+            "content_html": "<p>The file structure below represents a project for a Python package named <code>mypackage</code> that includes data files. The data files in this example are CSV text files located in the package's source directory at <code>src/mypackage/data/</code>. The package can be installed using <code>pip install .</code> from the root level of the project.</p><p><a href=\"https://gavinw.me/notes/python/package-data.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/python/config-dataclass.html",
+            "url": "https://gavinw.me/notes/python/config-dataclass.html",
+            "title": "Configuration Using a Python dataclass",
+            "date_published": "2024-11-21T00:00:00Z",
+            "content_html": "<p>A data class in Python can be used to store configuration settings for an application or service. Default configuration values are assigned to fields on the data class. However, the user can overload those values by using a class method to load the configuration settings from a file.</p><p><a href=\"https://gavinw.me/notes/python/config-dataclass.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/swift/discardable-result.html",
+            "url": "https://gavinw.me/notes/swift/discardable-result.html",
+            "title": "Discardable result",
+            "date_published": "2024-10-07T00:00:00Z",
+            "content_html": "<p>Functions marked with <code>@discardableResult</code> allow you to ignore the return value.</p><p><a href=\"https://gavinw.me/notes/swift/discardable-result.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/python/argparse.html",
+            "url": "https://gavinw.me/notes/python/argparse.html",
+            "title": "Command-line Arguments with Python",
+            "date_published": "2024-09-28T00:00:00Z",
+            "content_html": "<p>The <code>argparse</code> module provides an interface to write command-line programs in Python. It is part of the Python standard library so there's no need for external dependencies. A basic example is given below that demonstrates positional and optional arguments. The second example shows the use of subparsers to create subcommands.</p><p><a href=\"https://gavinw.me/notes/python/argparse.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/swift/flat-indexing.html",
+            "url": "https://gavinw.me/notes/swift/flat-indexing.html",
+            "title": "Flat Indexing an N-dimensional Array",
+            "date_published": "2024-08-07T00:00:00Z",
+            "content_html": "<p>An N-dimensional or multi-dimensional array is a data structure with one or more dimensions. An index for each dimension must be provided to access a particular element's value. Since the array's data is stored in one-dimensional memory, the indices must be converted to a flat index (one-dimension) to access the corresponding memory location.</p><p><a href=\"https://gavinw.me/notes/swift/flat-indexing.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/python/protocol.html",
+            "url": "https://gavinw.me/notes/python/protocol.html",
+            "title": "Protocols in Python",
+            "date_published": "2024-07-13T00:00:00Z",
+            "content_html": "<p>A protocol is a way to define structural typing or \"duck typing\" in Python. It defines a set of attributes and/or methods that an object must have in order to be considered compatible with that protocol. Below is a protocol defined as an <code>Activity</code> class which must have <code>name</code> and <code>duration</code> attributes along with a <code>get_message</code> method.</p><p><a href=\"https://gavinw.me/notes/python/protocol.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/swift/elapsed-time.html",
+            "url": "https://gavinw.me/notes/swift/elapsed-time.html",
+            "title": "Measure Elapsed Time of Swift Code",
+            "date_published": "2024-06-24T00:00:00Z",
+            "content_html": "<p>The functions shown below are examples of measuring elapsed time in Swift. The sleep function is used to delay the code execution for 4 seconds. Consequently, the elapsed time for each example is approximately 4 seconds.</p><p><a href=\"https://gavinw.me/notes/swift/elapsed-time.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/swift/accelerate-complex-multiplication.html",
+            "url": "https://gavinw.me/notes/swift/accelerate-complex-multiplication.html",
+            "title": "Complex Multiplication with Accelerate",
+            "date_published": "2024-05-11T00:00:00Z",
+            "content_html": "<p>Use the <code>cblas_cgemv</code> function in Accelerate to multiply a matrix and vector with single-precision complex values. For this example, a structure named <code>Complex</code> with <code>real</code> and <code>imag</code> properties is utilized but <code>DSPComplex</code> can also be used.</p><p><a href=\"https://gavinw.me/notes/swift/accelerate-complex-multiplication.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/swift/accelerate-matrix-multiplication.html",
+            "url": "https://gavinw.me/notes/swift/accelerate-matrix-multiplication.html",
+            "title": "Matrix Multiplication with Accelerate",
+            "date_published": "2024-05-04T00:00:00Z",
+            "content_html": "<p>Accelerate provides two functions for performing matrix multiplication. The first is the <code>vDSP_mmulD</code> function which is demonstrated below.</p><p><a href=\"https://gavinw.me/notes/swift/accelerate-matrix-multiplication.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/swift/metal-matrix-multiplication.html",
+            "url": "https://gavinw.me/notes/swift/metal-matrix-multiplication.html",
+            "title": "Matrix Multiplication with Metal",
+            "date_published": "2024-05-03T00:00:00Z",
+            "content_html": "<p>Metal Performance Shaders provide <code>MPSMatrix</code> and <code>MPSMatrixMultiplication</code> objects to perform matrix multiplication on the GPU. The code below demonstrates multiplication of two matrices.</p><p><a href=\"https://gavinw.me/notes/swift/metal-matrix-multiplication.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/swift/package-library.html",
+            "url": "https://gavinw.me/notes/swift/package-library.html",
+            "title": "Package a Swift Library",
+            "date_published": "2024-03-15T00:00:00Z",
+            "content_html": "<p>There are two ways to create a Swift package for a library: using the command line and using Xcode. Each approach is discussed in the following sections.</p><p><a href=\"https://gavinw.me/notes/swift/package-library.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/python/makefiles.html",
+            "url": "https://gavinw.me/notes/python/makefiles.html",
+            "title": "Makefiles for Python Projects",
+            "date_published": "2024-03-14T00:00:00Z",
+            "content_html": "<p>Makefiles are typically used for C and C++ projects to build source code but they can be useful for Python projects too. A Makefile is just a text file used by the GNU Make tool to run commands. For a Python project, these commands can run unit tests, format your code, or publish a package to PyPI.</p><p><a href=\"https://gavinw.me/notes/python/makefiles.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/python/textwrap-dedent.html",
+            "url": "https://gavinw.me/notes/python/textwrap-dedent.html",
+            "title": "Dedent Text with Python",
+            "date_published": "2024-02-29T00:00:00Z",
+            "content_html": "<p>Remove leading whitespace from every line in a string with the <code>textwrap.dedent()</code> function. The first example shown below prints a multiline string that is defined in a function. The second example prints the same string but removes the leading whitespace.</p><p><a href=\"https://gavinw.me/notes/python/textwrap-dedent.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/swift/compiler-optimizations.html",
+            "url": "https://gavinw.me/notes/swift/compiler-optimizations.html",
+            "title": "Swift Compiler Optimizations",
+            "date_published": "2024-02-24T00:00:00Z",
+            "content_html": "<p>The Swift compiler <code>swiftc</code> provides options such as <code>-O</code>, <code>-Osize</code>, and <code>-Ounchecked</code> to build code with optimizations turned on. Use optimizations such as <code>-Osize</code> to target small code size and the <code>-Ounchecked</code> to remove runtime safety checks.</p><p><a href=\"https://gavinw.me/notes/swift/compiler-optimizations.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/swift/create-package.html",
+            "url": "https://gavinw.me/notes/swift/create-package.html",
+            "title": "Create a Swift Package",
+            "date_published": "2024-02-18T00:00:00Z",
+            "content_html": "<p>There are two approaches to creating a Swift package. One is by creating a new package in Xcode and the other is with the Swift command line tool.</p><p><a href=\"https://gavinw.me/notes/swift/create-package.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/python/virtual-env.html",
+            "url": "https://gavinw.me/notes/python/virtual-env.html",
+            "title": "Virtual Environments",
+            "date_published": "2024-02-16T00:00:00Z",
+            "content_html": "<p>The <code>venv</code> module included with Python is used to create and manage virtual environments. This page provides some useful commands for creating and working with virtual environments. A virtual environment should not be checked into source control via Git or other such systems.</p><p><a href=\"https://gavinw.me/notes/python/virtual-env.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/python/cached-class-property.html",
+            "url": "https://gavinw.me/notes/python/cached-class-property.html",
+            "title": "Cached Class Property in Python",
+            "date_published": "2024-01-13T00:00:00Z",
+            "content_html": "<p>The <a href=\"https://docs.python.org/3/library/functools.html\">functools</a> module provides a <code>@cached_property</code> decorator to store the value of a class property.</p><p><a href=\"https://gavinw.me/notes/python/cached-class-property.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/python/cache-function.html",
+            "url": "https://gavinw.me/notes/python/cache-function.html",
+            "title": "Cache Function in Python",
+            "date_published": "2024-01-13T00:00:00Z",
+            "content_html": "<p>The <a href=\"https://docs.python.org/3/library/functools.html\">functools</a> module provides a <code>@cache</code> decorator to store the results of an expensive function; also known as memoize.</p><p><a href=\"https://gavinw.me/notes/python/cache-function.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/python/version.html",
+            "url": "https://gavinw.me/notes/python/version.html",
+            "title": "Version Number in Python",
+            "date_published": "2023-11-30T00:00:00Z",
+            "content_html": "<p>Use the <a href=\"https://docs.python.org/3/library/importlib.metadata.html\">importlib.metadata</a> library in Python to get the version number of a package. The example below gets the version of the ipython package that has been installed in the environment.</p><p><a href=\"https://gavinw.me/notes/python/version.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/python/doctest.html",
+            "url": "https://gavinw.me/notes/python/doctest.html",
+            "title": "Doctest with Python",
+            "date_published": "2023-11-17T00:00:00Z",
+            "content_html": "<p>The docstring of the <code>adder()</code> function shown below contains two examples of how to use the function. The function resides in a file named <code>example.py</code>. Use the <code>doctest</code> module to test the examples in this docstring.</p><p><a href=\"https://gavinw.me/notes/python/doctest.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/swift/metal-sampler.html",
+            "url": "https://gavinw.me/notes/swift/metal-sampler.html",
+            "title": "Sampler in Metal",
+            "date_published": "2023-10-10T00:00:00Z",
+            "content_html": "<p>This example uses a Metal <code>sampler</code> to upscale a noise texture as the Metal view increases in size. The left image shown below represents the actual size of the texture. The right image is the sampled (upscaled) texture due to the larger window size which increases the size of the Metal view.</p><p><a href=\"https://gavinw.me/notes/swift/metal-sampler.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/swift/metal-noise.html",
+            "url": "https://gavinw.me/notes/swift/metal-noise.html",
+            "title": "Noise with Metal",
+            "date_published": "2023-09-29T00:00:00Z",
+            "content_html": "<p>This example creates noise using a shader function that is based on the Golden Ratio. It is adapted from a function on the <a href=\"https://www.shadertoy.com/view/ltB3zD\">Shadertoy</a> website.</p><p><a href=\"https://gavinw.me/notes/swift/metal-noise.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/swift/metal-triangle.html",
+            "url": "https://gavinw.me/notes/swift/metal-triangle.html",
+            "title": "Basic Triangle in Metal",
+            "date_published": "2023-09-19T00:00:00Z",
+            "content_html": "<p>This example creates a triangle using vertex and fragment shaders.</p><p><a href=\"https://gavinw.me/notes/swift/metal-triangle.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/swift/metal-clear-color.html",
+            "url": "https://gavinw.me/notes/swift/metal-clear-color.html",
+            "title": "Clear Color in Metal",
+            "date_published": "2023-09-10T00:00:00Z",
+            "content_html": "<p>This example sets the clear color to blue for the Metal view. This color is like the background color of the view.</p><p><a href=\"https://gavinw.me/notes/swift/metal-clear-color.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/swift/metal-color-compute.html",
+            "url": "https://gavinw.me/notes/swift/metal-color-compute.html",
+            "title": "Color View with Metal Compute Kernel",
+            "date_published": "2023-09-08T00:00:00Z",
+            "content_html": "<p>Here is a basic example of using Metal to change the color of a view using a compute function (kernel). The pixels in the view are represented in Metal as a grid. The sliders change the RGB color values for each pixel in the grid.</p><p><a href=\"https://gavinw.me/notes/swift/metal-color-compute.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/python/numpy-gauss.html",
+            "url": "https://gavinw.me/notes/python/numpy-gauss.html",
+            "title": "Gauss-Legendre Points and Weights with NumPy",
+            "date_published": "2023-08-31T00:00:00Z",
+            "content_html": "<p>The function below returns the Gauss-Legendre integration points and weights for a 2D quadrilateral using values from a 1D quadrature. The 1D values are obtained from NumPy's <code>leggauss()</code> function.</p><p><a href=\"https://gavinw.me/notes/python/numpy-gauss.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/swift/metal-particles.html",
+            "url": "https://gavinw.me/notes/swift/metal-particles.html",
+            "title": "Particles Using Metal",
+            "date_published": "2023-08-29T00:00:00Z",
+            "content_html": "<p>This example uses Metal to draw particles (pixels) in a view. The particles move throughout the view based on their position and velocity. This example is inspired by the <a href=\"https://metalkit.org/2017/11/30/working-with-particles-in-metal-part-3/\">Working with Particles in Metal part 3</a> article by Marius Horga. However, this example is implemented with SwiftUI for macOS whereas Marius' example runs in an Xcode playground.</p><p><a href=\"https://gavinw.me/notes/swift/metal-particles.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/swiftui/display-scale.html",
+            "url": "https://gavinw.me/notes/swiftui/display-scale.html",
+            "title": "Display Scale of a SwiftUI Environment",
+            "date_published": "2023-08-28T00:00:00Z",
+            "content_html": "<p>Get the display scale of the environment with the <code>displayScale</code> value. This can be used to convert a view's dimensions in points to pixels as seen in the example below.</p><p><a href=\"https://gavinw.me/notes/swiftui/display-scale.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/cpp/array2d.html",
+            "url": "https://gavinw.me/notes/cpp/array2d.html",
+            "title": "Two-Dimensional Array in C++",
+            "date_published": "2023-08-13T00:00:00Z",
+            "content_html": "<p>A two-dimensional array can be created using the traditional C-style array or with the C++ standard array container. Both approaches are demonstrated below.</p><p><a href=\"https://gavinw.me/notes/cpp/array2d.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/cpp/include-function.html",
+            "url": "https://gavinw.me/notes/cpp/include-function.html",
+            "title": "Include a Function from a C++ File",
+            "date_published": "2023-07-25T00:00:00Z",
+            "content_html": "<p>This example uses a function defined in another file. The <code>main.cpp</code> example uses the <code>Log()</code> function to print a string to the screen. This function is implemented in <code>logger.cpp</code> and <code>logger.h</code>.</p><p><a href=\"https://gavinw.me/notes/cpp/include-function.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/swiftui/image-colormap.html",
+            "url": "https://gavinw.me/notes/swiftui/image-colormap.html",
+            "title": "Image from a Colormap Filter",
+            "date_published": "2023-07-22T00:00:00Z",
+            "content_html": "<p>This SwiftUI example demonstrates creating a gray scale image from numerical data. Data is provided as a linear ramp from 0 to 1 (see top image) or as random numbers in the range of 0 to 1 (see bottom image). A colormap filter applies color to the gray scale image using RGB values from the viridis colormap.</p><p><a href=\"https://gavinw.me/notes/swiftui/image-colormap.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/swift/image-colormap.html",
+            "url": "https://gavinw.me/notes/swift/image-colormap.html",
+            "title": "Image from Colormap Filter in Swift",
+            "date_published": "2023-07-19T00:00:00Z",
+            "content_html": "<p>A colormap can be applied to an image using a Core Image filter. The first step in this process, is to create a gradient image that represents the colormap. The function shown below creates a linear gradient image of the viridis colormap.</p><p><a href=\"https://gavinw.me/notes/swift/image-colormap.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/python/debugger.html",
+            "url": "https://gavinw.me/notes/python/debugger.html",
+            "title": "Debugger in Python",
+            "date_published": "2023-07-18T00:00:00Z",
+            "content_html": "<p>The <a href=\"https://docs.python.org/3/library/pdb.html\">pdb</a> module provides an interactive debugger for Python programs. It supports breakpoints and stepping through the source code. To demonstrate using the debugger and setting a breakpoint, first consider the example shown below.</p><p><a href=\"https://gavinw.me/notes/python/debugger.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/swift/image-data.html",
+            "url": "https://gavinw.me/notes/swift/image-data.html",
+            "title": "Image from Array Data in Swift",
+            "date_published": "2023-07-18T00:00:00Z",
+            "content_html": "<p>An image can be created from numerical data using the Core Graphics and Accelerate frameworks. The sections below demonstrate how to create a gray scale image from normalized data and color images from RGB data.</p><p><a href=\"https://gavinw.me/notes/swift/image-data.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/swift/normalize-array.html",
+            "url": "https://gavinw.me/notes/swift/normalize-array.html",
+            "title": "Normalize Array Values in Swift",
+            "date_published": "2023-07-17T00:00:00Z",
+            "content_html": "<p>In this example, values in an array are normalized to be in the range 0 to 1. The normalized values are calculated using the maximum and minimum values from the original array.</p><p><a href=\"https://gavinw.me/notes/swift/normalize-array.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/swift/arrays.html",
+            "url": "https://gavinw.me/notes/swift/arrays.html",
+            "title": "Arrays in Swift",
+            "date_published": "2023-07-14T00:00:00Z",
+            "content_html": "<p>An array in Swift is an ordered collection of values. It is written as <code>Array&lt;Element&gt;</code> or in a shorthand form using square brackets <code>[Element]</code> where element is the type of values stored in the array.</p><p><a href=\"https://gavinw.me/notes/swift/arrays.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/swiftui/heatmap-chart.html",
+            "url": "https://gavinw.me/notes/swiftui/heatmap-chart.html",
+            "title": "Heat Maps with SwiftUI and Charts",
+            "date_published": "2023-07-08T00:00:00Z",
+            "content_html": "<p>Use a <code>RectangleMark()</code> in a Swift Chart to create a 2D heat map of data. In this example, the data is represented using a <code>Grid</code> struct that contains an array of <code>Point</code> structs. The <code>Point</code> struct defines the x and y coordinate of the associated value. The x coordinate is a range based on the number of columns, the y coordinate is a range based on the number of columns, and the value is a random number from 0 to 1. Faint lines may appear on the chart if the frame size is not evenly divisible by the number of rows and columns defined by the <code>Grid</code> struct; this is likely caused by each <code>RectangleMark()</code> not perfectly aligning to the screen pixels.</p><p><a href=\"https://gavinw.me/notes/swiftui/heatmap-chart.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/python/conda-env.html",
+            "url": "https://gavinw.me/notes/python/conda-env.html",
+            "title": "Conda Environments",
+            "date_published": "2023-06-15T00:00:00Z",
+            "content_html": "<p>Similar to Python's <code>venv</code> module, Conda can also create virtual environments but these environments support languages other than Python.</p><p><a href=\"https://gavinw.me/notes/python/conda-env.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/swiftui/async-for-loop.html",
+            "url": "https://gavinw.me/notes/swiftui/async-for-loop.html",
+            "title": "Async Loop in a SwiftUI View",
+            "date_published": "2023-06-13T00:00:00Z",
+            "content_html": "<p>Use an asynchronous operation to update a SwiftUI Text view from a for-in loop. In this example, the <code>step</code> variable is updated for each iteration on the main thread. This allows the variable to update the Text view.</p><p><a href=\"https://gavinw.me/notes/swiftui/async-for-loop.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/python/package-name.html",
+            "url": "https://gavinw.me/notes/python/package-name.html",
+            "title": "Python Package Name",
+            "date_published": "2023-06-11T00:00:00Z",
+            "content_html": "<p>The distribution name of a Python package can be different than the import name. Below is an example of a repository named <code>sklearn-model</code> which contains the <code>skmodel</code> package.</p><p><a href=\"https://gavinw.me/notes/python/package-name.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/python/matplotlib-imshow-plot.html",
+            "url": "https://gavinw.me/notes/python/matplotlib-imshow-plot.html",
+            "title": "Imshow Plot with Matplotlib",
+            "date_published": "2023-05-10T00:00:00Z",
+            "content_html": "<p>Display data as an image using Matplotlib's imshow method.</p><p><a href=\"https://gavinw.me/notes/python/matplotlib-imshow-plot.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/python/matplotlib-matshow-plot.html",
+            "url": "https://gavinw.me/notes/python/matplotlib-matshow-plot.html",
+            "title": "Matshow Plot with Matplotlib",
+            "date_published": "2023-05-10T00:00:00Z",
+            "content_html": "<p>Visualize an array using Matplotlib's matshow function. The first example shown below plots a 2D array and the second example plots a diagonal array.</p><p><a href=\"https://gavinw.me/notes/python/matplotlib-matshow-plot.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/javascript/node.html",
+            "url": "https://gavinw.me/notes/javascript/node.html",
+            "title": "Create a JavaScript Environment with Node",
+            "date_published": "2023-04-28T00:00:00Z",
+            "content_html": "<p>Node.js is a JavaScript run-time environment for developing command line tools and server-side applications outside the browser. See <a href=\"https://nodejs.dev\">https://nodejs.dev</a> or <a href=\"https://nodejs.org\">https://nodejs.org</a> for more information. The recommended way to install Node.js is with the Node Version Manager (nvm). See the installation steps at <a href=\"https://github.com/nvm-sh/nvm\">https://github.com/nvm-sh/nvm</a>.</p><p><a href=\"https://gavinw.me/notes/javascript/node.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/swift/directory-contents.html",
+            "url": "https://gavinw.me/notes/swift/directory-contents.html",
+            "title": "Directory Contents with Swift",
+            "date_published": "2023-04-18T00:00:00Z",
+            "content_html": "<p>This example uses the <code>FileManager</code> class to list the contents of a folder (directory) located on the Desktop. The printed output from running this example as <code>main.swift</code> is also given below.</p><p><a href=\"https://gavinw.me/notes/swift/directory-contents.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/python/count-letters.html",
+            "url": "https://gavinw.me/notes/python/count-letters.html",
+            "title": "Count Letters with Python",
+            "date_published": "2023-04-15T00:00:00Z",
+            "content_html": "<p>Given the string <code>Mary had a little Mommy lamb</code>, count the number of times a letter appears in the string. See the examples below for different approaches.</p><p><a href=\"https://gavinw.me/notes/python/count-letters.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/swiftui/line-chart.html",
+            "url": "https://gavinw.me/notes/swiftui/line-chart.html",
+            "title": "Line Graphs with SwiftUI and Charts",
+            "date_published": "2023-03-28T00:00:00Z",
+            "content_html": "<p>All of the examples on this page have the window resizability set to the content size. This allows the size of the window to be defined by the chart view.</p><p><a href=\"https://gavinw.me/notes/swiftui/line-chart.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/javascript/load-html.html",
+            "url": "https://gavinw.me/notes/javascript/load-html.html",
+            "title": "Use JavaScript to Load HTML Content",
+            "date_published": "2023-03-26T00:00:00Z",
+            "content_html": "<p>Content from HTML files can be loaded asynchronously using the <code>fetch()</code> method. In the example below, the content of the left and right columns are loaded from HTML files. The column layout is from the <a href=\"https://getbootstrap.com\">Bootstrap</a> CSS.</p><p><a href=\"https://gavinw.me/notes/javascript/load-html.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/javascript/scroll-columns.html",
+            "url": "https://gavinw.me/notes/javascript/scroll-columns.html",
+            "title": "Scroll Columns with JavaScript",
+            "date_published": "2023-03-24T00:00:00Z",
+            "content_html": "<p>Set the max height and overflow styles of <a href=\"https://getbootstrap.com\">Bootstrap</a> columns to independently scroll the columns. This isn't JavaScript, but it's related to website layout so it might be useful for designing web applications.</p><p><a href=\"https://gavinw.me/notes/javascript/scroll-columns.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/javascript/select-results.html",
+            "url": "https://gavinw.me/notes/javascript/select-results.html",
+            "title": "Select Results with JavaScript",
+            "date_published": "2023-03-23T00:00:00Z",
+            "content_html": "<p>In this example, number inputs are used as width and height parameters. These parameters are used to calculate area and perimeter results. The result views are in separate HTML files that are fetched with JavaScript.</p><p><a href=\"https://gavinw.me/notes/javascript/select-results.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/javascript/strings.html",
+            "url": "https://gavinw.me/notes/javascript/strings.html",
+            "title": "Strings in JavaScript",
+            "date_published": "2023-03-19T00:00:00Z",
+            "content_html": "<p>A string in JavaScript is represented by single or double quotes.</p><p><a href=\"https://gavinw.me/notes/javascript/strings.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/javascript/plotly-graph.html",
+            "url": "https://gavinw.me/notes/javascript/plotly-graph.html",
+            "title": "Plotly Graphs in JavaScript",
+            "date_published": "2023-03-19T00:00:00Z",
+            "content_html": "<p><a href=\"https://plotly.com\">Plotly</a> is an open-source graphing library for JavaScript and other programming languages. Two basic examples are given below. The first graph uses a custom background color to match the web page. The second graph turns off some of the grid lines and uses the default background color.</p><p><a href=\"https://gavinw.me/notes/javascript/plotly-graph.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/javascript/input-number.html",
+            "url": "https://gavinw.me/notes/javascript/input-number.html",
+            "title": "Input Numbers with JavaScript",
+            "date_published": "2023-03-18T00:00:00Z",
+            "content_html": "<p>The example below demonstrates how to calculate the area from width and length inputs. Notice the type of each input is defined as number. Click the button to calculate the area or use an event listener to automatically run the area function.</p><p><a href=\"https://gavinw.me/notes/javascript/input-number.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/javascript/fizzbuzz.html",
+            "url": "https://gavinw.me/notes/javascript/fizzbuzz.html",
+            "title": "Fizz buzz in Javascript",
+            "date_published": "2023-03-18T00:00:00Z",
+            "content_html": "<p>This is a typical fizz buzz example written in JavaScript that runs in a web page. The input defines the number of iterations. A number divisible by 3 displays the word \"Fizz\", a number divisible by 5 displays \"Buzz\", and a number divisible by both 3 and 5 displays \"Fizz Buzz\".</p><p><a href=\"https://gavinw.me/notes/javascript/fizzbuzz.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/javascript/select-units.html",
+            "url": "https://gavinw.me/notes/javascript/select-units.html",
+            "title": "Select Units with JavaScript",
+            "date_published": "2023-03-17T00:00:00Z",
+            "content_html": "<p>In this example, the select element is used to change the units associated with the input parameter. As shown in the image below, the diameter is entered as 4.5 inches and is automatically converted to meters as shown in the Results section. The same conversion to meters is done for the height parameter. Finally, the parameters (in units of meters) are used to calculate the cylinder volume in cubic meters (m<sup>3</sup>).</p><p><a href=\"https://gavinw.me/notes/javascript/select-units.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/javascript/modules.html",
+            "url": "https://gavinw.me/notes/javascript/modules.html",
+            "title": "JavaScript Modules",
+            "date_published": "2023-02-27T00:00:00Z",
+            "content_html": "<p>A module is a single JavaScript file where its variables and functions can be accessed from other JavaScript files. A local web server must be used to test modules in the browser; otherwise, opening the web page locally will not work.</p><p><a href=\"https://gavinw.me/notes/javascript/modules.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/swiftui/window-defaultsize.html",
+            "url": "https://gavinw.me/notes/swiftui/window-defaultsize.html",
+            "title": "Default Size in SwiftUI",
+            "date_published": "2023-02-22T00:00:00Z",
+            "content_html": "<p>The default window size in this example is set to 400x200. If the window size is changed by dragging the corner or side, then the new size becomes the default size when the app is relaunched. Delete the app's container to restore the app to its default state.</p><p><a href=\"https://gavinw.me/notes/swiftui/window-defaultsize.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/swiftui/window-resizability.html",
+            "url": "https://gavinw.me/notes/swiftui/window-resizability.html",
+            "title": "Window Resizability in SwiftUI",
+            "date_published": "2023-02-21T00:00:00Z",
+            "content_html": "<p>The desired window size is determined by the <code>windowResizability</code> method of the <code>WindowGroup</code>. The example below uses the frame of the content view to fix the window size to 300x200.</p><p><a href=\"https://gavinw.me/notes/swiftui/window-resizability.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/python/numpy-index-max.html",
+            "url": "https://gavinw.me/notes/python/numpy-index-max.html",
+            "title": "Index of Max Value with NumPy",
+            "date_published": "2023-02-06T00:00:00Z",
+            "content_html": "<p>Use NumPy's <code>argmax()</code> function to get the index of the maximum value in an array.</p><p><a href=\"https://gavinw.me/notes/python/numpy-index-max.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/python/tkinter-label.html",
+            "url": "https://gavinw.me/notes/python/tkinter-label.html",
+            "title": "Update Label Text in Tkinter",
+            "date_published": "2023-02-04T00:00:00Z",
+            "content_html": "<p>Example of updating a Label's text in Tkinter.</p><p><a href=\"https://gavinw.me/notes/python/tkinter-label.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/python/tkinter-customtkinter.html",
+            "url": "https://gavinw.me/notes/python/tkinter-customtkinter.html",
+            "title": "Tkinter with the CustomTkinter Theme",
+            "date_published": "2023-02-04T00:00:00Z",
+            "content_html": "<p>Example of a Tkinter app using the customtkinter theme. This theme will automatically change to light or dark mode when the macOS appearance changes. More information about the theme is available on GitHub at <a href=\"https://github.com/TomSchimansky/CustomTkinter\">TomSchimansky/CustomTkinter</a>.</p><p><a href=\"https://gavinw.me/notes/python/tkinter-customtkinter.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/python/tkinter-open-json-file.html",
+            "url": "https://gavinw.me/notes/python/tkinter-open-json-file.html",
+            "title": "Open JSON File in Tkinter",
+            "date_published": "2023-02-04T00:00:00Z",
+            "content_html": "<p>Example of opening a JSON file and reading its contents in a Tkinter app. See\nthe <a href=\"https://docs.python.org/3/library/dialog.html\">Python Tkinter docs</a> for\nmore information about file selection dialogs.</p><p><a href=\"https://gavinw.me/notes/python/tkinter-open-json-file.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/python/flask-bokeh-graph.html",
+            "url": "https://gavinw.me/notes/python/flask-bokeh-graph.html",
+            "title": "Bokeh Graphs and Htmx with Flask",
+            "date_published": "2023-02-04T00:00:00Z",
+            "content_html": "<p><a href=\"https://bokeh.org\">Bokeh</a> is a visualization library for Python that makes it easy to plot data in Jupyter notebooks or web pages. <a href=\"https://htmx.org\">Htmx</a> allows you to develop dynamic, interactive web pages without complex JavaScript. The examples in the following sections demonstrate using Flask with Bokeh graphs and Htmx interactivity.</p><p><a href=\"https://gavinw.me/notes/python/flask-bokeh-graph.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/python/matplotlib-contour-smoothing.html",
+            "url": "https://gavinw.me/notes/python/matplotlib-contour-smoothing.html",
+            "title": "Contour Plot Smoothing with Matplotlib",
+            "date_published": "2023-02-04T00:00:00Z",
+            "content_html": "<p>The example below generates a contour plot of sparse data.</p><p><a href=\"https://gavinw.me/notes/python/matplotlib-contour-smoothing.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/python/flask-plotly-graph.html",
+            "url": "https://gavinw.me/notes/python/flask-plotly-graph.html",
+            "title": "Plotly Graphs and Htmx with Flask",
+            "date_published": "2023-02-04T00:00:00Z",
+            "content_html": "<p><a href=\"https://plotly.com\">Plotly</a> is a great graphing library for scientific applications. <a href=\"https://htmx.org\">Htmx</a> allows you to develop dynamic, interactive web pages without complex JavaScript. The following sections demonstrate a Plotly graph and Htmx with Flask.</p><p><a href=\"https://gavinw.me/notes/python/flask-plotly-graph.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/python/numpy-large-array-memory.html",
+            "url": "https://gavinw.me/notes/python/numpy-large-array-memory.html",
+            "title": "Memory Usage of a Large NumPy Array",
+            "date_published": "2023-02-04T00:00:00Z",
+            "content_html": "<p>In the examples below, a 500x2000x2000 three-dimensional NumPy array named <code>a</code> is initialized with zeros. At each iteration, a random two-dimensional array <code>r</code> is inserted into array <code>a</code>. This approach could represent a larger piece of code where the <code>r</code> array would be created from various calculations during each iteration of the for-loop. Consequently, each slice in the z dimension of the <code>a</code> array is calculated at each iteration.</p><p><a href=\"https://gavinw.me/notes/python/numpy-large-array-memory.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/python/tkinter-ttkbootstrap.html",
+            "url": "https://gavinw.me/notes/python/tkinter-ttkbootstrap.html",
+            "title": "Tkinter Theme with ttkbootstrap",
+            "date_published": "2023-02-04T00:00:00Z",
+            "content_html": "<p>Example of a Tkinter app using the ttkbootstrap theme. More information about\nthe theme is available on GitHub at <a href=\"https://github.com/israel-dryer/ttkbootstrap\">israel-dryer/ttkbootstrap</a>.</p><p><a href=\"https://gavinw.me/notes/python/tkinter-ttkbootstrap.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/python/flask-form-input.html",
+            "url": "https://gavinw.me/notes/python/flask-form-input.html",
+            "title": "Form Input with Htmx and Flask",
+            "date_published": "2023-02-04T00:00:00Z",
+            "content_html": "<p>An HTML form collects user input on a web page. Using Flask, the input can be evaluated in Python and used elsewhere in the web application. The examples in the following sections demonstrate a basic form with Flask and using Htmx for interactivity.</p><p><a href=\"https://gavinw.me/notes/python/flask-form-input.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/python/tkinter-basic-app.html",
+            "url": "https://gavinw.me/notes/python/tkinter-basic-app.html",
+            "title": "Tkinter Application",
+            "date_published": "2023-02-04T00:00:00Z",
+            "content_html": "<p>This example demonstrates the structure of a basic Tkinter application.</p><p><a href=\"https://gavinw.me/notes/python/tkinter-basic-app.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/python/flask-ajax.html",
+            "url": "https://gavinw.me/notes/python/flask-ajax.html",
+            "title": "Update a Webpage with Ajax and Flask",
+            "date_published": "2023-02-04T00:00:00Z",
+            "content_html": "<p>This Flask webapp example uses Ajax to update the page with results from the post request. The results are returned as JSON which is used to update the div tags.</p><p><a href=\"https://gavinw.me/notes/python/flask-ajax.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/python/matplotlib-animation.html",
+            "url": "https://gavinw.me/notes/python/matplotlib-animation.html",
+            "title": "Animation with Matplotlib",
+            "date_published": "2023-02-04T00:00:00Z",
+            "content_html": "<p>Matplotlib provides two animation classes for animating a plot figure. The example below uses the ArtistAnimation class. The animation can be displayed just like any other Matplotlib figure and saved to file as various video formats.</p><p><a href=\"https://gavinw.me/notes/python/matplotlib-animation.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/python/flask-plotly-restyle.html",
+            "url": "https://gavinw.me/notes/python/flask-plotly-restyle.html",
+            "title": "Plotly Graph Restyle with Flask",
+            "date_published": "2023-02-04T00:00:00Z",
+            "content_html": "<p><a href=\"https://plotly.com\">Plotly</a> is a great graphing library for scientific applications. The example below demonstrates using the Plotly JavaScript library in a Flask app. When the page first loads, a default line graph is shown. New data points are added to the graph using the form inputs. The <code>Plotly.restyle</code> function is used to redraw the graph when new data points are submitted; this approach avoids recreating an entirely new Plotly graph each time the data is updated.</p><p><a href=\"https://gavinw.me/notes/python/flask-plotly-restyle.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/python/tkinter-matplotlib.html",
+            "url": "https://gavinw.me/notes/python/tkinter-matplotlib.html",
+            "title": "View Data with Matplotlib in Tkinter",
+            "date_published": "2023-02-04T00:00:00Z",
+            "content_html": "<p>Below is an example of using Matplotlib to plot data in a Tkinter app. The plot figure is shown in a separate window when the button is pressed.</p><p><a href=\"https://gavinw.me/notes/python/tkinter-matplotlib.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/python/matplotlib-mosaic-grid.html",
+            "url": "https://gavinw.me/notes/python/matplotlib-mosaic-grid.html",
+            "title": "Mosaic Grid of Plots with Matplotlib",
+            "date_published": "2023-02-04T00:00:00Z",
+            "content_html": "<p>Example of using Matplotlib <code>subplot_mosaic()</code> to create a grid of plots.</p><p><a href=\"https://gavinw.me/notes/python/matplotlib-mosaic-grid.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/python/sorted-list.html",
+            "url": "https://gavinw.me/notes/python/sorted-list.html",
+            "title": "Sorted List of Items with Python",
+            "date_published": "2023-02-04T00:00:00Z",
+            "content_html": "<p>A list of dictionaries can be sorted using the keys in the dictionaries, while a list of tuples can be sorted using the tuple's index.</p><p><a href=\"https://gavinw.me/notes/python/sorted-list.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/swiftui/blur-effect.html",
+            "url": "https://gavinw.me/notes/swiftui/blur-effect.html",
+            "title": "Blur Effect in SwiftUI",
+            "date_published": "2023-02-04T00:00:00Z",
+            "content_html": "<p>The blur modifier, denoted by <code>.blur</code>, can be used to blur a view.</p><p><a href=\"https://gavinw.me/notes/swiftui/blur-effect.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/swiftui/sine-wave.html",
+            "url": "https://gavinw.me/notes/swiftui/sine-wave.html",
+            "title": "Sine Wave in SwiftUI",
+            "date_published": "2023-02-04T00:00:00Z",
+            "content_html": "<p>To draw a sine wave, create a shape that draws a line using x and y values. The values must be converted to the proper points within the view's frame. Markers represent points on the drawn line.</p><p><a href=\"https://gavinw.me/notes/swiftui/sine-wave.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/swiftui/grid-lines.html",
+            "url": "https://gavinw.me/notes/swiftui/grid-lines.html",
+            "title": "Grid Lines in SwiftUI",
+            "date_published": "2023-02-04T00:00:00Z",
+            "content_html": "<p>A GeometryReader can be used to equally space lines in a view even when that view changes size. This is accomplished by using the width and height of the container view to determine the spacing of the lines.</p><p><a href=\"https://gavinw.me/notes/swiftui/grid-lines.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/rust/enums.html",
+            "url": "https://gavinw.me/notes/rust/enums.html",
+            "title": "Enums in Rust",
+            "date_published": "2023-01-30T00:00:00Z",
+            "content_html": "<p>An enum (or enumeration) represents data that is one of several possible variants. Each variant in the enum can optionally have data associated with it. An enumeration is declared using the <code>enum</code> keyword.</p><p><a href=\"https://gavinw.me/notes/rust/enums.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/swift/element-array-addition.html",
+            "url": "https://gavinw.me/notes/swift/element-array-addition.html",
+            "title": "Element-wise Array Addition in Swift, Accelerate, and Metal",
+            "date_published": "2023-01-16T00:00:00Z",
+            "content_html": "<p>There are several ways to perform element-wise array addition with Swift arrays. One approach is to use a for-loop, another approach is to use the Accelerate framework, and yet another approach is to use a Metal GPU compute kernel. An example of each approach is given below and an elapsed time comparison for adding two large arrays is given in the Summary section.</p><p><a href=\"https://gavinw.me/notes/swift/element-array-addition.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/rust/hashmaps.html",
+            "url": "https://gavinw.me/notes/rust/hashmaps.html",
+            "title": "Hash Maps in Rust",
+            "date_published": "2022-12-18T00:00:00Z",
+            "content_html": "<p>A hash map stores a key/value pair into memory. This is similar to a hash table or dictionary in other programming languages. The example below creates a new hash map, adds elements to it, then gets a value associated with a key.</p><p><a href=\"https://gavinw.me/notes/rust/hashmaps.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/rust/strings.html",
+            "url": "https://gavinw.me/notes/rust/strings.html",
+            "title": "Strings in Rust",
+            "date_published": "2022-12-18T00:00:00Z",
+            "content_html": "<p>A string literal uses double quotes <code>\" \"</code> and represents a string slice <code>str</code> or <code>&amp;str</code>.</p><p><a href=\"https://gavinw.me/notes/rust/strings.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/cpp/strings.html",
+            "url": "https://gavinw.me/notes/cpp/strings.html",
+            "title": "Strings in C++",
+            "date_published": "2022-12-13T00:00:00Z",
+            "content_html": "<p>Examples of working with strings are given below.</p><p><a href=\"https://gavinw.me/notes/cpp/strings.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/cpp/clang-macos.html",
+            "url": "https://gavinw.me/notes/cpp/clang-macos.html",
+            "title": "Clang on macOS",
+            "date_published": "2022-12-13T00:00:00Z",
+            "content_html": "<p>Check if the clang compiler is installed on your Mac using the following terminal command:</p><p><a href=\"https://gavinw.me/notes/cpp/clang-macos.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/cpp/helloworld.html",
+            "url": "https://gavinw.me/notes/cpp/helloworld.html",
+            "title": "Hello World in C++",
+            "date_published": "2022-12-13T00:00:00Z",
+            "content_html": "<p>Here is a simple example of a C++ program in a file named <code>helloworld.cpp</code>.</p><p><a href=\"https://gavinw.me/notes/cpp/helloworld.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/cpp/cmake-install.html",
+            "url": "https://gavinw.me/notes/cpp/cmake-install.html",
+            "title": "Use CMake to Build and Install a C++ Project",
+            "date_published": "2022-12-13T00:00:00Z",
+            "content_html": "<p>Below is an example C++ project. The CMakeLists file contains instructions for building and installing the project using the CMake command line tool.</p><p><a href=\"https://gavinw.me/notes/cpp/cmake-install.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/cpp/cmake-build.html",
+            "url": "https://gavinw.me/notes/cpp/cmake-build.html",
+            "title": "Use CMake to Build a C++ Project",
+            "date_published": "2022-12-13T00:00:00Z",
+            "content_html": "<p>Below is an example C++ project. The CMakeLists file contains instructions for building the project using the CMake command line tool.</p><p><a href=\"https://gavinw.me/notes/cpp/cmake-build.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/cpp/numbers.html",
+            "url": "https://gavinw.me/notes/cpp/numbers.html",
+            "title": "Numbers in C++",
+            "date_published": "2022-12-13T00:00:00Z",
+            "content_html": "<p>Examples of integer, float, and double numbers are given below. An integer is just a whole number (no decimals). A float is a number with up to 7 decimal digits and a double is up to 15 decimal digits of precision.</p><p><a href=\"https://gavinw.me/notes/cpp/numbers.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/cpp/commandline.html",
+            "url": "https://gavinw.me/notes/cpp/commandline.html",
+            "title": "Command Line Arguments in C++",
+            "date_published": "2022-12-13T00:00:00Z",
+            "content_html": "<p>To pass command line arguments to a program, define <code>main()</code> with two arguments. The <code>argc</code> argument is the number of command line arguments including the program name while <code>argv</code> is the list of arguments passed to the program.</p><p><a href=\"https://gavinw.me/notes/cpp/commandline.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/rust/fizzbuzz.html",
+            "url": "https://gavinw.me/notes/rust/fizzbuzz.html",
+            "title": "FizzBuzz in Rust",
+            "date_published": "2022-12-11T00:00:00Z",
+            "content_html": "<p>Examples of the classic fizzbuzz problem are implemented below. The first example uses if-else statements while the second example uses pattern matching.</p><p><a href=\"https://gavinw.me/notes/rust/fizzbuzz.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/swiftui/twocol-navsplit.html",
+            "url": "https://gavinw.me/notes/swiftui/twocol-navsplit.html",
+            "title": "Two Column NavigationSplitView with SwiftUI",
+            "date_published": "2022-11-30T00:00:00Z",
+            "content_html": "<p>A two column <code>NavigationSplitView</code> creates a sidebar with a list of items and a detail view. In the example shown below, selecting an item in the sidebar will change the contents of the detail view. Notice the <code>SidebarCommands()</code> enables Hide Sidebar and Show Sidebar items in the View menu.</p><p><a href=\"https://gavinw.me/notes/swiftui/twocol-navsplit.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/python/dictionaries.html",
+            "url": "https://gavinw.me/notes/python/dictionaries.html",
+            "title": "Dictionaries in Python",
+            "date_published": "2022-11-15T00:00:00Z",
+            "content_html": "<p>A dictionary can be created with comma-separated key:value pairs within braces or by using the dict type constructor. A value is accessed by specifying its key in square brackets. The order of items in a dictionary is guaranteed as of Python 3.7.</p><p><a href=\"https://gavinw.me/notes/python/dictionaries.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/rust/arrays-vectors.html",
+            "url": "https://gavinw.me/notes/rust/arrays-vectors.html",
+            "title": "Arrays and Vectors in Rust",
+            "date_published": "2022-11-14T00:00:00Z",
+            "content_html": "<p>In Rust, arrays and vectors are both collections that store multiple elements of the same type. Arrays are fixed-size collections allocated on the stack. Vectors are dynamic arrays allocated on the heap that can grow and shrink at runtime.</p><p><a href=\"https://gavinw.me/notes/rust/arrays-vectors.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/rust/structs.html",
+            "url": "https://gavinw.me/notes/rust/structs.html",
+            "title": "Structs in Rust",
+            "date_published": "2022-11-14T00:00:00Z",
+            "content_html": "<p>A <code>struct</code> is a custom data type that contains related values. Below are some examples of creating structs and accessing its values.</p><p><a href=\"https://gavinw.me/notes/rust/structs.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/rust/loops.html",
+            "url": "https://gavinw.me/notes/rust/loops.html",
+            "title": "Rust Loops",
+            "date_published": "2022-11-14T00:00:00Z",
+            "content_html": "<p>Rust provides three kinds of loops: <code>loop</code>, <code>while</code>, and <code>for</code>. Use the <code>loop</code> keyword to execute code repeatedly until <code>break</code> is called.</p><p><a href=\"https://gavinw.me/notes/rust/loops.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/rust/slices.html",
+            "url": "https://gavinw.me/notes/rust/slices.html",
+            "title": "Slices in Rust",
+            "date_published": "2022-11-14T00:00:00Z",
+            "content_html": "<p>A slice is a reference to a sequence of elements in a collection such as a string or array. In this example, the <code>s</code> string is sliced to obtain a reference of the first word and second word in the string.</p><p><a href=\"https://gavinw.me/notes/rust/slices.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/rust/tuples.html",
+            "url": "https://gavinw.me/notes/rust/tuples.html",
+            "title": "Tuples in Rust",
+            "date_published": "2022-11-14T00:00:00Z",
+            "content_html": "<p>A tuple groups together values where each value can have a different type. Tuples have a fixed length and the first index is 0. In this example, a tuple is defined with three values of different types. The value is accessed using a period.</p><p><a href=\"https://gavinw.me/notes/rust/tuples.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/rust/references.html",
+            "url": "https://gavinw.me/notes/rust/references.html",
+            "title": "Rust References",
+            "date_published": "2022-11-14T00:00:00Z",
+            "content_html": "<p>A reference is denoted by an ampersand <code>&amp;</code>. In the example below, a reference of the string <code>s1</code> is passed to the <code>calculate_length</code> function. The <code>&amp;s1</code> refers to the value of <code>s1</code> without owning it.</p><p><a href=\"https://gavinw.me/notes/rust/references.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/rust/run-file.html",
+            "url": "https://gavinw.me/notes/rust/run-file.html",
+            "title": "Compile and Run a Rust File",
+            "date_published": "2022-11-14T00:00:00Z",
+            "content_html": "<p>Below is the contents of a simple Rust program contained in a file named <code>sayhello.rs</code>.</p><p><a href=\"https://gavinw.me/notes/rust/run-file.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/rust/functions.html",
+            "url": "https://gavinw.me/notes/rust/functions.html",
+            "title": "Rust Functions",
+            "date_published": "2022-11-14T00:00:00Z",
+            "content_html": "<p>Functions in Rust are defined with <code>fn</code>. The function name and its input arguments should be lowercase with underscores to separate words. Some examples of functions are shown below.</p><p><a href=\"https://gavinw.me/notes/rust/functions.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/rust/ifexpressions.html",
+            "url": "https://gavinw.me/notes/rust/ifexpressions.html",
+            "title": "If Expressions in Rust",
+            "date_published": "2022-11-14T00:00:00Z",
+            "content_html": "<p>Use an <code>if</code> expression to check if a condition is met or not met. The <code>else</code> expression is used to check for multiple conditions.</p><p><a href=\"https://gavinw.me/notes/rust/ifexpressions.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/rust/numbers.html",
+            "url": "https://gavinw.me/notes/rust/numbers.html",
+            "title": "Numbers in Rust",
+            "date_published": "2022-11-14T00:00:00Z",
+            "content_html": "<p>Signed integer types are <code>i8</code> (8-bit), <code>i16</code> (16-bit), <code>i32</code> (32-bit), <code>i64</code> (64-bit), and <code>i128</code> (128-bit). The default integer type is i32. Numbers represented by signed integers can have a positive or negative value.</p><p><a href=\"https://gavinw.me/notes/rust/numbers.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/swift/credits.html",
+            "url": "https://gavinw.me/notes/swift/credits.html",
+            "title": "Credits for a Mac App",
+            "date_published": "2022-11-13T00:00:00Z",
+            "content_html": "<p>The About window in a Mac application is viewed by selecting the app's name in the top menu bar, then choosing the About item in the menu. The image below displays Safari's About window.</p><p><a href=\"https://gavinw.me/notes/swift/credits.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/swiftui/text.html",
+            "url": "https://gavinw.me/notes/swiftui/text.html",
+            "title": "Text in SwiftUI",
+            "date_published": "2022-11-13T00:00:00Z",
+            "content_html": "<p>A Text view displays one or more lines of read-only text.</p><p><a href=\"https://gavinw.me/notes/swiftui/text.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/swiftui/label.html",
+            "url": "https://gavinw.me/notes/swiftui/label.html",
+            "title": "SwiftUI Label",
+            "date_published": "2022-11-13T00:00:00Z",
+            "content_html": "<p>Use a Label to show text and an icon side by side. The icon can be either an SF Symbol or your own image. The label can be scaled with the font modifier. A completely custom label can be created using custom views for the text and icon.</p><p><a href=\"https://gavinw.me/notes/swiftui/label.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/swiftui/nspasteboard.html",
+            "url": "https://gavinw.me/notes/swiftui/nspasteboard.html",
+            "title": "NSPasteboard with SwiftUI",
+            "date_published": "2022-11-13T00:00:00Z",
+            "content_html": "<p>The typical way to copy text is to select it with the mouse then press \u2318C. To do this in code, use the NSPasteboard class to transfer text to the pasteboard server.</p><p><a href=\"https://gavinw.me/notes/swiftui/nspasteboard.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/swiftui/viewtapgesture.html",
+            "url": "https://gavinw.me/notes/swiftui/viewtapgesture.html",
+            "title": "View Tap Gesture in SwiftUI",
+            "date_published": "2022-11-13T00:00:00Z",
+            "content_html": "<p>Use a view's tap gesture modifier to perform an action when the view is tapped (clicked). The count parameter defines how many taps (or clicks) are needed to perform the action.</p><p><a href=\"https://gavinw.me/notes/swiftui/viewtapgesture.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/swiftui/sidebar-toggle.html",
+            "url": "https://gavinw.me/notes/swiftui/sidebar-toggle.html",
+            "title": "Sidebar Toggle with SwiftUI",
+            "date_published": "2022-11-13T00:00:00Z",
+            "content_html": "<p>A sidebar view can be displayed or hidden using the toggleSidebar() feature from an NSSplitViewController. At the time of writing this article, SwiftUI does not have this feature but hopefully an upcoming WWDC will offer a SwiftUI solution.</p><p><a href=\"https://gavinw.me/notes/swiftui/sidebar-toggle.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/swiftui/window-toolbar-style.html",
+            "url": "https://gavinw.me/notes/swiftui/window-toolbar-style.html",
+            "title": "Window and Toolbar Style in SwiftUI",
+            "date_published": "2022-11-13T00:00:00Z",
+            "content_html": "<p>The window and toolbar style can be defined with the windowStyle() and windowToolbarStyle() modifiers for the WindowGroup in the main app struct. Some of the styles are demonstrated below.</p><p><a href=\"https://gavinw.me/notes/swiftui/window-toolbar-style.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/swiftui/toggle-animation.html",
+            "url": "https://gavinw.me/notes/swiftui/toggle-animation.html",
+            "title": "Toggle SwiftUI Animation",
+            "date_published": "2022-11-13T00:00:00Z",
+            "content_html": "<p>An example of fading text in and out using a toggle is given below. Without the animation modifier, the text would just appear or disappear below the toggle button.</p><p><a href=\"https://gavinw.me/notes/swiftui/toggle-animation.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/swiftui/appstorage.html",
+            "url": "https://gavinw.me/notes/swiftui/appstorage.html",
+            "title": "AppStorage in SwiftUI",
+            "date_published": "2022-11-13T00:00:00Z",
+            "content_html": "<p>The <code>@AppStorage</code> property wrapper reads and writes values from user defaults. The example below saves a fruit name (a string) to the fruit key in user defaults. When the app is relaunched, the saved fruit name will be displayed in the text label. Enter a fruit in the text field then click the save fruit button to save a new fruit to the fruit key in user defaults.</p><p><a href=\"https://gavinw.me/notes/swiftui/appstorage.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/swiftui/scrollview.html",
+            "url": "https://gavinw.me/notes/swiftui/scrollview.html",
+            "title": "ScrollView with SwiftUI",
+            "date_published": "2022-11-13T00:00:00Z",
+            "content_html": "<p>The scroll view displays its content within a scrollable area of the window.</p><p><a href=\"https://gavinw.me/notes/swiftui/scrollview.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/swiftui/button-styles.html",
+            "url": "https://gavinw.me/notes/swiftui/button-styles.html",
+            "title": "Button Styles with SwiftUI",
+            "date_published": "2022-11-13T00:00:00Z",
+            "content_html": "<p>Several built-in button styles are available for macOS such as the PlainButtonStyle, LinkButtonStyle, and BorderlessButtonStyle. The BorderedButtonStyle is also the default button style. To create a custom appearance for a button, use the ButtonStyle protocol. To fully customize the button's appearance and behavior, use the PrimitiveButtonStyle protocol.</p><p><a href=\"https://gavinw.me/notes/swiftui/button-styles.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/swiftui/path-markers.html",
+            "url": "https://gavinw.me/notes/swiftui/path-markers.html",
+            "title": "Path Markers in SwiftUI",
+            "date_published": "2022-11-13T00:00:00Z",
+            "content_html": "<p>Markers can be added to a line path by stacking two views in a ZStack. The line is drawn as a path using LineShape while the markers (filled circles) are created in the MarkersView.</p><p><a href=\"https://gavinw.me/notes/swiftui/path-markers.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/swiftui/webview.html",
+            "url": "https://gavinw.me/notes/swiftui/webview.html",
+            "title": "WebView in SwiftUI",
+            "date_published": "2022-11-13T00:00:00Z",
+            "content_html": "<p>A WKWebView from the WebKit framework is used to display web content in a window. The web view can be wrapped with NSViewRepresentable to make it usable with SwiftUI. Content for the web view can be loaded from an HTML file, from a string containing HTML, or from a URL representing a website address. Don't forget to enable \"Outgoing Connections\" in the target's \"App Sandbox\"; otherwise, the website will not display in the app.</p><p><a href=\"https://gavinw.me/notes/swiftui/webview.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/swiftui/textfield.html",
+            "url": "https://gavinw.me/notes/swiftui/textfield.html",
+            "title": "TextField in SwiftUI",
+            "date_published": "2022-11-13T00:00:00Z",
+            "content_html": "<p>The TextField structure is a control that provides an editable text field. Various modifiers are available to customize the appearance and text alignment. Actions can be performed when editing begins and ends for the text field or when the return key is pressed.</p><p><a href=\"https://gavinw.me/notes/swiftui/textfield.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/swiftui/table.html",
+            "url": "https://gavinw.me/notes/swiftui/table.html",
+            "title": "Tables in SwiftUI",
+            "date_published": "2022-11-13T00:00:00Z",
+            "content_html": "<p>A Table presents rows and columns of data that can be selected and sorted. A basic example is shown below.</p><p><a href=\"https://gavinw.me/notes/swiftui/table.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/swiftui/viewbuilder.html",
+            "url": "https://gavinw.me/notes/swiftui/viewbuilder.html",
+            "title": "SwiftUI ViewBuilder",
+            "date_published": "2022-11-13T00:00:00Z",
+            "content_html": "<p>The <code>@ViewBuilder</code> attribute can be used to build views from closures. To demonstrate, three views are defined as shown below:</p><p><a href=\"https://gavinw.me/notes/swiftui/viewbuilder.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/swiftui/three-column-nav.html",
+            "url": "https://gavinw.me/notes/swiftui/three-column-nav.html",
+            "title": "Three Column NavigationView in SwiftUI",
+            "date_published": "2022-11-13T00:00:00Z",
+            "content_html": "<p>A three column NavigationView is created using a similar approach as the two column NavigationView. The middle column has a fixed minimum width of 200 but the frame's minWidth can be specified with a value greater than 200.</p><p><a href=\"https://gavinw.me/notes/swiftui/three-column-nav.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/swiftui/progressview.html",
+            "url": "https://gavinw.me/notes/swiftui/progressview.html",
+            "title": "ProgressView with SwiftUI",
+            "date_published": "2022-11-13T00:00:00Z",
+            "content_html": "<p>A ProgressView represents completion of a task or the occurance of an activity with an unknown completion time. A default value of 1.0 is used for the total value when tracking completion progress. As the example demonstrates below, different configurations of a progress view are possible.</p><p><a href=\"https://gavinw.me/notes/swiftui/progressview.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/swiftui/toolbar-dropdown.html",
+            "url": "https://gavinw.me/notes/swiftui/toolbar-dropdown.html",
+            "title": "Toolbar Dropdown with SwiftUI",
+            "date_published": "2022-11-13T00:00:00Z",
+            "content_html": "<p>Place a menu in a toolbar item to display a dropdown when the toolbar item is clicked.</p><p><a href=\"https://gavinw.me/notes/swiftui/toolbar-dropdown.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/swiftui/picker-control.html",
+            "url": "https://gavinw.me/notes/swiftui/picker-control.html",
+            "title": "Picker Control with SwiftUI",
+            "date_published": "2022-11-13T00:00:00Z",
+            "content_html": "<p>The picker control selects an item from a set of values. The appearance of the picker can be changed by using different styles and modifiers.</p><p><a href=\"https://gavinw.me/notes/swiftui/picker-control.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/swiftui/images-symbols.html",
+            "url": "https://gavinw.me/notes/swiftui/images-symbols.html",
+            "title": "SwiftUI Images and Symbols",
+            "date_published": "2022-11-13T00:00:00Z",
+            "content_html": "<p>An Image view is used to display an image. For the example below, an image named \"homer\" is added to the Assets catalog then the image is displayed in the window while preserving its aspect ratio.</p><p><a href=\"https://gavinw.me/notes/swiftui/images-symbols.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/swiftui/stepper.html",
+            "url": "https://gavinw.me/notes/swiftui/stepper.html",
+            "title": "Stepper in SwiftUI",
+            "date_published": "2022-11-13T00:00:00Z",
+            "content_html": "<p>The stepper control increments and decrements a value. A closed range can be used to limit the applicable stepper values.</p><p><a href=\"https://gavinw.me/notes/swiftui/stepper.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/swiftui/sidebar-disclosuregroup.html",
+            "url": "https://gavinw.me/notes/swiftui/sidebar-disclosuregroup.html",
+            "title": "Sidebar DisclosureGroup with SwiftUI",
+            "date_published": "2022-11-13T00:00:00Z",
+            "content_html": "<p>To organize our sidebar view, we can use DisclosureGroup. We can create different sections and specify if they are expanded by default when the application launches.</p><p><a href=\"https://gavinw.me/notes/swiftui/sidebar-disclosuregroup.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/swiftui/prefs-window.html",
+            "url": "https://gavinw.me/notes/swiftui/prefs-window.html",
+            "title": "Preferences Window with SwiftUI",
+            "date_published": "2022-11-13T00:00:00Z",
+            "content_html": "<p>A preferences window is typically used to present and configure the settings associated with a Mac application. In apps built with SwiftUI, these settings are stored and set using the AppStorage property wrapper. To add a preferenes window to your application, you need to add a Settings group to the main App struct.</p><p><a href=\"https://gavinw.me/notes/swiftui/prefs-window.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/swiftui/labeledcontent.html",
+            "url": "https://gavinw.me/notes/swiftui/labeledcontent.html",
+            "title": "LabeledContent in SwiftUI",
+            "date_published": "2022-11-13T00:00:00Z",
+            "content_html": "<p>The LabeledContent view is comprised of a label and content. Usually, it displays the label on the leading edge and the content on the trailing edge. This is similar to using an HStack containing two views.</p><p><a href=\"https://gavinw.me/notes/swiftui/labeledcontent.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/swiftui/window-open.html",
+            "url": "https://gavinw.me/notes/swiftui/window-open.html",
+            "title": "Open a Window with SwiftUI",
+            "date_published": "2022-11-13T00:00:00Z",
+            "content_html": "<p>To open a window using SwiftUI, first add a WindowGroup that will display the window's view. Use the handlesExternalEvents modifier to indicate the event that is used to display the window.</p><p><a href=\"https://gavinw.me/notes/swiftui/window-open.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/swiftui/menu-items.html",
+            "url": "https://gavinw.me/notes/swiftui/menu-items.html",
+            "title": "Menu Items with SwiftUI",
+            "date_published": "2022-11-13T00:00:00Z",
+            "content_html": "<p>Menus in Mac apps are typically located at the top of the screen in the menu bar. Menu items can be added to an app's menu using the commands modifier on the WindowGroup.</p><p><a href=\"https://gavinw.me/notes/swiftui/menu-items.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/swiftui/two-column-nav.html",
+            "url": "https://gavinw.me/notes/swiftui/two-column-nav.html",
+            "title": "Two Column NavigationView in SwiftUI",
+            "date_published": "2022-11-13T00:00:00Z",
+            "content_html": "<p>A two column NavigationView creates a sidebar with a list of items and a content view. In the example shown below, selecting an item in the sidebar will change the content view. An @AppStorage property is used to remember the selected item.</p><p><a href=\"https://gavinw.me/notes/swiftui/two-column-nav.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/swiftui/cursors.html",
+            "url": "https://gavinw.me/notes/swiftui/cursors.html",
+            "title": "Cursors in a Mac App",
+            "date_published": "2022-11-13T00:00:00Z",
+            "content_html": "<p>The mouse pointer (or cursor) is represented by an arrow on the screen. Different cursors are available in macOS to indicate actions that the user can take with the mouse. See the <a href=\"https://developer.apple.com/documentation/appkit/nscursor\">NSCursor documentation</a> for a list of all the available cursors.</p><p><a href=\"https://gavinw.me/notes/swiftui/cursors.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/swift/dictionaries.html",
+            "url": "https://gavinw.me/notes/swift/dictionaries.html",
+            "title": "Swift Dictionaries",
+            "date_published": "2022-11-12T00:00:00Z",
+            "content_html": "<p>A dictionary in Swift is a list of key-value pairs separated by colons and surrounded by square brackets such as <code>[key: value]</code>. Values returned from a dictionary are optional because the key may not exist in the dictionary.</p><p><a href=\"https://gavinw.me/notes/swift/dictionaries.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/swift/strides.html",
+            "url": "https://gavinw.me/notes/swift/strides.html",
+            "title": "Strides in Swift",
+            "date_published": "2022-11-12T00:00:00Z",
+            "content_html": "<p>Use the stride function to step over values between two limits or boundaries. The stride functions can also be used to build arrays with a certain range of numbers.</p><p><a href=\"https://gavinw.me/notes/swift/strides.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/swift/strings.html",
+            "url": "https://gavinw.me/notes/swift/strings.html",
+            "title": "Strings in Swift",
+            "date_published": "2022-11-12T00:00:00Z",
+            "content_html": "<p>A string in Swift is represented by characters wrapped with double quotation marks <code>\" \"</code>. Multiline strings are wrapped with three double quotation marks <code>\"\"\" \"\"\"</code>. Use a backslash <code>\\</code> to ignore a line break in a multiline string.</p><p><a href=\"https://gavinw.me/notes/swift/strings.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/swift/date-formatting.html",
+            "url": "https://gavinw.me/notes/swift/date-formatting.html",
+            "title": "Date Formatting in Swift",
+            "date_published": "2022-11-12T00:00:00Z",
+            "content_html": "<p>Examples of creating a formatted date string are shown below. The output of each print function is given as a comment below the function.</p><p><a href=\"https://gavinw.me/notes/swift/date-formatting.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/swift/range.html",
+            "url": "https://gavinw.me/notes/swift/range.html",
+            "title": "Range in Swift",
+            "date_published": "2022-11-12T00:00:00Z",
+            "content_html": "<p>Check if a value is within a given range using the contains method.</p><p><a href=\"https://gavinw.me/notes/swift/range.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/python/strings.html",
+            "url": "https://gavinw.me/notes/python/strings.html",
+            "title": "Strings in Python",
+            "date_published": "2022-11-11T00:00:00Z",
+            "content_html": "<p>Some basic examples of creating strings in Python.</p><p><a href=\"https://gavinw.me/notes/python/strings.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/swift/accelerate-sort.html",
+            "url": "https://gavinw.me/notes/swift/accelerate-sort.html",
+            "title": "Sort Array Values with Accelerate",
+            "date_published": "2022-11-11T00:00:00Z",
+            "content_html": "<p>Sort the values in an array by ascending or descending order. Values of the array must be Float or Double.</p><p><a href=\"https://gavinw.me/notes/swift/accelerate-sort.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/swift/accelerate-absolute-value.html",
+            "url": "https://gavinw.me/notes/swift/accelerate-absolute-value.html",
+            "title": "Absolute Value with Accelerate",
+            "date_published": "2022-11-11T00:00:00Z",
+            "content_html": "<p>Get the absolute values of a vector using the vDSP.absolute function.</p><p><a href=\"https://gavinw.me/notes/swift/accelerate-absolute-value.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/swift/accelerate-reverse.html",
+            "url": "https://gavinw.me/notes/swift/accelerate-reverse.html",
+            "title": "Reverse Array Elements using Accelerate",
+            "date_published": "2022-11-11T00:00:00Z",
+            "content_html": "<p>Reverse the order of elements in an array using the vDSP.reverse function. Values in the array must be Float or Double.</p><p><a href=\"https://gavinw.me/notes/swift/accelerate-reverse.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/swift/defaults-tool.html",
+            "url": "https://gavinw.me/notes/swift/defaults-tool.html",
+            "title": "Defaults Command Line Tool",
+            "date_published": "2022-11-10T00:00:00Z",
+            "content_html": "<p>User defaults created via <code>UserDefaults</code> or <code>AppStorage</code> can be read and deleted using the defaults command line tool. This is useful to clear an app's preferences when developing in Xcode by providing the bundle identifier to the tool.</p><p><a href=\"https://gavinw.me/notes/swift/defaults-tool.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/python/ray-functions.html",
+            "url": "https://gavinw.me/notes/python/ray-functions.html",
+            "title": "Ray Functions",
+            "date_published": "2022-11-08T00:00:00Z",
+            "content_html": "<p>To parallelize a function with the <a href=\"https://www.ray.io\">Ray</a> framework, decorate the function with <code>@ray.remote</code> to run the function remotely. Call the function with <code>.remote()</code> instead of calling it normally. The remote call yields a future that must be fetched with <code>ray.get</code>. The example below compares a parallel Ray function to a standard non-parallel function. A computationally expensive task is simulated by using the <code>sleep()</code> function.</p><p><a href=\"https://gavinw.me/notes/python/ray-functions.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/python/secrets.html",
+            "url": "https://gavinw.me/notes/python/secrets.html",
+            "title": "Secrets in Python",
+            "date_published": "2022-11-08T00:00:00Z",
+            "content_html": "<p>Use the <code>secrets</code> module to generate cryptographically strong random passwords containing letters, numbers, and punctuation.</p><p><a href=\"https://gavinw.me/notes/python/secrets.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/python/ray-actors.html",
+            "url": "https://gavinw.me/notes/python/ray-actors.html",
+            "title": "Ray Actors",
+            "date_published": "2022-11-08T00:00:00Z",
+            "content_html": "<p><a href=\"https://www.ray.io\">Ray</a> actors are used to parallelize a class instance to perform stateful operations in parallel. Ray will start a remote instance of the class and then execute remote method calls and maintain its own internal state. The example below compares a parallel Ray actor approach to a standard class approach. A computationally expensive task is simulated by using the <code>sleep()</code> function.</p><p><a href=\"https://gavinw.me/notes/python/ray-actors.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/python/counter.html",
+            "url": "https://gavinw.me/notes/python/counter.html",
+            "title": "Counter in Python",
+            "date_published": "2022-11-08T00:00:00Z",
+            "content_html": "<p>The <code>Counter</code> class counts the number of times an item appears in a list or hashable object. For example, you can count the number of times a string appears in a list or how often a letter occurs in a string.</p><p><a href=\"https://gavinw.me/notes/python/counter.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/python/unittest-csv.html",
+            "url": "https://gavinw.me/notes/python/unittest-csv.html",
+            "title": "Unittest CSV Files with Python",
+            "date_published": "2022-11-08T00:00:00Z",
+            "content_html": "<p>The example below demonstrates a unit test for a function that writes data in a dictionary to CSV files.</p><p><a href=\"https://gavinw.me/notes/python/unittest-csv.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/python/json.html",
+            "url": "https://gavinw.me/notes/python/json.html",
+            "title": "JSON with Python",
+            "date_published": "2022-11-08T00:00:00Z",
+            "content_html": "<p>JavaScript Object Notation (JSON) is a common data format that is supported natively in Python. The format is built on name/value pairs and ordered list values. Visit <a href=\"https://www.json.org/json-en.html\">json.org</a> to learn more about the JSON format.</p><p><a href=\"https://gavinw.me/notes/python/json.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/python/prealloc-list.html",
+            "url": "https://gavinw.me/notes/python/prealloc-list.html",
+            "title": "Pre-allocate a Python List",
+            "date_published": "2022-11-08T00:00:00Z",
+            "content_html": "<p>If the size of a list is known, then pre-allocating the list can provide performance improvements; especially for a large list. The example below measures the performance of appending items to an empty list. Pre-allocating a list of known size and assigning items to it gives better performance than appending to the list. The list comprehension approach (see Example 3) gives the best elapsed time.</p><p><a href=\"https://gavinw.me/notes/python/prealloc-list.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/python/dask-arrays.html",
+            "url": "https://gavinw.me/notes/python/dask-arrays.html",
+            "title": "Dask Arrays",
+            "date_published": "2022-11-08T00:00:00Z",
+            "content_html": "<p>Dask Array is similar to a NumPy array and allows cutting up a large array into smaller arrays (chunks). This enables working with arrays that are larger than memory. Computations can be applied in parallel for fast execution. Below is an example of using Dask array <code>map_blocks()</code> to map a function that returns a single value. Using an 8 CPU core MacBook Pro running macOS v11.6, the serial elapsed time is 513.51 seconds and the Dask elapsed time is 3.21 seconds.</p><p><a href=\"https://gavinw.me/notes/python/dask-arrays.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/python/tuples.html",
+            "url": "https://gavinw.me/notes/python/tuples.html",
+            "title": "Tuples in Python",
+            "date_published": "2022-11-08T00:00:00Z",
+            "content_html": "<p>A tuple is a number of items separated by commas.</p><p><a href=\"https://gavinw.me/notes/python/tuples.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/python/cprofile.html",
+            "url": "https://gavinw.me/notes/python/cprofile.html",
+            "title": "cProfile for Python Code",
+            "date_published": "2022-11-08T00:00:00Z",
+            "content_html": "<p>The <code>cProfile</code> module provides an interface to profile Python programs. A single function or an entire script or module can be profiled. As an example, the script shown below contains two functions that suspend execution for 2 and 4.5 seconds.</p><p><a href=\"https://gavinw.me/notes/python/cprofile.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/python/lists.html",
+            "url": "https://gavinw.me/notes/python/lists.html",
+            "title": "Lists in Python",
+            "date_published": "2022-11-08T00:00:00Z",
+            "content_html": "<p>A list is used to group numbers, strings, or objects together. It is written as a pair of square brackets containing comma-separated items. A list typically contains items of similar type but it can contain items of different types too. Unlike tuples, lists are mutable therefore the content of a list can be modified.</p><p><a href=\"https://gavinw.me/notes/python/lists.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/python/test-examples.html",
+            "url": "https://gavinw.me/notes/python/test-examples.html",
+            "title": "Test Examples with Python",
+            "date_published": "2022-11-08T00:00:00Z",
+            "content_html": "<p>Example scripts are often available for Python packages to demonstrate how to use the package. The examples are typically part of the repository where the package is developed. Tests should be written to ensure the examples continue to work with new versions of the package.</p><p><a href=\"https://gavinw.me/notes/python/test-examples.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/python/dask-script.html",
+            "url": "https://gavinw.me/notes/python/dask-script.html",
+            "title": "Run Dask Code as a Script",
+            "date_published": "2022-11-08T00:00:00Z",
+            "content_html": "<p>Since most Dask examples are demonstrated using Jupyter notebooks, here's an example of using Dask in a Python file or script. Notice how the Dask code must be in the <code>__main__</code> block or called from within a function.</p><p><a href=\"https://gavinw.me/notes/python/dask-script.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/python/xml.html",
+            "url": "https://gavinw.me/notes/python/xml.html",
+            "title": "Parsing XML with Python",
+            "date_published": "2022-11-08T00:00:00Z",
+            "content_html": "<p>There are several XML parsers available in the Python standard library. Below is an example of using the ElementTree module.</p><p><a href=\"https://gavinw.me/notes/python/xml.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/python/scipy-sparse-diag.html",
+            "url": "https://gavinw.me/notes/python/scipy-sparse-diag.html",
+            "title": "Sparse Diagonal Matrix with SciPy",
+            "date_published": "2022-11-08T00:00:00Z",
+            "content_html": "<p>The <code>diags</code> function from SciPy can be used to create a sparse diagonal matrix. The matrix is constructed from lists or NumPy arrays that represent the diagonals of the matrix. The <code>offsets</code> argument sets the placement of the diagonals within the matrix where <code>k = 0</code> is the main diagonal, <code>k &lt; 0</code> is the kth lower diagonal, and <code>k &gt; 0</code> is the kth upper diagonal.</p><p><a href=\"https://gavinw.me/notes/python/scipy-sparse-diag.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/python/numpy-loop-columns.html",
+            "url": "https://gavinw.me/notes/python/numpy-loop-columns.html",
+            "title": "Loop Over Columns with NumPy",
+            "date_published": "2022-11-07T00:00:00Z",
+            "content_html": "<p>Loop over columns in an array by iterating over the transpose of the array.</p><p><a href=\"https://gavinw.me/notes/python/numpy-loop-columns.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/python/numpy-save-load-arrays.html",
+            "url": "https://gavinw.me/notes/python/numpy-save-load-arrays.html",
+            "title": "Save and Load NumPy Arrays",
+            "date_published": "2022-11-07T00:00:00Z",
+            "content_html": "<p>NumPy arrays can be saved and loaded using different file formats. Examples of using the NumPy file formats <code>.npy</code> and <code>.npz</code> as well as a plain text format are given below.</p><p><a href=\"https://gavinw.me/notes/python/numpy-save-load-arrays.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/python/numpy-difference.html",
+            "url": "https://gavinw.me/notes/python/numpy-difference.html",
+            "title": "Set Difference of Two NumPy Arrays",
+            "date_published": "2022-11-07T00:00:00Z",
+            "content_html": "<p>The <code>setdiff1d</code> function returns the unique values in array 1 that are not in array 2.</p><p><a href=\"https://gavinw.me/notes/python/numpy-difference.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/python/numpy-maximum-array.html",
+            "url": "https://gavinw.me/notes/python/numpy-maximum-array.html",
+            "title": "Maximum Array with NumPy",
+            "date_published": "2022-11-07T00:00:00Z",
+            "content_html": "<p>The <code>maximum</code> function returns a new array that contains the maximum values of the two given arrays.</p><p><a href=\"https://gavinw.me/notes/python/numpy-maximum-array.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/python/numpy-full-array.html",
+            "url": "https://gavinw.me/notes/python/numpy-full-array.html",
+            "title": "Full Array in NumPy",
+            "date_published": "2022-11-07T00:00:00Z",
+            "content_html": "<p>Use the <code>full</code> function in NumPy to create a new array filled with a given value.</p><p><a href=\"https://gavinw.me/notes/python/numpy-full-array.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/python/numpy-compare-inv-solve.html",
+            "url": "https://gavinw.me/notes/python/numpy-compare-inv-solve.html",
+            "title": "Compare inv and solve Functions in NumPy",
+            "date_published": "2022-11-07T00:00:00Z",
+            "content_html": "<p>Solve equation <code>A*x=b</code> for <code>x</code> and compare results using the <code>np.linalg.solve()</code> function to the <code>np.linalg.inv()</code> approach.</p><p><a href=\"https://gavinw.me/notes/python/numpy-compare-inv-solve.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/python/numpy-clip-array.html",
+            "url": "https://gavinw.me/notes/python/numpy-clip-array.html",
+            "title": "Clip Array Values with NumPy",
+            "date_published": "2022-11-07T00:00:00Z",
+            "content_html": "<p>The <code>clip</code> function limits the values in an array based on a given interval or minimum or maximum value.</p><p><a href=\"https://gavinw.me/notes/python/numpy-clip-array.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/python/numpy-bool-index.html",
+            "url": "https://gavinw.me/notes/python/numpy-bool-index.html",
+            "title": "Boolean Indexing with NumPy",
+            "date_published": "2022-11-07T00:00:00Z",
+            "content_html": "<p>Use boolean indexing in NumPy arrays to assign values. The example below assigns a zero to array items that are less than zero.</p><p><a href=\"https://gavinw.me/notes/python/numpy-bool-index.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/julia/testing.html",
+            "url": "https://gavinw.me/notes/julia/testing.html",
+            "title": "Testing Julia Code",
+            "date_published": "2021-06-26T00:00:00Z",
+            "content_html": "<p>To demonstrate testing functions in Julia, two functions are defined below. A small program that uses the functions is also shown.</p><p><a href=\"https://gavinw.me/notes/julia/testing.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/julia/docstrings.html",
+            "url": "https://gavinw.me/notes/julia/docstrings.html",
+            "title": "Docstrings in Julia Code",
+            "date_published": "2021-06-24T00:00:00Z",
+            "content_html": "<p>Any string appearing directly above an object is interpreted as a docstring for that object. This documentation is treated as Markdown therefore code blocks and other Markdown supported features are supported. An example docstring for a function is shown below.</p><p><a href=\"https://gavinw.me/notes/julia/docstrings.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/julia/debugging.html",
+            "url": "https://gavinw.me/notes/julia/debugging.html",
+            "title": "Debugging Julia Code",
+            "date_published": "2021-06-22T00:00:00Z",
+            "content_html": "<p>One way to debug Julia code is to use the <a href=\"https://github.com/JuliaDebug/Infiltrator.jl\">Infiltrator.jl package</a>.  As shown in the example file below, a breakpoint is set with the <code>@infiltrate</code> macro.</p><p><a href=\"https://gavinw.me/notes/julia/debugging.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/julia/arrays.html",
+            "url": "https://gavinw.me/notes/julia/arrays.html",
+            "title": "Arrays in Julia",
+            "date_published": "2021-06-20T00:00:00Z",
+            "content_html": "<p>An array is a collection of items surrounded by square brackets <code>[ ]</code>. Arrays in Julia are 1-based therefore the first item in an array is at the 1-index.</p><p><a href=\"https://gavinw.me/notes/julia/arrays.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/julia/conditionals.html",
+            "url": "https://gavinw.me/notes/julia/conditionals.html",
+            "title": "Conditional Statements in Julia",
+            "date_published": "2021-06-13T00:00:00Z",
+            "content_html": "<p>A conditional statement is written with the <code>if-elseif-else</code> syntax. The ternary operator <code>? :</code> offers a concise syntax for a conditional expression.</p><p><a href=\"https://gavinw.me/notes/julia/conditionals.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/julia/modules.html",
+            "url": "https://gavinw.me/notes/julia/modules.html",
+            "title": "Modules for Julia Code",
+            "date_published": "2021-06-08T00:00:00Z",
+            "content_html": "<p>Modules help organize code that can be easily used in another program. The <code>MyModule</code> shown below is an example of a user defined module which includes functions from the <code>funcA</code> and <code>funcB</code> files. For this example the module and its associated files are contained in a folder called MyModule.</p><p><a href=\"https://gavinw.me/notes/julia/modules.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/julia/json-parsing.html",
+            "url": "https://gavinw.me/notes/julia/json-parsing.html",
+            "title": "JSON Parsing with Julia",
+            "date_published": "2021-06-08T00:00:00Z",
+            "content_html": "<p>The <a href=\"https://juliapackages.com/p/json\">JSON.jl package</a> provides JSON parsing and printing capabilities in Julia. See the package's documentation for installation and usage information. The example below parses the <code>vehicles.json</code> file which contains</p><p><a href=\"https://gavinw.me/notes/julia/json-parsing.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/julia/functions.html",
+            "url": "https://gavinw.me/notes/julia/functions.html",
+            "title": "Functions in Julia",
+            "date_published": "2021-05-27T00:00:00Z",
+            "content_html": "<p>In Julia, a function is an object where input arguments provide a return value.</p><p><a href=\"https://gavinw.me/notes/julia/functions.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/julia/loops.html",
+            "url": "https://gavinw.me/notes/julia/loops.html",
+            "title": "Loops in Julia",
+            "date_published": "2021-05-25T00:00:00Z",
+            "content_html": "<p>Use a for-loop for repeated tasks and to iterate over arrays.</p><p><a href=\"https://gavinw.me/notes/julia/loops.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/julia/tuples.html",
+            "url": "https://gavinw.me/notes/julia/tuples.html",
+            "title": "Tuples in Julia",
+            "date_published": "2021-05-23T00:00:00Z",
+            "content_html": "<p>A tuple is a fixed-length immutable container represented by parentheses <code>( )</code>. Values in a tuple are accessed with indexing. A single item tuple must contain a comma.</p><p><a href=\"https://gavinw.me/notes/julia/tuples.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/julia/dictionaries.html",
+            "url": "https://gavinw.me/notes/julia/dictionaries.html",
+            "title": "Dictionaries in Julia",
+            "date_published": "2021-05-22T00:00:00Z",
+            "content_html": "<p>The <code>Dict()</code> constructor is used to create dictionaries in Julia. A dictionary is constructed using key value pairs separated with <code>=&gt;</code> or as tuples.</p><p><a href=\"https://gavinw.me/notes/julia/dictionaries.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/julia/strings.html",
+            "url": "https://gavinw.me/notes/julia/strings.html",
+            "title": "Strings in Julia",
+            "date_published": "2021-05-22T00:00:00Z",
+            "content_html": "<p>Strings can be represented by double quotes or by triple double quotes. A character or group of characters are extracted from a string using an index or range. Combining strings can be accomplished with <code>$</code>, <code>string</code>, and <code>*</code>.</p><p><a href=\"https://gavinw.me/notes/julia/strings.html\">Continue reading...</a></p>"
+        },
+        {
+            "id": "https://gavinw.me/notes/python/fizzbuzz.html",
+            "url": "https://gavinw.me/notes/python/fizzbuzz.html",
+            "title": "Fizz Buzz in Python",
+            "date_published": "2020-05-14T00:00:00Z",
+            "content_html": "<p>This is the classic fizz buzz example where a number divisible by 3 is replaced with Fizz, a number divisible by 5 is replaced with Buzz, and a number divisible by both 3 and 5 (divisible by 15) is replaced with Fizz Buzz.</p><p><a href=\"https://gavinw.me/notes/python/fizzbuzz.html\">Continue reading...</a></p>"
+        }
+    ]
+}

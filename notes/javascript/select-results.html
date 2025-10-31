@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Open Graph -->
+    <meta property="og:url" content="https://gavinw.me/notes/javascript/select-results.html">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Gavin Wiggins">
+    <meta property="og:description" content="Select Results with JavaScript">
+    <meta property="og:image" content="https://gavinw.me/assets/images/opengraph.jpg">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- Highlightjs -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/styles/github-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/languages/julia.min.js"></script>
+    <script>hljs.highlightAll();</script>
+
+    <!-- MathJax -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../../styles.css">
+
+    <title>Gavin Wiggins</title>
+</head>
+<body>
+<div class="container">
+<div class="row">
+<div class="col-md">
+    <h1><a href="/" style="color: inherit;">Gavin Wiggins</a></h1>
+
+    <p style="font-weight: 500;">
+        <a href="../../notes.html">Notes</a> &nbsp; / &nbsp;
+        <a href="../../links.html">Links</a> &nbsp; / &nbsp;
+        <a href="../../contact.html">Contact</a>
+    </p>
+
+    <hr class="mb-5">
+
+    <h1>Select Results with JavaScript</h1>
+
+    <h6 class="text-secondary">Written on March 23, 2023</h6>
+
+    <p>In this example, number inputs are used as width and height parameters. These parameters are used to calculate area and perimeter results. The result views are in separate HTML files that are fetched with JavaScript.</p>
+<p><img src="../../assets/images/js-select-results.png" style="max-width:400px;" alt="select results"></p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+    &lt;title&gt;Example&lt;/title&gt;
+    &lt;style&gt;
+        body {
+            background-color: lightgrey;
+            margin: 40px auto;
+            max-width: 800px;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+    &lt;h2&gt;Parameters&lt;/h2&gt;
+
+    &lt;p&gt;
+        &lt;label for=&quot;width&quot;&gt;Enter width:&lt;/label&gt;
+        &lt;input id=&quot;width&quot; name=&quot;width&quot; type=&quot;number&quot; min=&quot;0&quot; value=&quot;4.5&quot;&gt;
+    &lt;/p&gt;
+
+    &lt;p&gt;
+        &lt;label for=&quot;height&quot;&gt;Enter height:&lt;/label&gt;
+        &lt;input id=&quot;height&quot; name=&quot;height&quot; type=&quot;number&quot; min=&quot;0&quot; value=&quot;10.2&quot;&gt;
+    &lt;/p&gt;
+
+    &lt;hr&gt;
+
+    &lt;h2&gt;Results&lt;/h2&gt;
+
+    &lt;p&gt;Select:
+    &lt;select id=&quot;selectResults&quot;&gt;
+        &lt;option value=&quot;area&quot;&gt;Area&lt;/option&gt;
+        &lt;option value=&quot;perimeter&quot; selected&gt;Perimeter&lt;/option&gt;
+    &lt;/select&gt;
+    &lt;/p&gt;
+
+    &lt;div id=&quot;results&quot;&gt;&lt;/div&gt;
+
+    &lt;script src=&quot;app.js&quot;&gt;&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>The result views are in the <code>area.html</code> and <code>perimeter.html</code> files as represented below.</p>
+<pre><code class="language-html">&lt;!-- Contents of the area.html file --&gt;
+
+&lt;h2&gt;Area&lt;/h2&gt;
+
+&lt;p id=&quot;area&quot;&gt;Area is: 0&lt;/p&gt;
+
+&lt;!-- Contents of the perimenter.html file --&gt;
+
+&lt;h2&gt;Perimeter&lt;/h2&gt;
+
+&lt;p id=&quot;perimeter&quot;&gt;Perimeter is: 0&lt;/p&gt;
+</code></pre>
+<p>The JavaScript for this example is shown below.</p>
+<pre><code class="language-javascript">// app.js
+
+async function calcArea(resultsElem, width, height) {
+    const response = await fetch('views/area.html');
+    const text = await response.text();
+
+    resultsElem.innerHTML = text;
+
+    const areaElem = document.getElementById('area');
+    areaElem.innerHTML = `Area is: ${width * height}`;
+}
+
+async function calcPerimeter(resultsElem, width, height) {
+    const response = await fetch('views/perimeter.html');
+    const text = await response.text();
+
+    resultsElem.innerHTML = text;
+
+    const perimeterElem = document.getElementById('perimeter');
+    perimeterElem.innerHTML = `Perimeter is: ${(2 * width) + (2 * height)}`;
+}
+
+function viewResults() {
+    const width = document.getElementById(&quot;width&quot;).value;
+    const height = document.getElementById(&quot;height&quot;).value;
+
+    const selectResultsElem = document.getElementById(&quot;selectResults&quot;);
+    const resultsElem = document.getElementById('results');
+
+    switch (selectResultsElem.value) {
+        case &quot;area&quot;:
+            calcArea(resultsElem, width, height);
+            break;
+        case &quot;perimeter&quot;:
+            calcPerimeter(resultsElem, width, height);
+            break;
+    }
+}
+
+window.addEventListener('load', viewResults);
+document.addEventListener('input', viewResults);
+</code></pre>
+
+    <br>
+
+    <p class="text-center small my-5">
+        Gavin Wiggins © 2025<br>
+        Made on a <a href="https://www.apple.com/mac/">Mac</a> with <a href="https://github.com/wigging/genja">Genja</a>. Hosted on <a href="https://pages.github.com">GitHub Pages</a>.
+    </p>
+</div>  <!-- end col-md -->
+</div>  <!-- end row -->
+</div>  <!-- end container -->
+</body>
+</html>
