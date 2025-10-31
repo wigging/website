@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+
+    <title>Un1ts for macOS</title>
+</head>
+<body>
+<div class="container">
+
+    <div class="row">
+        <div class="col-md">
+            <img class="mx-auto d-block my-5" src="assets/images/un1ts-icon128.svg" alt="app icon">
+            <h1 class="mt-0">Un1ts</h1>
+
+            <p>Un1ts is a comprehensive unit converter for the Mac. This native app is built with Swift and SwiftUI to support the latest features of macOS. Just enter a value in a field and it will automatically convert to all units in that category.</p>
+
+            <p>Categories for unit conversion include:</p>
+            <ul style="column-count: 2; -webkit-column-count: 2; -moz-column-count: 2">
+                <li>Acceleration</li>
+                <li>Analysis</li>
+                <li>Angle</li>
+                <li>Area</li>
+                <li>Data</li>
+                <li>Density</li>
+                <li>Energy</li>
+                <li>Force</li>
+                <li>Illuminance</li>
+                <li>Length</li>
+                <li>Mass</li>
+                <li>Power</li>
+                <li>Pressure</li>
+                <li>Radiation</li>
+                <li>Radioactivity</li>
+                <li>Speed</li>
+                <li>Temperature</li>
+                <li>Time</li>
+                <li>Torque</li>
+                <li>Volume</li>
+            </ul>
+
+            <p><a href="https://apps.apple.com/app/un1ts/id1506348529"><b>App Store</b></a> - Un1ts is available exclusively on the Mac App Store.</p>
+            <p><a href="mailto:mailATgavinwDOTme" onclick = "this.href=this.href.replace(/AT/,'&#64;').replace(/DOT/,'&#46;')"><b>Email</b></a> -  Questions, comments, and other feedback.</p>
+            <p><a href="https://fosstodon.org/@wigging"><b>Mastodon</b></a> - Announcements, questions, and other feedback.</p>
+
+            <p>If you would like to support the development of Un1ts, beyond the one-time purchase fee, donations to the developer can be sent via <a href="https://github.com/sponsors/wigging">GitHub Sponsors</a>, <a href="https://www.patreon.com/wigging">Patreon</a>, <a href="https://www.buymeacoffee.com/wigging">Buy Me A Coffee</a>, and <a href="https://www.paypal.me/gavinwiggins">PayPal</a>.</p>
+        </div>
+    </div>
+
+    <div class="row my-5">
+        <div class="col-md">
+            <p><img src="assets/images/un1ts-screen1.png" class="img-fluid" alt="screenshot 1"></p>
+            <p><img src="assets/images/un1ts-screen2.png" class="img-fluid" alt="screenshot 2"></p>
+            <p><img src="assets/images/un1ts-screen3.png" class="img-fluid" alt="screenshot 3"></p>
+            <p><img src="assets/images/un1ts-screen4.png" class="img-fluid" alt="screenshot 4"></p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md">
+            <h3>Background</h3>
+            <p>Un1ts was originally released in 2013 for the Mac. It was written entirely in Objective-C and was one of the first apps I released on the Mac App Store. In 2019, I decided to create a new version of the app written in Swift and SwiftUI.</p>
+
+            <h3 class="mt-5">Changelog</h3>
+            <p>Un1ts uses calendar versioning for releases where major releases are Year.Month (v20.4) and minor releases are Year.Month.Day (v20.4.9). For example, v20.4 refers to the version released in April 2020.</p>
+            <dl>
+                <dt>v25.4</dt>
+                <dd>Add British and American conversions in Energy category for therm, BTU, MMBTU, ft-lbs, scf, and scy. Add British and American conversions in Power category for USRT, BTU/s, BTU/min, BTU/hr, and ft-lbf/s. Add Water and Mercury conversions in Pressure category for m H₂O, cm H₂O, mm H₂O, ft H₂O, in H₂O, in Hg, cm Hg, and mm Hg.</dd>
+
+                <dt>v23.4</dt>
+                <dd>Add more units to Data category. Changed text style and layout for Info windows. Also changed frame dimensions for Info window.</dd>
+
+                <dt>v22.12</dt>
+                <dd>Include id in ForEach loop and adjust window size.</dd>
+
+                <dt>v22.3</dt>
+                <dd>Completely rewrote the app to use recent SwiftUI features for macOS. Added a navigation buttion and menu item to show/hide the sidebar. Improved window management. Moved the Proximate Analysis and Ultimate Analysis categories into a single Analysis category.</dd>
+
+                <dt>v22.1</dt>
+                <dd>New app icon for macOS Monterey. Remove Print item in File menu.</dd>
+
+                <dt>v20.11</dt>
+                <dd>Typographical length conversions. Support for Apple Silicon and Intel Macs.</dd>
+
+                <dt>v20.8</dt>
+                <dd>Nautical length and speed conversions.</dd>
+
+                <dt>v20.7</dt>
+                <dd>Copy a unit's value by clicking its unit label. The formatted value can be pasted into documents and other applications.</dd>
+
+                <dt>v20.6</dt>
+                <dd>Proximate analysis conversion from as-received basis to dry and dry ash-free bases. Ultimate analysis conversion from as-received basis to dry and dry ash-free bases.</dd>
+
+                <dt>v20.4.9</dt>
+                <dd>Improved app icons for better visibility on high resolution displays. Provide higher resolution screenshots for the App Store.</dd>
+
+                <dt>v20.4</dt>
+                <dd>Available on the Mac App Store.</dd>
+            </dl>
+
+            <h3 class="mt-5">Acknowledgments</h3>
+            <p>I would like to thank the following people for their invaluable programming advice: Jeff Biggus, Adam Byram, Lucas Derraugh, and Bill Morefield.</p>
+
+            <h3 class="mt-5">Privacy Policy</h3>
+            <p>The Un1ts app does not collect any user data. Settings such as number style and significant digits are stored on the user's computer.</p>
+
+            <hr class="mt-5">
+
+            <p class="text-center small my-5">Developed by <a href="https://gavinw.me">Gavin Wiggins</a> © 2025</p>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
