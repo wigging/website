@@ -1,0 +1,103 @@
+html {
+  color-scheme: light dark;
+}
+
+body {
+  font-family: system-ui;
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+a,
+a:visited {
+  color: light-dark(#0d6efd, #6ea8fe);
+  text-decoration: none;
+}
+
+a:hover {
+  color: light-dark(#0a58ca, #8bb9fe);
+  text-decoration: underline dotted;
+}
+
+code {
+  color: light-dark(#d63384, #e685b5);
+  font-size: 0.875em;
+  word-wrap: break-word;
+}
+
+pre code {
+  border-radius: 0.5rem;
+}
+
+ul {
+  padding-inline-start: 1.3rem;
+  list-style-position: outside;
+}
+
+header {
+  max-width: 45rem;
+  margin-inline: auto;
+  border-bottom: 1px solid light-dark(#cccccc, #555555);
+}
+
+nav ol {
+  display: flex;
+  justify-content: left;
+  gap: 1rem;
+  list-style: none;
+  padding-left: 0;
+}
+
+main {
+  max-width: 45rem;
+  margin-inline: auto;
+}
+
+time {
+  opacity: 0.5;
+}
+
+.note {
+  margin-block: 2rem;
+}
+
+.note h4 {
+  margin: 0;
+}
+
+.note p {
+  margin: 0;
+}
+
+.publication {
+  margin-block: 1rem;
+}
+
+.publication h4 {
+  display: inline;
+  font-weight: 600;
+}
+
+.publication p {
+  display: inline;
+}
+
+.software {
+  margin-block: 1rem;
+}
+
+.software h4 {
+  margin-bottom: 0.5rem;
+}
+
+.software p {
+  display: inline;
+}
+
+footer {
+  max-width: 45rem;
+  margin-block: 4rem;
+  margin-inline: auto;
+  font-size: 0.875rem;
+  text-align: center;
+}
