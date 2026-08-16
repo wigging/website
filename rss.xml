@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Gavin Wiggins — Notes</title>
+    <link>https://gavinw.me/notes.html</link>
+    <description>Notes on various programming and technology-related topics.</description>
+    <item>
+      <title>LazyVim Configuration</title>
+      <link>https://gavinw.me/notes/lazyvim-config.html</link>
+      <guid isPermaLink="true">https://gavinw.me/notes/lazyvim-config.html</guid>
+      <description>Configuration settings for LazyVim with a focus on HTML, CSS, Python.</description>
+      <pubDate>Sun, 12 Jul 2026 00:00:00 GMT</pubDate>
+    </item>
+  </channel>
+</rss>

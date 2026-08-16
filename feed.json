@@ -1,0 +1,15 @@
+{
+  "version": "https://jsonfeed.org/version/1.1",
+  "title": "Gavin Wiggins \u2014 Notes",
+  "home_page_url": "https://gavinw.me/notes.html",
+  "feed_url": "https://gavinw.me/feed.json",
+  "items": [
+    {
+      "id": "https://gavinw.me/notes/lazyvim-config.html",
+      "url": "https://gavinw.me/notes/lazyvim-config.html",
+      "title": "LazyVim Configuration",
+      "summary": "Configuration settings for LazyVim with a focus on HTML, CSS, Python.",
+      "date_published": "2026-07-12T00:00:00Z"
+    }
+  ]
+}
