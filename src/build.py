@@ -5,6 +5,14 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 SOURCE = Path(__file__).resolve().parent
 
+PAGE_DIR = SOURCE / "page-content"
+PAGE_TEMPLATE = SOURCE / "templates" / "page.html"
+PAGE_OUTPUT = ROOT
+
+NOTE_DIR = SOURCE / "note-content"
+NOTE_TEMPLATE = SOURCE / "templates" / "note.html"
+NOTE_OUTPUT = ROOT / "note"
+
 
 def build(source_directory, template_path, output_directory):
     """Render each HTML source file into the output directory."""
@@ -22,8 +30,8 @@ def build(source_directory, template_path, output_directory):
 
 def main():
     """Build pages into the project root and posts into the notes directory."""
-    build(SOURCE / "pages", SOURCE / "templates" / "page.html", ROOT)
-    build(SOURCE / "posts", SOURCE / "templates" / "post.html", ROOT / "notes")
+    build(PAGE_DIR, PAGE_TEMPLATE, PAGE_OUTPUT)
+    build(NOTE_DIR, NOTE_TEMPLATE, NOTE_OUTPUT)
 
 
 if __name__ == "__main__":
