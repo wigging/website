@@ -1,29 +1,26 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Gavin Wiggins</title>
+    <link href="../feed.json" rel="alternate" type="application/feed+json" title="Gavin Wiggins" />
+    <link href="../rss.xml" rel="alternate" type="application/rss+xml" title="Gavin Wiggins" />
     <link href="../styles.css" rel="stylesheet" />
 
-    <link
-      href="https://unpkg.com/@highlightjs/cdn-assets@11.11.1/styles/github.min.css"
-      rel="stylesheet"
-      media="(prefers-color-scheme: light)"
-    />
+    <link href="https://unpkg.com/@highlightjs/cdn-assets@11.11.1/styles/github.min.css"
+          rel="stylesheet"
+          media="(prefers-color-scheme: light)" />
 
-    <link
-      href="https://unpkg.com/@highlightjs/cdn-assets@11.11.1/styles/github-dark.min.css"
-      rel="stylesheet"
-      media="(prefers-color-scheme: dark)"
-    />
+    <link href="https://unpkg.com/@highlightjs/cdn-assets@11.11.1/styles/github-dark.min.css"
+          rel="stylesheet"
+          media="(prefers-color-scheme: dark)" />
 
     <script src="https://unpkg.com/@highlightjs/cdn-assets@11.11.1/highlight.min.js"></script>
   </head>
   <body>
     <header>
       <h1>Gavin Wiggins</h1>
-
       <nav>
         <ol>
           <li><a href="/">About</a></li>
@@ -36,33 +33,12 @@
     </header>
 
     <main>
-      <h2>LazyVim Configuration</h2>
-
-      <time datetime="2026-07-12">July 12, 2026</time>
-
-      <p>
-        LazyVim is a great Neovim setup that is pre-configured with reasonable features. It's better
-        than starting from scratch. Here are my configuration settings that focus on Python, HTML,
-        CSS, and JavaScript. Configuration files for LazyVim must be located in the
-        <code>~/.config/nvim</code> directory. More info about LazyVim is available at
-        <a href="https://www.lazyvim.org">https://www.lazyvim.org</a>.
-      </p>
-
-      <pre><code class="language-lua">
-      -- plugins/colorscheme.lua
-
-      return {
-        "LazyVim/LazyVim",
-        opts = {
-          colorscheme = "catppuccin-nvim",
-        },
-      }
-      </code></pre>
-
-      <p>More text content goes here.</p>
+      {{ content }}
     </main>
 
-    <footer>Copyright © 2026 Gavin Wiggins. All Rights Reserved.</footer>
+    <footer>
+      Copyright © 2026 Gavin Wiggins. All Rights Reserved.
+    </footer>
 
     <script>
       // Remove leading indentation while preserving indentation within the code block
