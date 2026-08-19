@@ -8,7 +8,7 @@ from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import urljoin
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parent.parent
 SOURCE = ROOT / "notes.html"
 JSON_OUTPUT = ROOT / "feed.json"
 RSS_OUTPUT = ROOT / "rss.xml"
