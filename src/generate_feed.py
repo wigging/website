@@ -9,9 +9,10 @@ from pathlib import Path
 from urllib.parse import urljoin
 
 ROOT = Path(__file__).resolve().parent.parent
-SOURCE = ROOT / "notes.html"
-JSON_OUTPUT = ROOT / "feed.json"
-RSS_OUTPUT = ROOT / "rss.xml"
+SOURCE = Path(__file__).resolve().parent / "page-content" / "notes.html"
+DIST = ROOT / "dist"
+JSON_OUTPUT = DIST / "feed.json"
+RSS_OUTPUT = DIST / "rss.xml"
 BASE_URL = "https://gavinw.me/"
 
 
@@ -130,6 +131,7 @@ def generate_rss_feed(items, output, base_url):
 
 def main():
     """Generate the JSON and RSS feeds from the notes page."""
+    DIST.mkdir(parents=True, exist_ok=True)
     items = get_items(SOURCE, BASE_URL)
     generate_json_feed(items, JSON_OUTPUT, BASE_URL)
     generate_rss_feed(items, RSS_OUTPUT, BASE_URL)
