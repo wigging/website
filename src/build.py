@@ -1,21 +1,8 @@
 """Build the website pages and posts from their HTML templates."""
 
 import shutil
-from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
-SOURCE = Path(__file__).resolve().parent
-DIST = ROOT / "dist"
-
-PAGE_DIR = SOURCE / "page-content"
-PAGE_TEMPLATE = SOURCE / "templates" / "page.html"
-PAGE_OUTPUT = DIST
-
-NOTE_DIR = SOURCE / "note-content"
-NOTE_TEMPLATE = SOURCE / "templates" / "note.html"
-NOTE_OUTPUT = DIST / "note"
-
-STATIC_DIR = SOURCE / "static"
+import config
 
 
 def build(source_directory, template_path, output_directory):
@@ -34,11 +21,11 @@ def build(source_directory, template_path, output_directory):
 
 def main():
     """Build the complete website into the dist directory."""
-    shutil.rmtree(DIST, ignore_errors=True)
-    build(PAGE_DIR, PAGE_TEMPLATE, PAGE_OUTPUT)
-    build(NOTE_DIR, NOTE_TEMPLATE, NOTE_OUTPUT)
-    shutil.copytree(STATIC_DIR, DIST, dirs_exist_ok=True)
-    print(f"Copied static files to {DIST}")
+    shutil.rmtree(config.DIST_DIR, ignore_errors=True)
+    build(config.PAGE_CONTENT_DIR, config.PAGE_TEMPLATE, config.DIST_DIR)
+    build(config.NOTE_CONTENT_DIR, config.NOTE_TEMPLATE, config.NOTE_OUTPUT_DIR)
+    shutil.copytree(config.STATIC_DIR, config.DIST_DIR, dirs_exist_ok=True)
+    print(f"Copied static files to {config.DIST_DIR}")
 
 
 if __name__ == "__main__":

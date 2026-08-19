@@ -5,15 +5,9 @@ import xml.etree.ElementTree as ET
 from datetime import date, datetime, time, timezone
 from email.utils import format_datetime
 from html.parser import HTMLParser
-from pathlib import Path
 from urllib.parse import urljoin
 
-ROOT = Path(__file__).resolve().parent.parent
-SOURCE = Path(__file__).resolve().parent / "page-content" / "notes.html"
-DIST = ROOT / "dist"
-JSON_OUTPUT = DIST / "feed.json"
-RSS_OUTPUT = DIST / "rss.xml"
-BASE_URL = "https://gavinw.me/"
+import config
 
 
 class NotesParser(HTMLParser):
@@ -131,10 +125,10 @@ def generate_rss_feed(items, output, base_url):
 
 def main():
     """Generate the JSON and RSS feeds from the notes page."""
-    DIST.mkdir(parents=True, exist_ok=True)
-    items = get_items(SOURCE, BASE_URL)
-    generate_json_feed(items, JSON_OUTPUT, BASE_URL)
-    generate_rss_feed(items, RSS_OUTPUT, BASE_URL)
+    config.DIST_DIR.mkdir(parents=True, exist_ok=True)
+    items = get_items(config.NOTES_SOURCE, config.BASE_URL)
+    generate_json_feed(items, config.JSON_FEED_OUTPUT, config.BASE_URL)
+    generate_rss_feed(items, config.RSS_FEED_OUTPUT, config.BASE_URL)
 
 
 if __name__ == "__main__":

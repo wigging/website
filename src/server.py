@@ -2,19 +2,20 @@
 
 from functools import partial
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
-from pathlib import Path
 
-DIST = Path(__file__).resolve().parent.parent / "dist"
-HOST = "127.0.0.1"
-PORT = 8000
+import config
 
 
 def main():
     """Serve the contents of the dist directory."""
-    handler = partial(SimpleHTTPRequestHandler, directory=DIST)
+    handler = partial(SimpleHTTPRequestHandler, directory=config.DIST_DIR)
 
-    with ThreadingHTTPServer((HOST, PORT), handler) as server:
-        print(f"Serving {DIST} at http://{HOST}:{PORT}")
+    address = (config.SERVER_HOST, config.SERVER_PORT)
+    with ThreadingHTTPServer(address, handler) as server:
+        print(
+            f"Serving {config.DIST_DIR} at "
+            f"http://{config.SERVER_HOST}:{config.SERVER_PORT}"
+        )
         try:
             server.serve_forever()
         except KeyboardInterrupt:
