@@ -5,7 +5,7 @@ import json
 import shutil
 import webbrowser
 import xml.etree.ElementTree as ET
-from datetime import date, datetime, time, timezone
+from datetime import UTC, date, datetime, time
 from email.utils import format_datetime
 from functools import partial
 from html.parser import HTMLParser
@@ -150,7 +150,7 @@ def generate_rss_feed(items, output, base_url):
         ET.SubElement(item, "guid", isPermaLink="true").text = feed_item["id"]
         ET.SubElement(item, "description").text = feed_item["summary"]
         published = datetime.combine(
-            date.fromisoformat(feed_item["date_published"][:10]), time.min, timezone.utc
+            date.fromisoformat(feed_item["date_published"][:10]), time.min, UTC
         )
         ET.SubElement(item, "pubDate").text = format_datetime(published, usegmt=True)
 
