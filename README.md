@@ -8,7 +8,7 @@ Install uv using the instructions at <https://docs.astral.sh/uv/>.
 
 ## Build the website
 
-Build the website along with its JSON and RSS feeds using the `build.py` script. This will create a `dist/` directory in the project for all the generated website files.
+Build the website along with its JSON and RSS feeds and XML sitemap using the `build.py` script. This will create a `dist/` directory in the project for all the generated website files.
 
 ```bash
 uv run src/build.py

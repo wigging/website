@@ -33,6 +33,7 @@ NOTE_OUTPUT_DIR = DIST_DIR / "note"
 NOTES_SOURCE = PAGE_CONTENT_DIR / "notes.html"
 JSON_FEED_OUTPUT = DIST_DIR / "feed.json"
 RSS_FEED_OUTPUT = DIST_DIR / "rss.xml"
+SITEMAP_OUTPUT = DIST_DIR / "sitemap.xml"
 BASE_URL = "https://gavinw.me/"
 
 SERVER_HOST = "127.0.0.1"
@@ -239,8 +240,31 @@ def generate_rss_feed(items, output, base_url):
     print(f"Wrote {len(items)} item(s) to {output}")
 
 
+def generate_sitemap(directory, output, base_url):
+    """Write the generated HTML page URLs to an XML sitemap."""
+    namespace = "http://www.sitemaps.org/schemas/sitemap/0.9"
+    ET.register_namespace("", namespace)
+    urlset = ET.Element(f"{{{namespace}}}urlset")
+
+    pages = sorted(directory.rglob("*.html"))
+    for page in pages:
+        relative_path = page.relative_to(directory).as_posix()
+        location = (
+            base_url
+            if relative_path == "index.html"
+            else urljoin(base_url, relative_path)
+        )
+        url = ET.SubElement(urlset, f"{{{namespace}}}url")
+        ET.SubElement(url, f"{{{namespace}}}loc").text = location
+
+    ET.indent(urlset)
+    xml = ET.tostring(urlset, encoding="utf-8")
+    output.write_bytes(b'<?xml version="1.0" encoding="utf-8"?>\n' + xml + b"\n")
+    print(f"Wrote {len(pages)} URL(s) to {output}")
+
+
 def build_site():
-    """Build the complete website and feeds into the dist directory."""
+    """Build the complete website, feeds, and sitemap into the dist directory."""
     shutil.rmtree(DIST_DIR, ignore_errors=True)
     note_articles = generate_note_articles(NOTE_CONTENT_DIR)
     build(
@@ -256,6 +280,7 @@ def build_site():
     items = get_feed_items(DIST_DIR / NOTES_SOURCE.name, BASE_URL)
     generate_json_feed(items, JSON_FEED_OUTPUT, BASE_URL)
     generate_rss_feed(items, RSS_FEED_OUTPUT, BASE_URL)
+    generate_sitemap(DIST_DIR, SITEMAP_OUTPUT, BASE_URL)
 
 
 def serve():
