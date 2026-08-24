@@ -13,6 +13,7 @@ import xml.etree.ElementTree as ET
 from datetime import UTC, date, datetime, time
 from email.utils import format_datetime
 from functools import partial
+from html import escape
 from html.parser import HTMLParser
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
@@ -36,6 +37,46 @@ BASE_URL = "https://gavinw.me/"
 
 SERVER_HOST = "127.0.0.1"
 SERVER_PORT = 8000
+
+
+class NoteMetadataParser(HTMLParser):
+    """Parse index metadata from a note document."""
+
+    def __init__(self):
+        """Initialize the parser and its metadata collection state."""
+        super().__init__()
+        self.metadata = {}
+        self.field = None
+        self.text = []
+
+    def handle_comment(self, data):
+        """Use the first HTML comment as the note description."""
+        if "description" not in self.metadata:
+            self.metadata["description"] = " ".join(data.split())
+
+    def handle_starttag(self, tag, attrs):
+        """Start collecting the note title or publication date."""
+        if tag == "h2" and "title" not in self.metadata:
+            self.field = "title"
+            self.text = []
+        elif tag == "time" and "date_published" not in self.metadata:
+            self.metadata["date_published"] = dict(attrs).get("datetime", "")
+            self.field = "date_label"
+            self.text = []
+
+    def handle_data(self, data):
+        """Collect text for the active metadata field."""
+        if self.field:
+            self.text.append(data)
+
+    def handle_endtag(self, tag):
+        """Finish collecting the note title or publication date."""
+        if (tag == "h2" and self.field == "title") or (
+            tag == "time" and self.field == "date_label"
+        ):
+            self.metadata[self.field] = " ".join("".join(self.text).split())
+            self.field = None
+            self.text = []
 
 
 class NotesParser(HTMLParser):
@@ -88,18 +129,51 @@ class NotesParser(HTMLParser):
             self.note = None
 
 
-def build(source_directory, template_path, output_directory):
+def build(source_directory, template_path, output_directory, replacements=None):
     """Render each HTML source file into the output directory."""
     template = template_path.read_text(encoding="utf-8")
     output_directory.mkdir(parents=True, exist_ok=True)
 
     for source_path in sorted(source_directory.glob("*.html")):
         content = source_path.read_text(encoding="utf-8").strip()
+        for placeholder, replacement in (replacements or {}).items():
+            content = content.replace(placeholder, replacement)
         output_path = output_directory / source_path.name
         output_path.write_text(
             template.replace("      {{ content }}", content), encoding="utf-8"
         )
         print(f"Built {output_path}")
+
+
+def generate_note_articles(source_directory):
+    """Generate note index articles from the metadata in each note document."""
+    notes = []
+    required_fields = {"description", "title", "date_published", "date_label"}
+
+    for source_path in source_directory.glob("*.html"):
+        parser = NoteMetadataParser()
+        parser.feed(source_path.read_text(encoding="utf-8"))
+        missing_fields = required_fields - parser.metadata.keys()
+        if missing_fields:
+            missing = ", ".join(sorted(missing_fields))
+            raise ValueError(f"Missing {missing} in {source_path}")
+        date.fromisoformat(parser.metadata["date_published"])
+        notes.append((source_path, parser.metadata))
+
+    notes.sort(key=lambda note: note[1]["date_published"], reverse=True)
+    articles = []
+    for source_path, metadata in notes:
+        articles.append(
+            '<article class="note">\n'
+            f'  <h4><a href="note/{escape(source_path.name, quote=True)}">'
+            f"{escape(metadata['title'])}</a></h4>\n"
+            f"  <p>{escape(metadata['description'])}</p>\n"
+            f'  <time datetime="{escape(metadata["date_published"], quote=True)}">'
+            f"{escape(metadata['date_label'])}</time>\n"
+            "</article>"
+        )
+
+    return "\n\n".join(articles)
 
 
 def get_feed_items(source, base_url):
@@ -168,12 +242,18 @@ def generate_rss_feed(items, output, base_url):
 def build_site():
     """Build the complete website and feeds into the dist directory."""
     shutil.rmtree(DIST_DIR, ignore_errors=True)
-    build(PAGE_CONTENT_DIR, PAGE_TEMPLATE, DIST_DIR)
+    note_articles = generate_note_articles(NOTE_CONTENT_DIR)
+    build(
+        PAGE_CONTENT_DIR,
+        PAGE_TEMPLATE,
+        DIST_DIR,
+        replacements={"{{ note_articles }}": note_articles},
+    )
     build(NOTE_CONTENT_DIR, NOTE_TEMPLATE, NOTE_OUTPUT_DIR)
     shutil.copytree(STATIC_DIR, DIST_DIR, dirs_exist_ok=True)
     print(f"Copied static files to {DIST_DIR}")
 
-    items = get_feed_items(NOTES_SOURCE, BASE_URL)
+    items = get_feed_items(DIST_DIR / NOTES_SOURCE.name, BASE_URL)
     generate_json_feed(items, JSON_FEED_OUTPUT, BASE_URL)
     generate_rss_feed(items, RSS_FEED_OUTPUT, BASE_URL)
 
