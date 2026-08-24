@@ -25,6 +25,7 @@ DIST_DIR = Path("dist")
 PAGE_CONTENT_DIR = SOURCE_DIR / "page-content"
 NOTE_CONTENT_DIR = SOURCE_DIR / "note-content"
 STATIC_DIR = SOURCE_DIR / "static"
+ASSETS_DIR = SOURCE_DIR / "assets"
 
 PAGE_TEMPLATE = SOURCE_DIR / "templates" / "page.html"
 NOTE_TEMPLATE = SOURCE_DIR / "templates" / "note.html"
@@ -276,6 +277,8 @@ def build_site():
     build(NOTE_CONTENT_DIR, NOTE_TEMPLATE, NOTE_OUTPUT_DIR)
     shutil.copytree(STATIC_DIR, DIST_DIR, dirs_exist_ok=True)
     print(f"Copied static files to {DIST_DIR}")
+    shutil.copytree(ASSETS_DIR, DIST_DIR / ASSETS_DIR.name)
+    print(f"Copied assets to {DIST_DIR / ASSETS_DIR.name}")
 
     items = get_feed_items(DIST_DIR / NOTES_SOURCE.name, BASE_URL)
     generate_json_feed(items, JSON_FEED_OUTPUT, BASE_URL)

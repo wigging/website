@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gavin Wiggins - IP Address</title>
+    <style>
+      html {
+        color-scheme: light dark;
+      }
+
+      body {
+        font-family: system-ui;
+        margin-top: 8rem;
+        text-align: center;
+      }
+
+      p {
+        max-width: 600px;
+        margin-inline: auto;
+        text-align: left;
+      }
+
+      #ipify span,
+      #aws span {
+        cursor: pointer;
+      }
+
+      #ipify span:hover,
+      #aws span:hover {
+        color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Your IP Address</h1>
+
+    <p>
+      The first IP address is obtained from ipify.org and the second is from AWS. In most situations
+      the IP addresses should be the same. Click the IP address to copy it to the system clipboard.
+    </p>
+
+    <h2 id="ipify"><span>Loading...</span></h2>
+
+    <h2 id="aws"><span>Loading...</span></h2>
+
+    <p id="copy-msg" style="display: none; text-align: center">Copied IP address to clipboard</p>
+
+    <script>
+      const ipifyEl = document.getElementById("ipify");
+      const awsEl = document.getElementById("aws");
+      const copyMsgEl = document.getElementById("copy-msg");
+
+      function copyAndNotify(text) {
+        navigator.clipboard.writeText(text);
+
+        copyMsgEl.style.display = "block";
+
+        setTimeout(() => {
+          copyMsgEl.style.display = "none";
+        }, 1500);
+      }
+
+      ipifyEl.addEventListener("click", function () {
+        copyAndNotify(this.textContent);
+      });
+
+      awsEl.addEventListener("click", function () {
+        copyAndNotify(this.textContent.trim());
+      });
+
+      fetch("https://api.ipify.org?format=json")
+        .then((response) => response.json())
+        .then((data) => {
+          ipifyEl.querySelector("span").textContent = data.ip;
+        })
+        .catch(() => {
+          ipifyEl.textContent = "Unable to fetch IP address";
+        });
+
+      fetch("https://checkip.amazonaws.com")
+        .then((response) => response.text())
+        .then((data) => {
+          awsEl.querySelector("span").textContent = data;
+        })
+        .catch(() => {
+          awsEl.textContent = "Unable to fetch IP address";
+        });
+    </script>
+  </body>
+</html>

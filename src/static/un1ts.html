@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Gavin Wiggins - Un1ts</title>
+    <style>
+      html {
+        color-scheme: light dark;
+      }
+
+      body {
+        font-family: system-ui;
+        margin-top: 4rem;
+      }
+
+      p,
+      ul,
+      dl,
+      h1,
+      h2 {
+        max-width: 600px;
+        margin-inline: auto;
+        text-align: left;
+      }
+
+      img,
+      svg {
+        display: block;
+        max-width: 100%;
+        margin-inline: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <img src="assets/un1ts-icon128.svg" alt="app icon" />
+
+    <h1>Un1ts</h1>
+
+    <p>
+      Un1ts is a comprehensive unit converter for the Mac. This native app is built with Swift and
+      SwiftUI to support the latest features of macOS. Just enter a value in a field and it will
+      automatically convert to all units in that category.
+    </p>
+
+    <p>Categories for unit conversion include:</p>
+    <ul style="column-count: 2; -webkit-column-count: 2; -moz-column-count: 2">
+      <li>Acceleration</li>
+      <li>Analysis</li>
+      <li>Angle</li>
+      <li>Area</li>
+      <li>Data</li>
+      <li>Density</li>
+      <li>Energy</li>
+      <li>Force</li>
+      <li>Illuminance</li>
+      <li>Length</li>
+      <li>Mass</li>
+      <li>Power</li>
+      <li>Pressure</li>
+      <li>Radiation</li>
+      <li>Radioactivity</li>
+      <li>Speed</li>
+      <li>Temperature</li>
+      <li>Time</li>
+      <li>Torque</li>
+      <li>Volume</li>
+    </ul>
+
+    <p>
+      <a href="https://apps.apple.com/app/un1ts/id1506348529"><b>App Store</b></a> - Un1ts is
+      available exclusively on the Mac App Store.
+    </p>
+
+    <p>
+      <a
+        href="mailto:mailATgavinwDOTme"
+        onclick="this.href = this.href.replace(/AT/, '&#64;').replace(/DOT/, '&#46;')"
+        ><b>Email</b></a
+      >
+      - Questions, comments, and other feedback.
+    </p>
+
+    <p>
+      <a href="https://fosstodon.org/@wigging"><b>Mastodon</b></a> - Announcements, questions, and
+      other feedback.
+    </p>
+
+    <p>
+      If you would like to support the development of Un1ts, beyond the one-time purchase fee,
+      donations to the developer can be sent via
+      <a href="https://github.com/sponsors/wigging">GitHub Sponsors</a>,
+      <a href="https://www.patreon.com/wigging">Patreon</a>,
+      <a href="https://www.buymeacoffee.com/wigging">Buy Me A Coffee</a>, and
+      <a href="https://www.paypal.me/gavinwiggins">PayPal</a>.
+    </p>
+
+    <p><img src="assets/un1ts-screen1.png" class="img-fluid" alt="screenshot 1" /></p>
+    <p><img src="assets/un1ts-screen2.png" class="img-fluid" alt="screenshot 2" /></p>
+    <p><img src="assets/un1ts-screen3.png" class="img-fluid" alt="screenshot 3" /></p>
+    <p><img src="assets/un1ts-screen4.png" class="img-fluid" alt="screenshot 4" /></p>
+
+    <h2>Background</h2>
+
+    <p>
+      Un1ts was originally released in 2013 for the Mac. It was written entirely in Objective-C and
+      was one of the first apps I released on the Mac App Store. In 2019, I decided to create a new
+      version of the app written in Swift and SwiftUI.
+    </p>
+
+    <h2>Changelog</h2>
+
+    <p>
+      Un1ts uses calendar versioning for releases where major releases are Year.Month (v20.4) and
+      minor releases are Year.Month.Day (v20.4.9). For example, v20.4 refers to the version released
+      in April 2020.
+    </p>
+
+    <dl>
+      <dt>v25.4</dt>
+      <dd>
+        Add British and American conversions in Energy category for therm, BTU, MMBTU, ft-lbs, scf,
+        and scy. Add British and American conversions in Power category for USRT, BTU/s, BTU/min,
+        BTU/hr, and ft-lbf/s. Add Water and Mercury conversions in Pressure category for m H₂O, cm
+        H₂O, mm H₂O, ft H₂O, in H₂O, in Hg, cm Hg, and mm Hg.
+      </dd>
+
+      <dt>v23.4</dt>
+      <dd>
+        Add more units to Data category. Changed text style and layout for Info windows. Also
+        changed frame dimensions for Info window.
+      </dd>
+
+      <dt>v22.12</dt>
+      <dd>Include id in ForEach loop and adjust window size.</dd>
+
+      <dt>v22.3</dt>
+      <dd>
+        Completely rewrote the app to use recent SwiftUI features for macOS. Added a navigation
+        buttion and menu item to show/hide the sidebar. Improved window management. Moved the
+        Proximate Analysis and Ultimate Analysis categories into a single Analysis category.
+      </dd>
+
+      <dt>v22.1</dt>
+      <dd>New app icon for macOS Monterey. Remove Print item in File menu.</dd>
+
+      <dt>v20.11</dt>
+      <dd>Typographical length conversions. Support for Apple Silicon and Intel Macs.</dd>
+
+      <dt>v20.8</dt>
+      <dd>Nautical length and speed conversions.</dd>
+
+      <dt>v20.7</dt>
+      <dd>
+        Copy a unit's value by clicking its unit label. The formatted value can be pasted into
+        documents and other applications.
+      </dd>
+
+      <dt>v20.6</dt>
+      <dd>
+        Proximate analysis conversion from as-received basis to dry and dry ash-free bases. Ultimate
+        analysis conversion from as-received basis to dry and dry ash-free bases.
+      </dd>
+
+      <dt>v20.4.9</dt>
+      <dd>
+        Improved app icons for better visibility on high resolution displays. Provide higher
+        resolution screenshots for the App Store.
+      </dd>
+
+      <dt>v20.4</dt>
+      <dd>Available on the Mac App Store.</dd>
+    </dl>
+
+    <h2>Acknowledgments</h2>
+
+    <p>
+      I would like to thank the following people for their invaluable programming advice: Jeff
+      Biggus, Adam Byram, Lucas Derraugh, and Bill Morefield.
+    </p>
+
+    <h2>Privacy Policy</h2>
+
+    <p>
+      The Un1ts app does not collect any user data. Settings such as number style and significant
+      digits are stored on the user's computer.
+    </p>
+  </body>
+</html>
