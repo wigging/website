@@ -3,6 +3,7 @@ html {
 }
 
 body {
+  background-color: light-dark(rgb(249, 249, 249), Canvas);
   font-family: system-ui;
   font-size: 1.1rem;
   line-height: 1.5;
@@ -26,6 +27,7 @@ code {
 }
 
 pre code {
+  border: 1px solid light-dark(lightgrey, dimgrey);
   border-radius: 0.5rem;
 }
 
