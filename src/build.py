@@ -261,6 +261,8 @@ def generate_json_feed(items, output, base_url):
 
 def generate_rss_feed(items, output, base_url):
     """Write feed items to an RSS 2.0 file."""
+    namespace = "http://www.w3.org/2005/Atom"
+    ET.register_namespace("atom", namespace)
     rss = ET.Element("rss", version="2.0")
     channel = ET.SubElement(rss, "channel")
     ET.SubElement(channel, "title").text = "Gavin Wiggins"
@@ -268,6 +270,13 @@ def generate_rss_feed(items, output, base_url):
     ET.SubElement(
         channel, "description"
     ).text = "Notes on various programming and technology-related topics."
+    ET.SubElement(
+        channel,
+        f"{{{namespace}}}link",
+        href=urljoin(base_url, "rss.xml"),
+        rel="self",
+        type="application/rss+xml",
+    )
 
     for feed_item in items:
         item = ET.SubElement(channel, "item")
