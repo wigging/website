@@ -21,6 +21,8 @@ from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import urljoin
 
+from markdown import Markdown
+
 SOURCE_DIR = Path("src")
 DIST_DIR = Path("dist")
 
@@ -133,16 +135,45 @@ class NotesParser(HTMLParser):
             self.note = None
 
 
+def render_source(source_path):
+    """Read an HTML source or convert a Markdown source to note HTML."""
+    source = source_path.read_text(encoding="utf-8")
+    if source_path.suffix == ".html":
+        return source.strip()
+
+    renderer = Markdown(extensions=["fenced_code", "meta"])
+    body = renderer.convert(source).strip()
+    required_fields = {"title", "date", "description"}
+    missing_fields = required_fields - renderer.Meta.keys()
+    if missing_fields:
+        missing = ", ".join(sorted(missing_fields))
+        raise ValueError(f"Missing {missing} in {source_path}")
+
+    metadata = {
+        field: " ".join(renderer.Meta[field]) for field in required_fields
+    }
+    published = datetime.strptime(metadata["date"], "%B %d, %Y").date().isoformat()
+    return (
+        f"<!--\n{metadata['description']}\n-->\n\n"
+        f"<h2>{escape(metadata['title'])}</h2>\n\n"
+        f'<time datetime="{published}">{escape(metadata["date"])}</time>\n\n'
+        f"{body}"
+    )
+
+
 def build(source_directory, template_path, output_directory, replacements=None):
-    """Render each HTML source file into the output directory."""
+    """Render each HTML or Markdown source file into the output directory."""
     template = template_path.read_text(encoding="utf-8")
     output_directory.mkdir(parents=True, exist_ok=True)
 
-    for source_path in sorted(source_directory.glob("*.html")):
-        content = source_path.read_text(encoding="utf-8").strip()
+    source_paths = sorted(
+        path for path in source_directory.iterdir() if path.suffix in {".html", ".md"}
+    )
+    for source_path in source_paths:
+        content = render_source(source_path)
         for placeholder, replacement in (replacements or {}).items():
             content = content.replace(placeholder, replacement)
-        output_path = output_directory / source_path.name
+        output_path = output_directory / source_path.with_suffix(".html").name
         output_path.write_text(
             template.replace("      {{ content }}", content), encoding="utf-8"
         )
@@ -154,9 +185,12 @@ def generate_note_articles(source_directory):
     notes = []
     required_fields = {"description", "title", "date_published", "date_label"}
 
-    for source_path in source_directory.glob("*.html"):
+    source_paths = sorted(
+        path for path in source_directory.iterdir() if path.suffix in {".html", ".md"}
+    )
+    for source_path in source_paths:
         parser = NoteMetadataParser()
-        parser.feed(source_path.read_text(encoding="utf-8"))
+        parser.feed(render_source(source_path))
         missing_fields = required_fields - parser.metadata.keys()
         if missing_fields:
             missing = ", ".join(sorted(missing_fields))
@@ -167,9 +201,10 @@ def generate_note_articles(source_directory):
     notes.sort(key=lambda note: note[1]["date_published"], reverse=True)
     articles = []
     for source_path, metadata in notes:
+        output_name = source_path.with_suffix(".html").name
         articles.append(
             '<article class="note">\n'
-            f'  <h4><a href="note/{escape(source_path.name, quote=True)}">'
+            f'  <h4><a href="note/{escape(output_name, quote=True)}">'
             f"{escape(metadata['title'])}</a></h4>\n"
             f"  <p>{escape(metadata['description'])}</p>\n"
             f'  <time datetime="{escape(metadata["date_published"], quote=True)}">'
