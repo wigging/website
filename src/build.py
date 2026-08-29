@@ -57,6 +57,7 @@ class NoteTitleParser(HTMLParser):
 
     def handle_starttag(self, tag, attrs):
         """Start collecting the note title."""
+        del attrs  # appease ty check warning for unused attrs
         if tag == "h2" and self.title is None:
             self.collecting = True
             self.text = []
@@ -129,29 +130,34 @@ def render_note(source_path):
     source = source_path.read_text(encoding="utf-8")
     renderer = Markdown(extensions=["fenced_code", "meta"])
     body = renderer.convert(source).strip()
+
     required_fields = {"date", "description", "tags"}
-    missing_fields = required_fields - renderer.Meta.keys()
+    missing_fields = required_fields - renderer.Meta.keys()  # ty: ignore
+
     if missing_fields:
         missing = ", ".join(sorted(missing_fields))
         raise ValueError(f"Missing {missing} in {source_path}")
 
-    metadata = {field: " ".join(renderer.Meta[field]) for field in required_fields}
+    metadata = {field: " ".join(renderer.Meta[field]) for field in required_fields}  # ty: ignore
     parser = NoteTitleParser()
     parser.feed(body)
+
     if parser.title is None:
         raise ValueError(f"Missing h2 title in {source_path}")
 
     metadata["title"] = parser.title
     metadata["date_label"] = metadata["date"]
-    metadata["date_published"] = (
-        datetime.strptime(metadata["date"], "%B %d, %Y").date().isoformat()
-    )
+    metadata["date_published"] = date.strptime(
+        metadata["date"], "%B %d, %Y"
+    ).isoformat()
+
     body = body.replace(
         "</h2>",
         f'</h2>\n<time datetime="{metadata["date_published"]}">'
         f"{escape(metadata['date_label'])}</time>",
         1,
     )
+
     return body, metadata
 
 
@@ -159,7 +165,9 @@ def render_source(source_path):
     """Read an HTML source or convert a Markdown source to note HTML."""
     if source_path.suffix == ".html":
         return source_path.read_text(encoding="utf-8").strip()
+
     content, _ = render_note(source_path)
+
     return content
 
 
@@ -171,14 +179,18 @@ def build(source_directory, template_path, output_directory, replacements=None):
     source_paths = sorted(
         path for path in source_directory.iterdir() if path.suffix in {".html", ".md"}
     )
+
     for source_path in source_paths:
         content = render_source(source_path)
+
         for placeholder, replacement in (replacements or {}).items():
             content = content.replace(placeholder, replacement)
+
         output_path = output_directory / source_path.with_suffix(".html").name
         output_path.write_text(
             template.replace("      {{ content }}", content), encoding="utf-8"
         )
+
         print(f"Built {output_path}")
 
 
@@ -192,6 +204,7 @@ def generate_note_articles(source_directory):
 
     notes.sort(key=lambda note: note[1]["date_published"], reverse=True)
     articles = []
+
     for source_path, metadata in notes:
         output_name = source_path.with_suffix(".html").name
         articles.append(
@@ -213,6 +226,7 @@ def get_feed_items(source, base_url):
     parser.feed(source.read_text(encoding="utf-8"))
 
     items = []
+
     for note in parser.notes:
         item_url = urljoin(base_url, note["url"])
         published = date.fromisoformat(note["date_published"]).isoformat()
@@ -227,6 +241,7 @@ def get_feed_items(source, base_url):
         )
 
     items.sort(key=lambda item: item["date_published"], reverse=True)
+
     return items
 
 
@@ -239,6 +254,7 @@ def generate_json_feed(items, output, base_url):
         "feed_url": urljoin(base_url, "feed.json"),
         "items": items,
     }
+
     output.write_text(json.dumps(feed, indent=2) + "\n", encoding="utf-8")
     print(f"Wrote {len(items)} item(s) to {output}")
 
@@ -277,6 +293,7 @@ def generate_sitemap(directory, output, base_url):
     urlset = ET.Element(f"{{{namespace}}}urlset")
 
     pages = sorted(directory.rglob("*.html"))
+
     for page in pages:
         relative_path = page.relative_to(directory).as_posix()
         location = (
@@ -319,10 +336,12 @@ def serve():
     """Serve the contents of the dist directory."""
     handler = partial(SimpleHTTPRequestHandler, directory=DIST_DIR)
     address = (SERVER_HOST, SERVER_PORT)
+
     with ThreadingHTTPServer(address, handler) as server:
         url = f"http://{SERVER_HOST}:{SERVER_PORT}"
         print(f"Serving website from {DIST_DIR}/ at {url}")
         webbrowser.open(url)
+
         try:
             server.serve_forever()
         except KeyboardInterrupt:
@@ -338,6 +357,7 @@ def main():
     args = parser.parse_args()
 
     build_site()
+
     if args.serve:
         serve()
 
