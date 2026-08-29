@@ -45,43 +45,32 @@ SERVER_HOST = "127.0.0.1"
 SERVER_PORT = 8000
 
 
-class NoteMetadataParser(HTMLParser):
-    """Parse index metadata from a note document."""
+class NoteTitleParser(HTMLParser):
+    """Parse the first h2 title from a rendered note."""
 
     def __init__(self):
-        """Initialize the parser and its metadata collection state."""
+        """Initialize the parser and its title collection state."""
         super().__init__()
-        self.metadata = {}
-        self.field = None
+        self.title = None
+        self.collecting = False
         self.text = []
 
-    def handle_comment(self, data):
-        """Use the first HTML comment as the note description."""
-        if "description" not in self.metadata:
-            self.metadata["description"] = " ".join(data.split())
-
     def handle_starttag(self, tag, attrs):
-        """Start collecting the note title or publication date."""
-        if tag == "h2" and "title" not in self.metadata:
-            self.field = "title"
-            self.text = []
-        elif tag == "time" and "date_published" not in self.metadata:
-            self.metadata["date_published"] = dict(attrs).get("datetime", "")
-            self.field = "date_label"
+        """Start collecting the note title."""
+        if tag == "h2" and self.title is None:
+            self.collecting = True
             self.text = []
 
     def handle_data(self, data):
-        """Collect text for the active metadata field."""
-        if self.field:
+        """Collect text from the note title."""
+        if self.collecting:
             self.text.append(data)
 
     def handle_endtag(self, tag):
-        """Finish collecting the note title or publication date."""
-        if (tag == "h2" and self.field == "title") or (
-            tag == "time" and self.field == "date_label"
-        ):
-            self.metadata[self.field] = " ".join("".join(self.text).split())
-            self.field = None
+        """Finish collecting the note title."""
+        if tag == "h2" and self.collecting:
+            self.title = " ".join("".join(self.text).split())
+            self.collecting = False
             self.text = []
 
 
@@ -135,30 +124,43 @@ class NotesParser(HTMLParser):
             self.note = None
 
 
-def render_source(source_path):
-    """Read an HTML source or convert a Markdown source to note HTML."""
+def render_note(source_path):
+    """Render a Markdown note and return its HTML and metadata."""
     source = source_path.read_text(encoding="utf-8")
-    if source_path.suffix == ".html":
-        return source.strip()
-
     renderer = Markdown(extensions=["fenced_code", "meta"])
     body = renderer.convert(source).strip()
-    required_fields = {"title", "date", "description"}
+    required_fields = {"date", "description", "tags"}
     missing_fields = required_fields - renderer.Meta.keys()
     if missing_fields:
         missing = ", ".join(sorted(missing_fields))
         raise ValueError(f"Missing {missing} in {source_path}")
 
-    metadata = {
-        field: " ".join(renderer.Meta[field]) for field in required_fields
-    }
-    published = datetime.strptime(metadata["date"], "%B %d, %Y").date().isoformat()
-    return (
-        f"<!--\n{metadata['description']}\n-->\n\n"
-        f"<h2>{escape(metadata['title'])}</h2>\n\n"
-        f'<time datetime="{published}">{escape(metadata["date"])}</time>\n\n'
-        f"{body}"
+    metadata = {field: " ".join(renderer.Meta[field]) for field in required_fields}
+    parser = NoteTitleParser()
+    parser.feed(body)
+    if parser.title is None:
+        raise ValueError(f"Missing h2 title in {source_path}")
+
+    metadata["title"] = parser.title
+    metadata["date_label"] = metadata["date"]
+    metadata["date_published"] = (
+        datetime.strptime(metadata["date"], "%B %d, %Y").date().isoformat()
     )
+    body = body.replace(
+        "</h2>",
+        f'</h2>\n<time datetime="{metadata["date_published"]}">'
+        f"{escape(metadata['date_label'])}</time>",
+        1,
+    )
+    return body, metadata
+
+
+def render_source(source_path):
+    """Read an HTML source or convert a Markdown source to note HTML."""
+    if source_path.suffix == ".html":
+        return source_path.read_text(encoding="utf-8").strip()
+    content, _ = render_note(source_path)
+    return content
 
 
 def build(source_directory, template_path, output_directory, replacements=None):
@@ -183,20 +185,10 @@ def build(source_directory, template_path, output_directory, replacements=None):
 def generate_note_articles(source_directory):
     """Generate note index articles from the metadata in each note document."""
     notes = []
-    required_fields = {"description", "title", "date_published", "date_label"}
 
-    source_paths = sorted(
-        path for path in source_directory.iterdir() if path.suffix in {".html", ".md"}
-    )
-    for source_path in source_paths:
-        parser = NoteMetadataParser()
-        parser.feed(render_source(source_path))
-        missing_fields = required_fields - parser.metadata.keys()
-        if missing_fields:
-            missing = ", ".join(sorted(missing_fields))
-            raise ValueError(f"Missing {missing} in {source_path}")
-        date.fromisoformat(parser.metadata["date_published"])
-        notes.append((source_path, parser.metadata))
+    for source_path in sorted(source_directory.glob("*.md")):
+        _, metadata = render_note(source_path)
+        notes.append((source_path, metadata))
 
     notes.sort(key=lambda note: note[1]["date_published"], reverse=True)
     articles = []
