@@ -1,0 +1,65 @@
+<!--
+Description of the note goes in this comment.
+-->
+
+<h2>Two-Dimensional Array in C++</h2>
+
+<time datetime="2023-08-13">August 13, 2023</time>
+
+<p>
+  A two-dimensional array can be created using the traditional C-style array or with the C++
+  standard array container. Both approaches are demonstrated below.
+</p>
+
+<h3>Using a C-style array</h3>
+
+<p>
+  A traditional C-style array can be used to create a 2D array. The array in this example has 3 rows
+  and 4 columns with integer values.
+</p>
+
+<pre><code class="language-cpp">int arr[3][4] = {{10, 11, 12, 13},
+                 {14, 15, 16, 17},
+                 {18, 19, 20, 21}};
+
+for (int i = 0; i < 3; ++i) {
+    for (int j = 0; j < 4; ++j) {
+        std::cout << arr[i][j] << " ";
+    }
+    std::cout << std::endl;
+}
+</code></pre>
+
+<p>The output from this example is shown below:</p>
+
+<pre><code class="language-text">10 11 12 13
+14 15 16 17
+18 19 20 21
+</code></pre>
+
+<h3>Using the standard array container</h3>
+
+<p>The <code>std::array</code> container can also be used to create a 2D array.</p>
+
+<pre><code class="language-cpp">#include <iostream>
+#include <array>
+
+std::array<std::array<int, 4>, 3> arr = {{{10, 11, 12, 13},
+                                          {14, 15, 16, 17},
+                                          {18, 19, 20, 21}}};
+
+for (int i = 0; i < 3; ++i) {
+    for (int j = 0; j < 4; ++j) {
+        std::cout << arr.at(i).at(j) << " ";
+    }
+    std::cout << std::endl;
+}
+</code></pre>
+
+<p>This outputs the following:
+</p>
+
+<pre><code class="language-cpp">10 11 12 13
+14 15 16 17
+18 19 20 21
+</code></pre>
