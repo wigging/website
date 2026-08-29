@@ -236,6 +236,7 @@ def get_feed_items(source, base_url):
                 "url": item_url,
                 "title": note["title"],
                 "summary": note.get("summary", ""),
+                "content_text": note.get("summary", ""),
                 "date_published": f"{published}T00:00:00Z",
             }
         )
