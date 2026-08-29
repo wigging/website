@@ -1,6 +1,8 @@
 # /// script
 # requires-python = ">=3.14"
-# dependencies = []
+# dependencies = [
+#     "markdown>=3.10.3",
+# ]
 # ///
 
 """Build the website and its feeds."""
