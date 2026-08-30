@@ -211,7 +211,7 @@ def generate_note_articles(source_directory):
         output_name = source_path.with_suffix(".html").name
         articles.append(
             '<article class="note">\n'
-            f'  <h4><a href="note/{escape(output_name, quote=True)}">'
+            f'  <h4><a href="{NOTE_OUTPUT_DIR.name}/{escape(output_name, quote=True)}">'
             f"{escape(metadata['title'])}</a></h4>\n"
             f"  <p>{escape(metadata['description'])}</p>\n"
             f'  <time datetime="{escape(metadata["date_published"], quote=True)}">'
