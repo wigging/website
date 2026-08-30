@@ -12,7 +12,27 @@
     <header>
       <h1>Gavin Wiggins</h1>
       <nav>
-        <ol>
+        <button class="nav-toggle"
+                type="button"
+                aria-expanded="false"
+                aria-controls="site-navigation"
+                aria-label="Toggle navigation">
+          <svg xmlns="http://www.w3.org/2000/svg"
+               width="24"
+               height="24"
+               viewBox="0 0 24 24"
+               fill="none"
+               stroke="currentColor"
+               stroke-width="2"
+               stroke-linecap="round"
+               stroke-linejoin="round"
+               aria-hidden="true">
+            <path d="M4 5h16" />
+            <path d="M4 12h16" />
+            <path d="M4 19h16" />
+          </svg>
+        </button>
+        <ol id="site-navigation">
           <li><a href="/">About</a></li>
           <li><a href="./links.html">Links</a></li>
           <li><a href="./notes.html">Notes</a></li>
@@ -28,5 +48,6 @@
     <footer>
       © 2026 Gavin Wiggins
     </footer>
+    <script src="navigation.js"></script>
   </body>
 </html>

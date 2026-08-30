@@ -42,12 +42,63 @@ header {
   border-bottom: 1px solid light-dark(#cccccc, #555555);
 }
 
+.nav-toggle {
+  display: none;
+}
+
 nav ol {
   display: flex;
   justify-content: left;
   gap: 1rem;
   list-style: none;
   padding-left: 0;
+}
+
+@media (max-width: 600px) {
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  nav {
+    position: relative;
+  }
+
+  .nav-toggle {
+    display: block;
+    padding: 0.4rem;
+    border: 1px solid light-dark(#cccccc, #555555);
+    border-radius: 0.3rem;
+    color: inherit;
+    background: none;
+    cursor: pointer;
+  }
+
+  .nav-toggle svg {
+    display: block;
+    width: 20px;
+    height: 20px;
+  }
+
+  nav ol {
+    position: absolute;
+    right: 0;
+    z-index: 1;
+    display: none;
+    flex-direction: column;
+    gap: 0.5rem;
+    min-width: max-content;
+    margin-top: 0.5rem;
+    padding: 0.75rem 1rem;
+    border: 1px solid light-dark(#cccccc, #555555);
+    border-radius: 0.5rem;
+    background-color: light-dark(rgb(249, 249, 249), Canvas);
+  }
+
+  .nav-toggle[aria-expanded="true"] + ol {
+    display: flex;
+  }
 }
 
 main {
