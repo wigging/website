@@ -30,12 +30,14 @@ PAGE_CONTENT_DIR = SOURCE_DIR / "page-content"
 NOTE_CONTENT_DIR = SOURCE_DIR / "note-content"
 STATIC_DIR = SOURCE_DIR / "static"
 ASSETS_DIR = SOURCE_DIR / "assets"
+TALKS_DIR = SOURCE_DIR / "talks"
 
 PAGE_TEMPLATE = SOURCE_DIR / "templates" / "page.html"
-NOTE_TEMPLATE = SOURCE_DIR / "templates" / "note.html"
-NOTE_OUTPUT_DIR = DIST_DIR / "note"
 
+NOTE_TEMPLATE = SOURCE_DIR / "templates" / "note.html"
+NOTE_OUTPUT_DIR = DIST_DIR / "notes"
 NOTES_SOURCE = PAGE_CONTENT_DIR / "notes.html"
+
 JSON_FEED_OUTPUT = DIST_DIR / "feed.json"
 RSS_FEED_OUTPUT = DIST_DIR / "rss.xml"
 SITEMAP_OUTPUT = DIST_DIR / "sitemap.xml"
@@ -323,6 +325,7 @@ def generate_sitemap(directory, output, base_url):
 def build_site():
     """Build the complete website, feeds, and sitemap into the dist directory."""
     shutil.rmtree(DIST_DIR, ignore_errors=True)
+
     note_articles = generate_note_articles(NOTE_CONTENT_DIR)
     build(
         PAGE_CONTENT_DIR,
@@ -330,11 +333,17 @@ def build_site():
         DIST_DIR,
         replacements={"{{ note_articles }}": note_articles},
     )
+
     build(NOTE_CONTENT_DIR, NOTE_TEMPLATE, NOTE_OUTPUT_DIR)
+
     shutil.copytree(STATIC_DIR, DIST_DIR, dirs_exist_ok=True)
     print(f"Copied static files to {DIST_DIR}")
+
     shutil.copytree(ASSETS_DIR, DIST_DIR / ASSETS_DIR.name)
     print(f"Copied assets to {DIST_DIR / ASSETS_DIR.name}")
+
+    shutil.copytree(TALKS_DIR, DIST_DIR / TALKS_DIR.name)
+    print(f"Copied talks to {DIST_DIR / TALKS_DIR.name}")
 
     items = get_feed_items(DIST_DIR / NOTES_SOURCE.name, BASE_URL)
     generate_json_feed(items, JSON_FEED_OUTPUT, BASE_URL)

@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agents Tech Talk</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/dist/reveal.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/dist/theme/black.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.11.1/styles/github-dark.min.css" />
+
+    <style>
+      .reveal-viewport {
+        background: linear-gradient(0deg, hsla(231, 98%, 17%, 1) 0%, hsla(290, 100%, 21%, 1) 100%);
+      }
+
+      .reveal {
+        font-size: 28px;
+      }
+
+      .reveal img {
+        border-radius: 0.5rem;
+      }
+
+      .reveal .slides {
+        text-align: left;
+      }
+
+      .reveal ul {
+        margin-left: 0;
+        padding-left: 1em;
+      }
+
+      .reveal pre {
+        margin-left: 0;
+        margin-right: auto;
+      }
+
+      .reveal pre code {
+        border-radius: 0.5rem;
+      }
+
+      .reveal h1,
+      .reveal h2,
+      .reveal h3,
+      .reveal h4,
+      .reveal h5,
+      .reveal h6 {
+        text-transform: none;
+      }
+
+      .reveal h2 {
+        padding-bottom: 0.2em;
+        border-bottom: 1px solid rgb(255 255 255 / 20%);
+      }
+
+      .reveal .slide-number {
+        background: none;
+        font-size: 1rem;
+        right: auto;
+        left: 1rem;
+        bottom: 1rem;
+      }
+
+      .title-slide {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+      }
+
+      .title-slide h1 {
+        font-size: 3.4rem;
+        margin-bottom: 4rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <div class="title-slide">
+            <div>
+              <h1>Agents, agents, every where,<br />Nor any drop to drink.</h1>
+              <p>Tech Talk by Gavin Wiggins</p>
+              <p>September 2, 2026</p>
+            </div>
+            <div>
+              <img width="250" src="mariner-and-agents.png" />
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>What is an agent?</h2>
+          <img src="what-are-agents.png" alt="agents" />
+          <div class="fragment">
+            <p>None of the above.</p>
+            <p>
+              <em>“An LLM agent runs tools in a loop to achieve a goal” ~ Simon Willison 2025</em>
+            </p>
+            <p>
+              Check out Simon Willison's Weblog at
+              <a href="https://simonwillison.net/">simonwillison.net</a>
+            </p>
+          </div>
+        </section>
+
+        <section>
+          <h2>Agent frameworks</h2>
+          <p>
+            Provide LLM agnostic features to build agents that call tools/functions, maintain state,
+            and coordinate multi-step workflows.
+          </p>
+          <p>Feels like JavaScript UI frameworks, a new one pops up every month.</p>
+          <ul>
+            <li>
+              Microsoft Agent Framework -
+              <a href="https://learn.microsoft.com/en-us/agent-framework/">Docs</a>,
+              <a href="https://github.com/microsoft/agent-framework">GitHub</a>
+            </li>
+            <li>
+              Pydantic AI -
+              <a href="https://pydantic.dev/pydantic-ai">Docs</a>,
+              <a href="https://github.com/pydantic/pydantic-ai">GitHub</a>
+            </li>
+            <li>
+              AWS Strands Agents -
+              <a href="https://strandsagents.com/">Docs</a>,
+              <a href="https://github.com/strands-agents">GitHub</a>
+            </li>
+            <li>
+              Google Agent Development Kit (ADK) -
+              <a href="https://adk.dev/">Docs</a>,
+              <a href="https://github.com/google/adk-python">GitHub</a>
+            </li>
+            <li>
+              CrewAI -
+              <a href="https://github.com/crewAIInc/crewAI">GitHub</a>,
+              <a href="https://crewai.com">Website</a>
+            </li>
+          </ul>
+          <p>⚠️ Be aware of vendor lock-in especially for agent deployment.</p>
+        </section>
+
+        <section>
+          <h2>Agent code example</h2>
+          <pre><code data-trim class="language-python">
+            def calculate_area(width: float, height: float) -> float:
+              """Calculate the area of a rectangle.
+
+              Args:
+                  width: The width of the rectangle.
+                  height: The height of the rectangle.
+
+              Returns:
+                  The area of the rectangle.
+              """
+              return width * height
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>MCP servers</h2>
+          <p>here</p>
+        </section>
+
+        <section>
+          <h2>The SKILL.md file</h2>
+          <p>A standard way to give AI agents new capabilities and expertise.</p>
+          <p>
+            More information about agent skills at
+            <a href="https://agentskills.io">https://agentskills.io</a>
+          </p>
+        </section>
+
+        <section>
+          <h2>The AGENTS.md file</h2>
+          <p>Like a README.md file but for agents.</p>
+          <p>Provides instructions to help AI coding agents work on your project.</p>
+          <pre><code data-trim class="language-text">
+            # Example of AGENTS.md
+
+            ## Setup commands
+            - Install deps: `pnpm install`
+            - Start dev server: `pnpm dev`
+            - Run tests: `pnpm test`
+
+            ## Code style
+            - TypeScript strict mode
+            - Single quotes, no semicolons
+            - Use functional patterns where possible
+          </code></pre>
+          <p>
+            More information about the AGENTS.md file at
+            <a href="https://agents.md">https://agents.md</a>
+          </p>
+        </section>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/dist/reveal.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/plugin/highlight/highlight.js"></script>
+    <script>
+      Reveal.initialize({
+        hash: true,
+        transition: "slide",
+        slideNumber: "c/t",
+        plugins: [RevealHighlight],
+      });
+    </script>
+  </body>
+</html>
