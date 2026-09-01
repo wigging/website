@@ -120,6 +120,11 @@
           <p>Feels like JavaScript UI frameworks, a new one pops up every month.</p>
           <ul>
             <li>
+              OpenAI Agents SDK -
+              <a href="https://openai.github.io/openai-agents-python/">Docs</a>,
+              <a href="https://github.com/openai/openai-agents-python">GitHub</a>
+            </li>
+            <li>
               Microsoft Agent Framework -
               <a href="https://learn.microsoft.com/en-us/agent-framework/">Docs</a>,
               <a href="https://github.com/microsoft/agent-framework">GitHub</a>
@@ -144,39 +149,115 @@
               <a href="https://github.com/crewAIInc/crewAI">GitHub</a>,
               <a href="https://crewai.com">Website</a>
             </li>
+            <li>
+              LangChain, LangGraph, LangSmith - <a href="https://www.langchain.com/">Website</a>
+            </li>
           </ul>
           <p>⚠️ Be aware of vendor lock-in especially for agent deployment.</p>
         </section>
 
         <section>
-          <h2>Agent code example</h2>
+          <h2>OpenAI Agents SDK</h2>
+          <p>Sync and async examples.</p>
           <pre><code data-trim class="language-python">
-            def calculate_area(width: float, height: float) -> float:
-              """Calculate the area of a rectangle.
+            from agents import Agent, Runner
 
-              Args:
-                  width: The width of the rectangle.
-                  height: The height of the rectangle.
+            agent = Agent(name="Assistant", instructions="You are a helpful assistant")
 
-              Returns:
-                  The area of the rectangle.
-              """
-              return width * height
+            result = Runner.run_sync(agent, "Write a haiku about recursion in programming.")
+            print(result.final_output)
+          </code></pre>
+          <pre><code data-trim class="language-python">
+            import asyncio
+            from agents import Agent, Runner
+
+            agent = Agent(
+                name="History Tutor",
+                instructions="You answer history questions clearly and concisely.",
+            )
+
+            async def main():
+                result = await Runner.run(agent, "When did the Roman Empire fall?")
+                print(result.final_output)
+
+            if __name__ == "__main__":
+                asyncio.run(main())
           </code></pre>
         </section>
 
         <section>
           <h2>MCP servers</h2>
-          <p>here</p>
+          <p>
+            MCP (Model Context Protocol) is an open-source standard for connecting AI applications
+            to external systems.
+          </p>
+          <p>FastMCP is a Python package for building MCP servers and clients.</p>
+          <pre><code data-trim class="language-python">
+            from fastmcp import FastMCP
+
+            mcp = FastMCP("Demo 🚀")
+
+            @mcp.tool
+            def add(a: int, b: int) -> int:
+                """Add two numbers."""
+                return a + b
+
+            if __name__ == "__main__":
+                mcp.run()
+          </code></pre>
+          <p>
+            MCP documentation at
+            <a href="https://modelcontextprotocol.io">https://modelcontextprotocol.io</a>
+          </p>
+          <p>FastMCP documentation at <a href="https://gofastmcp.com">https://gofastmcp.com</a></p>
         </section>
 
         <section>
-          <h2>The SKILL.md file</h2>
+          <img src="mcp-server-diagram.png" alt="MCP server diagram" />
+        </section>
+
+        <section>
+          <h2>Skills</h2>
           <p>A standard way to give AI agents new capabilities and expertise.</p>
+          <p>A skill is just a folder that contains a SKILL.md file and optional resources.</p>
+          <pre><code data-trim class="language-text">
+            my-skill/
+            ├── SKILL.md          # Required metadata + instructions
+            ├── scripts/          # Optional executable code
+            ├── references/       # Optional documentation
+            ├── assets/           # Optional templates, resources
+            └── ...               # Any additional files or directories
+          </code></pre>
+          <p>
+            When a skill activates, its full SKILL.md body loads into the agent’s context window
+            alongside conversation history, system context, and other active skills.
+          </p>
           <p>
             More information about agent skills at
             <a href="https://agentskills.io">https://agentskills.io</a>
           </p>
+        </section>
+
+        <section>
+          <h2>The SKILL.md file</h2>
+          <p>YAML frontmatter followed by Markdown content (the body).</p>
+          <pre><code data-trim class="language-text">
+            ---
+            name: roll-dice
+            description: Roll dice using a random number generator. Use when asked to
+              roll a die (d6, d20, etc.), roll dice, or generate a random dice roll.
+            ---
+
+            To roll a die, use the following command that generates a random number from 1
+            to the given number of sides:
+
+            ```bash
+            echo $((RANDOM % &lt;sides&gt; + 1))
+            ```
+
+            Replace `&lt;sides&gt;` with the number of sides on the die (e.g., 6 for a standard
+            die, 20 for a d20).
+          </code></pre>
         </section>
 
         <section>
@@ -200,6 +281,26 @@
             More information about the AGENTS.md file at
             <a href="https://agents.md">https://agents.md</a>
           </p>
+        </section>
+
+        <section>
+          <h2>Hierarchy of terms</h2>
+          <p><b>Model</b><br />→ GPT, Claude, Gemini, Llama, etc.</p>
+          <p><b>Agent SDK/framework</b><br />→ LangGraph, OpenAI Agents SDK, Pydantic AI</p>
+          <p><b>Agent harness/runtime</b><br />→ Hermes, OpenClaw, Pi, similar systems</p>
+          <p>
+            <b>Finished agent/product</b><br />→ Claude Code, Codex, Devin, ChatGPT-style agents
+          </p>
+        </section>
+
+        <section>
+          <h2 style="border-bottom: none; text-align: center">
+            Standing on the shoulders of <s>giants</s> agents?
+          </h2>
+          <img
+            src="standing-agents.png"
+            alt="standing agents"
+            style="max-width: 600px; margin-inline: auto; display: block" />
         </section>
       </div>
     </div>
