@@ -1,5 +1,5 @@
 ---
-date: July 12, 2026
+date: September 4, 2026
 description: My configuration settings for the LazyVim terminal editor
 tags: terminal
 ---
@@ -40,6 +40,8 @@ vim.filetype.add({
 vim.keymap.set("i", "jj", "<Esc>", { silent = true, desc = "Escape insert mode with jj" })
 
 vim.keymap.set({ "n", "i" }, "<C-a>", "<Esc>ggVG", { desc = "Select all text with Ctrl-a" })
+
+vim.keymap.set("x", "p", [["_dP]], { desc = "Paste without overwriting clipboard" })
 ```
 
 ```lua
@@ -73,6 +75,65 @@ return {
   "LazyVim/LazyVim",
   opts = {
     colorscheme = "catppuccin-nvim",
+  },
+}
+```
+
+```lua
+-- plugins/formatting.lua
+
+return {
+  {
+    "stevearc/conform.nvim",
+    opts = function(_, opts)
+      opts.formatters_by_ft.jinja = { "djlint" }
+
+      opts.formatters_by_ft.html = function(bufnr)
+        local filename = vim.api.nvim_buf_get_name(bufnr)
+
+        if filename:match("/templates/.*%.html$") then
+          return { "djlint" }
+        end
+
+        return { "prettier" }
+      end
+
+      opts.formatters.djlint = {
+        prepend_args = { "--profile", "jinja" },
+        cwd = require("conform.util").root_file({
+          "pyproject.toml",
+          "djlint.toml",
+          ".djlint.toml",
+          ".djlintrc",
+        }),
+      }
+    end,
+  },
+}
+```
+
+```lua
+-- plugins/linting.lua
+
+return {
+  {
+    "mfussenegger/nvim-lint",
+    opts = function(_, opts)
+      vim.list_extend(opts.events, { "TextChanged", "TextChangedI" })
+
+      opts.linters_by_ft.jinja = { "djlint" }
+      opts.linters_by_ft.html = { "djlint" }
+
+      opts.linters.djlint = {
+        prepend_args = { "--profile", "jinja" },
+        condition = function(ctx)
+          return ctx.filename:match("/templates/.*%.html$") ~= nil
+            or ctx.filename:match("%.jinja$") ~= nil
+            or ctx.filename:match("%.jinja2$") ~= nil
+            or ctx.filename:match("%.j2$") ~= nil
+        end,
+      }
+    end,
   },
 }
 ```
@@ -128,12 +189,10 @@ return {
       sources = {
         explorer = {
           hidden = true,
-          ignored = true,
-          exclude = { ".git", ".venv", ".DS_Store" },
         },
         grep = {
           exclude = { "uv.lock" },
-        }
+        },
       },
     },
   },
