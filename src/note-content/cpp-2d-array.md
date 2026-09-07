@@ -1,6 +1,6 @@
 ---
 date: August 13, 2023
-description: A two-dimensional array in C++ using C-style array and standard array container
+description: A two-dimensional array in C++ using C-style array and standard array container.
 tags: cpp
 ---
 

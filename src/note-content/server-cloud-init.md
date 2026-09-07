@@ -1,6 +1,6 @@
 ---
 date: October 24, 2025
-description: Initialize server networking and other settings with cloud-init
+description: Initialize server networking and other settings with cloud-init.
 tags: terminal
 ---
 

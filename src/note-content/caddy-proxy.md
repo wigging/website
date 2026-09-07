@@ -1,6 +1,6 @@
 ---
 date: October 26, 2025
-description: Setup reverse proxy and basic HTTP authentication with Caddy
+description: Setup reverse proxy and basic HTTP authentication with Caddy.
 tags: terminal
 ---
 

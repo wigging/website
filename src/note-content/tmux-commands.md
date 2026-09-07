@@ -1,6 +1,6 @@
 ---
 date: October 30, 2025
-description: Some useful commands for using the tmux terminal multiplexer
+description: Some useful commands for using the tmux terminal multiplexer.
 tags: terminal
 ---
 

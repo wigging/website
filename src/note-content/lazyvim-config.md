@@ -1,6 +1,6 @@
 ---
 date: September 4, 2026
-description: My configuration settings for the LazyVim terminal editor
+description: My configuration settings for the LazyVim terminal editor.
 tags: terminal
 ---
 

@@ -1,6 +1,6 @@
 ---
 date: September 30, 2025
-description: Useful commands in the macOS terminal
+description: Useful commands in the macOS terminal.
 tags: terminal
 ---
 

@@ -1,6 +1,6 @@
 ---
 date: January 21, 2026
-description: My configuration settings for the awesome Ghostty terminal
+description: My configuration settings for the awesome Ghostty terminal.
 tags: terminal
 ---
 

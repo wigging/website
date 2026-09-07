@@ -1,6 +1,6 @@
 ---
 date: December 7, 2025
-description: Some helpful commands for using Git in the terminal
+description: Some helpful commands for using Git in the terminal.
 tags: git
 ---
 
