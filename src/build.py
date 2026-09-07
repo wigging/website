@@ -41,6 +41,7 @@ NOTES_SOURCE = PAGE_CONTENT_DIR / "notes.html"
 JSON_FEED_OUTPUT = DIST_DIR / "feed.json"
 RSS_FEED_OUTPUT = DIST_DIR / "rss.xml"
 SITEMAP_OUTPUT = DIST_DIR / "sitemap.xml"
+ROBOTS_OUTPUT = DIST_DIR / "robots.txt"
 BASE_URL = "https://gavinw.me/"
 
 SERVER_HOST = "127.0.0.1"
@@ -322,6 +323,13 @@ def generate_sitemap(directory, output, base_url):
     print(f"Wrote {len(pages)} URL(s) to {output}")
 
 
+def generate_robots(output, base_url):
+    """Write crawler rules and the sitemap location to robots.txt."""
+    content = f"User-agent: *\nAllow: /\nSitemap: {urljoin(base_url, 'sitemap.xml')}\n"
+    output.write_text(content, encoding="utf-8")
+    print(f"Wrote crawler rules to {output}")
+
+
 def build_site():
     """Build the complete website, feeds, and sitemap into the dist directory."""
     shutil.rmtree(DIST_DIR, ignore_errors=True)
@@ -349,6 +357,7 @@ def build_site():
     generate_json_feed(items, JSON_FEED_OUTPUT, BASE_URL)
     generate_rss_feed(items, RSS_FEED_OUTPUT, BASE_URL)
     generate_sitemap(DIST_DIR, SITEMAP_OUTPUT, BASE_URL)
+    generate_robots(ROBOTS_OUTPUT, BASE_URL)
 
 
 def serve():
