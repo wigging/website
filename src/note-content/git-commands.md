@@ -1,5 +1,5 @@
 ---
-date: December 7, 2025
+date: September 8, 2026
 description: Some helpful commands for using Git in the terminal.
 tags: git
 ---
@@ -18,6 +18,18 @@ git config --global user.email "user@example.com"
 
 # Set the email address for commits in the current repository
 git config user.email "user@example.com"
+```
+
+### Update remote URL
+
+Use the commands given below to change the URL for the remote repository. This assumes the name of the remote is `origin`.
+
+```bash
+# For HTTPS connections
+git remote set-url origin https://github.com/username/repository.git
+
+# For SSH connections
+git remote set-url origin git@github.com:username/repository.git
 ```
 
 ### Rewrite history
