@@ -8,7 +8,7 @@ tags: cpp
 
 Below is an example C++ project. The CMakeLists file contains instructions for building and installing the project using the CMake command line tool.
 
-```
+```text
 MyProject
 ├── CMakeLists.txt
 └── src
@@ -39,7 +39,7 @@ $ AdderExample
 
 The structure of the project after running the Cmake commands is shown below. The install_manifest in the build directory lists all the files installed on the machine.
 
-```
+```text
 MyProject
 ├── CMakeLists.txt
 ├── build

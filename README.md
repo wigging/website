@@ -8,7 +8,7 @@ Install uv using the instructions at <https://docs.astral.sh/uv/>.
 
 ## Build the website
 
-Build the website along with its JSON and RSS feeds and XML sitemap using the `build.py` script. This will create a `dist/` directory in the project for all the generated website files.
+Build the website along with its JSON and RSS feeds and XML sitemap using the `build.py` script. This will create a `dist/` directory in the project for all the generated website files. This is automatically done with the GitHub Actions workflow.
 
 ```bash
 uv run src/build.py
@@ -26,16 +26,16 @@ All HTML, CSS, templates, and static files needed to build the website reside in
 
 ## Add notes
 
-Use the HTML structure shown below to add a note to the website. Give a short description about the note at the top of the HTML file as a comment. The title of the note is the `<h2>` element and the published date is represented by the `<time>` element. This information provides the metadata used to generate the notes page and JSON/RSS feeds. Place the content of the note after the `<time>` element.
+Use the Markdown structure shown below to add a note to the website. Give a short description about the note at the top of the Markdown file along with the publication date and tags. The title of the note is the `##` element. All notes go in the `src/note-content` directory. Just commit the note and push up the changes to GitHub and the GitHub Actions workflow will automatically build the website.
 
-```html
-<!--
-Description of the note goes in this comment.
--->
+```markdown
+---
+date: February 27, 2023
+description: A brief description of the note goes here.
+tags: tag1, tag2, tag3
+---
 
-<h2>Title of the Note</h2>
+## Note Title
 
-<time datetime="2026-07-12">July 12, 2026</time>
+The body of the note goes here after the title
 ```
-
-All notes go in the `src/note-content/` directory.
