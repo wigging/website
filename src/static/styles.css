@@ -36,6 +36,10 @@ ul {
   list-style-position: outside;
 }
 
+h2 {
+  margin-bottom: 0;
+}
+
 header {
   max-width: 45rem;
   margin-inline: auto;
@@ -107,6 +111,7 @@ main {
 }
 
 time {
+  font-size: 1rem;
   opacity: 0.5;
 }
 
