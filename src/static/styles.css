@@ -31,6 +31,12 @@ pre code {
   border-radius: 0.5rem;
 }
 
+img {
+  border-radius: 0.5rem;
+  display: block;
+  max-width: 100%;
+}
+
 ul {
   padding-inline-start: 1.3rem;
   list-style-position: outside;

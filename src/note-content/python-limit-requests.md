@@ -1,10 +1,10 @@
 ---
 date: October 1, 2026
-description: Use a Python asyncio Semaphore to limit concurrent requests in a FastAPI app.
+description: Use a Python asyncio semaphore to limit concurrent requests in a FastAPI app.
 tags: python
 ---
 
-## Limit Concurrent Requests with a Python asyncio Semaphore
+## Limit Concurrent Requests with a Python Semaphore
 
 When a web app calls a rate-limited service, such as the OpenAI API, it helps to cap how many of those calls run at the same time. This article shows a small FastAPI app that uses an `asyncio.Semaphore` to limit concurrent work, and a Locust profile that load tests the app to see the limit in action.
 
@@ -17,13 +17,13 @@ The key piece is the module-level `openai_semaphore = asyncio.Semaphore(20)`. Ea
 ```python
 """Main app module.
 
-Run this app uv using the command below
+Run this app with uv using the command below.
 
-    uv run fastapi dev src/app.py
+  uv run fastapi dev src/app.py
 
-Make a request to /chat using the curl command below
+Make a request to using the curl command below.
 
-    curl -X POST "http://127.0.0.1:8000/chat?message=world"
+  curl -X POST "http://127.0.0.1:8000/chat?message=world"
 """
 
 import asyncio
@@ -59,16 +59,16 @@ The `set_defaults` function hooks into Locust's command line parser so you don't
 ```python
 """Locust load test for the /chat endpoint.
 
-Start the app first
+Start the app first.
 
-    uv run fastapi dev src/app.py
+  uv run fastapi dev src/app.py
 
-Then run Locust with the web UI at http://127.0.0.1:8089
+Then run Locust with the web UI at http://127.0.0.1:8089.
 
-    uv run locust -f src/locustfile.py
+  uv run locust -f src/locustfile.py
 
-Defaults to 60 users spawned at 5 users per second against
-http://127.0.0.1:8000.
+This defaults to 60 users spawned at 5 users per second.
+It makes requests to http://127.0.0.1:8000 which is the FastAPI app.
 """
 
 from locust import HttpUser, events, task
@@ -92,4 +92,4 @@ class ChatUser(HttpUser):
 
 With 60 users and only 20 semaphore slots, about 40 requests are waiting at any given moment once all users have spawned. Throughput should level off at about 10 requests per second (20 slots ÷ 2 seconds per request). Response times should climb from about 2 seconds (2,000 ms) to about 6 seconds (6,000 ms), because each request waits its turn in the queue before running. That plateau in the Locust charts (see below) shows the semaphore doing its job.
 
-<img src="../assets/python-locust-chart.png" style="max-width:700px;" alt="locust chart">
+![locust chart](../assets/python-locust-chart.png)
