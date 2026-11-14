@@ -27,7 +27,7 @@ code {
 }
 
 pre code {
-  border: 1px solid light-dark(lightgrey, dimgrey);
+  border: 1px solid light-dark(#e6e6e6, #252930);
   border-radius: 0.5rem;
 }
 
